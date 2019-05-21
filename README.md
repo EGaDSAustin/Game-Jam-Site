@@ -4,3 +4,4 @@
 ## Contributors
 - Ian McDonald
 - Robert Guan
+- Steve Wang
