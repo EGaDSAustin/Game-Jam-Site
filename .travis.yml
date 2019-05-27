@@ -1,0 +1,7 @@
+#install build and deploy
+
+language: node_js
+node_js : 
+  - "stable"
+install: npm install
+script: npm run coverage
