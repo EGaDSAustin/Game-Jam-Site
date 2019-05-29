@@ -1,4 +1,3 @@
-# permisions are good my dood
 # Get all the stuff you need by running this script
 # Run with sudo
 apt update;
