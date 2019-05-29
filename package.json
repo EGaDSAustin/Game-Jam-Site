@@ -22,5 +22,7 @@
     "react-dom": "^16.8.6",
     "parcel-bundler": "^1.12.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+
+  }
 }

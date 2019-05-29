@@ -1,1 +1,1 @@
-./scripts/local.sh;
+sh ./scripts/local.sh;
