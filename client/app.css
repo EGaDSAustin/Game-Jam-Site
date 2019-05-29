@@ -8,9 +8,11 @@
 }
 
 .text {
-    background-size: 16px;
+    background-size: 15px;
     -webkit-background-clip: text;
     color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
     background-color: orange;
-    background-image: -webkit-linear-gradient(45deg, rgba(0, 0, 0, .3) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .3) 75%, transparent 75%, transparent);
+    background-image: -webkit-linear-gradient(22.5deg, rgba(0, 0, 0, .3) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .3) 75%, transparent 75%, transparent);
 }
