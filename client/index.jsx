@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './app.jsx'
 
 ReactDOM.render(
-    <h1>STILL UNDER CONSTRUCTION</h1>,
+    <App />,
     document.getElementById('react-container')
 );

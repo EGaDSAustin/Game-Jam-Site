@@ -1,0 +1,1 @@
+parcel './client/index.html';
