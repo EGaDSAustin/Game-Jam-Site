@@ -11,7 +11,8 @@ class TestForm extends React.Component {
                     Email:
                     <input type="email"></input> <br />
                     Pass:
-                    <input type="password"></input>
+                    <input type="password"></input> <br />
+                    <input type="submit" value="Submit"></input>
                 </form>
             </div>
         );
