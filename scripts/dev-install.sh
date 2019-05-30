@@ -1,5 +1,6 @@
 # Get all the stuff you need by running this script
 # Run with sudo
+# Probably requires build-essential
 echo "!UPDATE apt";
 apt update;
 
