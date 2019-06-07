@@ -14,3 +14,4 @@
 - Courtney Huynh
 - Anson Cooper Fryar
 - Osvaldo Jimenez
+- Dane Byrd
