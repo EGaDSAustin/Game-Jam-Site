@@ -12,3 +12,4 @@
 - Ali Kedwaii
 - Jake Crabtree
 - Courtney Huynh
+- Anson Cooper Fryar
