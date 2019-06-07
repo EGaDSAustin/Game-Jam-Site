@@ -13,3 +13,4 @@
 - Jake Crabtree
 - Courtney Huynh
 - Anson Cooper Fryar
+- Osvaldo Jimenez
