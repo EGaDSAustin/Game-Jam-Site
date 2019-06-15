@@ -18,7 +18,7 @@ const bundlerOptions = { outDir: settings.PARCEL_DIST_DIR };
 const bundler = new Bundler(file, bundlerOptions);
 app.use(bundler.middleware());
 
-app.use(express.static(path.join(__dirname, './dist')))
+app.use(express.static(path.join(__dirname, './dist')));
 app.get('/*', (req, res) => res.sendFile(path.resolve(`${settings.PARCEL_DIST_DIR}/index.html`)));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

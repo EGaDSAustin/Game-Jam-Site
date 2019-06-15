@@ -9,3 +9,7 @@ try {
 }
 
 const PORT = process.env.PORT || settings.PORT;
+
+module.exports = {
+    PORT
+};
