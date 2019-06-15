@@ -19,6 +19,7 @@ const bundler = new Bundler(file, bundlerOptions);
 app.use(bundler.middleware());
 
 app.use(express.static(path.join(__dirname, './dist')));
+// routes should be handled by react router
 app.get('/*', (req, res) => res.sendFile(path.resolve(`${settings.PARCEL_DIST_DIR}/index.html`)));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/EGaDSAustin/EGaDS-website#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongodb": "^3.2.7",
     "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -33,8 +34,8 @@
       ".cache/*"
     ]
   },
-  "settings" : {
-    "PORT" : 1234,
-    "PARCEL_DIST_DIR" : "./dist"
+  "settings": {
+    "PORT": 1234,
+    "PARCEL_DIST_DIR": "./dist"
   }
 }
