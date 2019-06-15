@@ -7,6 +7,7 @@ echo "!INSTALLING node";
 apt install nodejs;
 nodejs --version;
 apt install npm;
+apt-get install -y mongodb;
 
 # dont remember if i did that or this:
 # curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -

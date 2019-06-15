@@ -32,5 +32,9 @@
       "dist/*",
       ".cache/*"
     ]
+  },
+  "settings" : {
+    "PORT" : 1234,
+    "PARCEL_DIST_DIR" : "./dist"
   }
 }
