@@ -16,7 +16,7 @@ export class Navbar extends React.Component {
                     <Tab label="About"/>
                     <Tab label="Register"/>
                     <Tab label="Schedule"/>
-                    <Tab label="Sponsers"/>
+                    <Tab label="Sponsors"/>
                 </Tabs>
             </AppBar>
         );
