@@ -39,11 +39,6 @@ class App extends React.Component {
 
 
                 </div>
-                <div className='footer'>
-                    <h3> We can’t wait to see you there! In the meantime... </h3>
-                    <h3> Want to join EGaDS? </h3>
-                    <p> Check out our <a href="">website</a> or <a href="">Facebook</a> page! Also, feel free to join our <a href="">Discord server</a> and talk to other members! </p>
-                </div>
                 
                 <Footer/>
             </div>
