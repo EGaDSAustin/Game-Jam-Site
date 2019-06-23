@@ -30,7 +30,20 @@ class App extends React.Component {
                 </div>
                 <img src="http://dancesportlive.net/dsl/images/under_construction.gif" />
                 </Container>
+                <div className='Sponsor'>
+                    <h1>Sponsors</h1>
+                    <p>Interested in becoming a sponsor? Click <a href="">here</a> for more information!</p>
+
+
+                </div>
+                <div className='footer'>
+                    <h3> We can’t wait to see you there! In the meantime... </h3>
+                    <h3> Want to join EGaDS? </h3>
+                    <p> Check out our <a href="">website</a> or <a href="">Facebook</a> page! Also, feel free to join our <a href="">Discord server</a> and talk to other members! </p>
+                </div>
             </div>
+            
+
         );
     }
 }
