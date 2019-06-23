@@ -4,7 +4,8 @@ import "./app.css"
 import AppBar from '@material-ui/core/AppBar';
 import { Button, Container, Tabs, Tab, Toolbar } from '@material-ui/core';
 import { Navbar } from './components/Navbar';
-import { InfoGrid } from './components/InfoGrid'
+import { InfoGrid } from './components/InfoGrid';
+import { Footer } from './components/Footer';
 
 const formUrl = "https://forms.gle/gDWmRyD17iM6np3f9"
 
@@ -41,6 +42,8 @@ class App extends React.Component {
                     <h3> Want to join EGaDS? </h3>
                     <p> Check out our <a href="">website</a> or <a href="">Facebook</a> page! Also, feel free to join our <a href="">Discord server</a> and talk to other members! </p>
                 </div>
+                
+                <Footer/>
             </div>
             
 
