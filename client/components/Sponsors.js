@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Link } from '@material-ui/core'
+import { Container, Typography, Link, Grid, Paper } from '@material-ui/core'
 
 export class Sponsors extends React.Component {
     render() {
@@ -11,11 +11,27 @@ export class Sponsors extends React.Component {
                 <Typography variant="subtitle1" gutterBottom="true">
                     Interested in becoming a sponsor? Click <Link href="">here</Link> for more information!
                 </Typography>
+                <Grid container spacing={1}>
+                    <Grid item xs={12} sm={3}>
+                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
+                    </Grid>
+                    <Grid item xs={12} sm={3}>
+                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
+                    </Grid>
+                    <Grid item xs={12} sm={3}>
+                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
+                    </Grid>
+                    <Grid item xs={12} sm={3}>
+                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
+                    </Grid>
+                    <Grid item xs={12} sm={3}>
+                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
+                    </Grid>
+                    <Grid item xs={12} sm={3}>
+                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
+                    </Grid>
+                </Grid>
             </Container>
-            // <div className='Sponsor'>
-            //         <h1>Sponsors</h1>
-            //         <p>Interested in becoming a sponsor? Click <a href="">here</a> for more information!</p>
-            //     </div>
         );
     }
 }
