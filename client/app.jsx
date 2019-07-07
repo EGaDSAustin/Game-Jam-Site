@@ -7,8 +7,10 @@ import { Button, Container, Tabs, Tab, Toolbar } from '@material-ui/core';
 import { Navbar } from './components/Navbar';
 import { InfoGrid } from './components/InfoGrid';
 import { Footer } from './components/Footer';
-import { Title } from './components/Title'
-import { Sponsors } from './components/Sponsors'
+import { Title } from './components/Title';
+import { Games } from './components/Games';
+import { Sponsors } from './components/Sponsors';
+import { Schedule } from './components/Schedule';
 
 const formUrl = "https://forms.gle/gDWmRyD17iM6np3f9"
 
@@ -29,11 +31,11 @@ class App extends React.Component {
                     </div>
                     <img src="http://dancesportlive.net/dsl/images/under_construction.gif" />
                 </Container>
+                <Schedule/>
+                <Games/>
                 <Sponsors/>
                 <Footer/>
             </div>
-            
-
         );
     }
 }
