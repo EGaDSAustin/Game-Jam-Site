@@ -1,8 +1,23 @@
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 
+/*
+required fields:
+    email:
+    first-name:
+    last-name:
+    password:
+    university:
+    experience-level:
+    prefered-disipline(s):
+
+non-required fields:
+    major:
+    perfered team-mates emails (that they registered with):
+*/
+
 // mongoose tutorial
-var run_db = () => {
+var test_run_db = () => {
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open',function () {
@@ -23,6 +38,7 @@ var run_db = () => {
         var greeting = this.name ? "Meow name is " + this.name : "I don't have a name";
         console.log(greeting);
     }
+
     var Kitten = mongoose.model('Kitten', kittySchema);
     var fluffy = new Kitten({ name: 'fluffy' });
     fluffy.speak(); // "Meow name is fluffy"
@@ -40,5 +56,5 @@ var run_db = () => {
 };
 
 module.exports = {
-    run_db
+    // run_db
 };
