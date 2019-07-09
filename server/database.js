@@ -101,7 +101,6 @@ var formSchema = mongoose.Schema({
     linkedIn: String,
     created: {
         type: Date,
-        default: Date.now,
         required: [true, 'Date created is required']
     }
 });
@@ -122,18 +121,9 @@ const form_entry = mongoose.model('form_entry', formSchema);
 async function enterFormSumbission(submission) {
     // TODO: make sure the submission is valid before saving it to the db
     // FIXME: make sure this is accurate
+    
     return new form_entry({
-        email: submission.email,
-        first_name: submission.name.split(" ")[0],
-        last_name: submission.name.split(" ")[1],
-        pronouns: submission.pronouns,
-        school: submission.school,
-        major: submission.major,
-        year: submission.year,
-        experience_level: {
-            programming: 1,
-        }, // FIXME: def needs a fix here
-        preferred_disciplines: submission.preferred_disciplines,
+        ...submission,
         created: Date.now()
     }).save();
 }

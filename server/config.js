@@ -1,6 +1,4 @@
-const {
-    settings
-} = require('../package.json')
+const { settings } = require('../package.json')
 
 var secrets;
 
