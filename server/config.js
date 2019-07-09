@@ -1,9 +1,11 @@
-const { settings } = require('../package.json')
+const {
+    settings
+} = require('../package.json')
 
 var secrets;
 
 try {
-    secrets = require('../secrets.json')
+    secrets = require('../secret.json')
 } catch (err) {
     console.info('using environment variables instead of secrets.json')
 }
