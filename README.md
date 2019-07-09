@@ -15,3 +15,4 @@
 - Anson Cooper Fryar
 - Osvaldo Jimenez
 - Dane Byrd
+- Colette Montminy
