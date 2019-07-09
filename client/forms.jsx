@@ -1,10 +1,9 @@
-import React, {useState } from 'react'
-import { cpus } from 'os';
+import React, { useState } from 'react'
 
 
 function Field({type, index, field, updateField}) {
     const [value, setValue] = useState('');
-    
+
     return (
         <div>
             <h3><strong>hi field {index+1} this field is: </strong> <a style={{color: 'black'}}>{field.value}</a> </h3> 
@@ -62,7 +61,6 @@ export function TestForm(props){
         <hi>FORM with {fields.length}</hi>
            {fields.map((field, index) => (
                 <Field type={field.type} index={index} field={field} updateField={updateField} />
-                // <h3>field {index}</h3>
             ))}
     </div>
     );
