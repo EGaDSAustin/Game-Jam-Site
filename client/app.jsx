@@ -1,6 +1,6 @@
 import React from 'react';
 import "./app.css"
-import TestForm from "./forms.jsx"
+import { TestForm } from "/forms.jsx"
 
 import AppBar from '@material-ui/core/AppBar';
 import { Button, Container, Tabs, Tab, Toolbar } from '@material-ui/core';
