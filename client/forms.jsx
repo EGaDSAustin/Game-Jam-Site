@@ -128,7 +128,7 @@ export function TestForm(props){
     
     // TODO: STEVE AND COLETTE DO THIS
     const checkRequiredAndValid = () => {
-        foreach(field in fields) {
+        for(field in fields) {
             if (field.required && field.value == null) {
                 // WOOPSIES
             } else {
