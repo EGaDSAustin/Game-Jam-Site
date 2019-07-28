@@ -20,6 +20,16 @@ function Field({ type, index, field, updateField }) {
     );
 }
 
+class ScrollToTopOnMount extends React.Component {
+    componentDidMount() {
+      window.scrollTo(0, 0);
+    }
+  
+    render() {
+      return null;
+    }
+}
+
 export function TestForm(props){
     const [fields, setFields] = useState([
         // Required
@@ -140,6 +150,7 @@ export function TestForm(props){
 
     return (
     <div>
+        <ScrollToTopOnMount/>
         <hi>FORM with {fields.length}</hi>
         <form onSubmit={/*TODO: on submit here*/ e => {
             e.preventDefault();

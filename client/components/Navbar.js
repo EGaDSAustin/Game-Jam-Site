@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Scroll from 'react-scroll';
 import { Link } from 'react-router-dom'
 
 import AppBar from '@material-ui/core/AppBar';
