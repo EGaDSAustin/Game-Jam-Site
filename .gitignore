@@ -51,3 +51,4 @@ chrome-user-data
 *.swo
 
 secret.json
+secrets.json

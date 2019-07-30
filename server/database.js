@@ -1,16 +1,15 @@
-const mongo = require('mongodb');
 const mongoose = require('mongoose');
 
-try {
-    const {
-        mongo
-    } = require('../secret.json');
-} catch (ex) {
-    console.log(`HEY MAN, you got no secrets, are you even real, your exception is: ${ex}`);
-}
+const { mongo } = require('../secret.json');
 
-const connectionString = `${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.suffix}`;
-const connector = mongoose.connect(connectionString);
+// try {
+//     const { mongo } = require('../secret.json');
+// } catch (ex) {
+//     console.log(`HEY MAN, you got no secrets, are you even real, your exception is: ${ex}`);
+// }
+
+const connectionString = `${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`;
+console.log(`connection str: ${mongo.address_prefix}${mongo.username}:${'******'}${mongo.address_suffix}`);
 
 const experienceLevel = mongoose.Schema({
     programming: {
@@ -110,12 +109,12 @@ formSchema.index({
     first_name: 1,
     last_name: 1
 });
-usersSchema.index({
+formSchema.index({
     email: 1
 });
 formSchema.set('autoIndex', false);
 
-const form_entry = mongoose.model('form_entry', formSchema);
+const form_entry = mongoose.model('form_entry', formSchema, 'form_entry');
 
 // given the output from a form submission, enter in the entrys into the database
 async function enterFormSumbission(submission) {
@@ -128,54 +127,65 @@ async function enterFormSumbission(submission) {
     }).save();
 }
 
+async function testDataBaseSubmission() {
+    const my_submit = {
+        email: "sexycatlady69@jimminycrickets.io",
+        first_name: "Bath",
+        last_name: "Water",
+        pronouns: "apache attack helicopter",
+        school: "UA",
+        major: "Computuh apache attack helicopter",
+        year: "Freshman",
+        experience_level: {
+            programming : 5,
+            two_d_art: 3,
+            three_d_art: 2,
+            music: 5,
+            sound: 1,
+            design: 3,
+            narrative: 1
+        },
+        preferred_disciplines: [
+            "artost",
+            "shcjeff",
+            "unemployment", 
+            "あぬんきき"
+        ],
+        resume_link: "resume.com",
+        desired_teammates: [
+            "owo steve-senpai",
+            "chan-kun",
+            "my name jeff"
+        ],
+        portfolio: "portfolio.com",
+        linkedIn: "ian.linked.in",
+    }
 
-// // mongoose tutorial
-// var test_run_db = () => {
-//     var db = mongoose.connection;
-//     db.on('error', console.error.bind(console, 'connection error:'));
-//     db.once('open', function () {
-//         // connected
-//     });
+    const connector = mongoose.connect(connectionString);
 
-//     var kittySchema = new mongoose.Schema({
-//         name: String
-//     });
+    async function findEntry(email) {
+        return await form_entry.findOne({ email })
+    }
 
-//     var Kitten = mongoose.model('Kitten', kittySchema);
+    async function forceGet(submission) {
+        let entry = await connector.then(async () => {
+            return findEntry(submission.email)
+        });
+        if (!entry) {
+            entry = await enterFormSumbission(submission);
+        }
+    }
 
-//     var silence = new Kitten({
-//         name: 'Silence'
-//     });
-//     console.log(silence.name); // 'Silence'
+    let v = await forceGet(my_submit);
+    console.log(`entered submission, the cat lady: ${v}`);
+    console.log(`totally a cat lady: ${await findEntry("sexycatlady69@jimminycrickets.io")}`);
+    console.log(`not cat lady: ${await findEntry("notsexycatlady69@jimminycrickets.io")}`);
 
-//     // NOTE: methods must be added to the schema before compiling it with mongoose.model()
-//     kittySchema.methods.speak = function () {
-//         var greeting = this.name ? "Meow name is " + this.name : "I don't have a name";
-//         console.log(greeting);
-//     }
 
-//     var Kitten = mongoose.model('Kitten', kittySchema);
-//     var fluffy = new Kitten({
-//         name: 'fluffy'
-//     });
-//     fluffy.speak(); // "Meow name is fluffy"
-//     fluffy.save(function (err, fluffy) {
-//         if (err) return console.error(err);
-//         fluffy.speak();
-//     });
-
-//     Kitten.find(function (err, kittens) {
-//         if (err) return console.error(err);
-//         console.log(kittens);
-//     });
-
-//     Kitten.find({
-//         name: /^fluff/
-//     }, (kitten) => console.log(kitten.name));
-// };
+}
 
 module.exports = {
     formSchema,
-
-    // run_db
+    enterFormSumbission,
+    testDataBaseSubmission
 };
