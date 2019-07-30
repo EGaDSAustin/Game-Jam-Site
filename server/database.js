@@ -163,6 +163,8 @@ async function testDataBaseSubmission() {
 
     const connector = mongoose.connect(connectionString);
 
+
+    
     async function findEntry(email) {
         return await form_entry.findOne({ email })
     }
@@ -176,14 +178,18 @@ async function testDataBaseSubmission() {
         }
     }
 
-    let v = await forceGet(my_submit);
-    console.log(`entered submission, the cat lady: ${v}`);
-    console.log(`totally a cat lady: ${await findEntry("sexycatlady69@jimminycrickets.io")}`);
-    console.log(`not cat lady: ${await findEntry("notsexycatlady69@jimminycrickets.io")}`);
+    
+    await mongoose.connect(connectionString).then(
+        console.log(`entry is: ${forceGet(my_submit)}`)
+    ).then(
+        console.log("DONE!")
+    );
 
-
+    // let v = await forceGet(my_submit);
+    // console.log(`entered submission, the cat lady: ${v}`);
+    // console.log(`totally a cat lady: ${await findEntry("sexycatlady69@jimminycrickets.io")}`);
+    // console.log(`not cat lady: ${await findEntry("notsexycatlady69@jimminycrickets.io")}`);
 }
-
 module.exports = {
     formSchema,
     enterFormSumbission,
