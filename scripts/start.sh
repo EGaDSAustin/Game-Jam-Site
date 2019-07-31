@@ -1,1 +1,1 @@
-sh ./scripts/dev-start.sh;
+sh prod.sh;
