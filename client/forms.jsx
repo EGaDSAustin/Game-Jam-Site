@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
-// import TextField from '@material-ui/core/TextField';
+import { FormControl, Input, InputLabel } from '@material-ui/core';
+
 
 function Field({ type, index, field, updateField }) {
     const [value, setValue] = useState('');
 
     return (
         <div>
-            <h3><strong>hi field {index+1} this field is: </strong> <a style={{color: 'black'}}>{field.value}</a> </h3> 
-            <label>{field.name}: </label>
-            <input type={type} value={value} 
-            onBlur={ e => {
-                setValue(e.target.value);
-                updateField(index, value);
-            }}
-            onChange={e => {
-                setValue(e.target.value);
-            }}/>
+            <FormControl>
+                <InputLabel>{field.name}</InputLabel>
+                <Input type={type} value={value}
+                onBlur={ e => {
+                    setValue(e.target.value);
+                    updateField(index, value);
+                }}
+                onChange={e => {
+                    setValue(e.target.value);
+                }}/>
+            </FormControl>
         </div>
     );
 }
@@ -37,7 +39,7 @@ export function TestForm(props){
             name: 'Email',
             value: null,
             type: "email",
-            required: true, 
+            required: true,
             // validate: () => true,
         },
         {
@@ -114,7 +116,7 @@ export function TestForm(props){
             required: false
             
         },
-        { 
+        {
             name: 'Github Link',
             value: null,
             type: "url",
@@ -139,20 +141,23 @@ export function TestForm(props){
     
     // TODO: STEVE AND COLETTE DO THIS
     const checkRequiredAndValid = () => {
-        for (field in fields) {
+        const errorFields = [];
+        for(let field of fields) {
             if (field.required && field.value == null) {
-                // WOOPSIES
+                errorFields.push(field.name);
+                
+                //alert("Please don't be mad ;-;")
             } else {
                 // WE GOOD HOMMIE
             }
+            console.log({errorFields});
             // run correct validation method
         }
     };
 
     return (
-    <div>
+        <div>
         <ScrollToTopOnMount/>
-        <hi>FORM with {fields.length}</hi>
         <form onSubmit={e => {
             e.preventDefault();
             // TODO: got stuff to do
@@ -161,7 +166,7 @@ export function TestForm(props){
             {fields.map((field, index) => (
                 <Field type={field.type} index={index} field={field} updateField={updateField} />
             ))}
-            <input type='submit'/>
+            <Input type='submit'/>
         </form>
     </div>
     );
