@@ -1,1 +1,1 @@
-sh prod.sh;
+sh scripts/prod.sh

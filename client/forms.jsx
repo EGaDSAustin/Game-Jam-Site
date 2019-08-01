@@ -37,7 +37,8 @@ export function TestForm(props){
             name: 'Email',
             value: null,
             type: "email",
-            required: true
+            required: true, 
+            // validate: () => true,
         },
         {
             name: 'First Name',
@@ -113,7 +114,7 @@ export function TestForm(props){
             required: false
             
         },
-        {
+        { 
             name: 'Github Link',
             value: null,
             type: "url",
@@ -123,7 +124,7 @@ export function TestForm(props){
             name: 'LinkedIn Link',
             value: null,
             type: "url",
-            required: false,
+            required: false
         },
     ]);
 
@@ -138,7 +139,7 @@ export function TestForm(props){
     
     // TODO: STEVE AND COLETTE DO THIS
     const checkRequiredAndValid = () => {
-        for(field in fields) {
+        for (field in fields) {
             if (field.required && field.value == null) {
                 // WOOPSIES
             } else {
@@ -152,7 +153,7 @@ export function TestForm(props){
     <div>
         <ScrollToTopOnMount/>
         <hi>FORM with {fields.length}</hi>
-        <form onSubmit={/*TODO: on submit here*/ e => {
+        <form onSubmit={e => {
             e.preventDefault();
             // TODO: got stuff to do
             checkRequiredAndValid(); 
@@ -160,7 +161,7 @@ export function TestForm(props){
             {fields.map((field, index) => (
                 <Field type={field.type} index={index} field={field} updateField={updateField} />
             ))}
-             <input type='submit'/>
+            <input type='submit'/>
         </form>
     </div>
     );
