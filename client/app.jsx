@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { browserHistory } from 'react-router';
 import "./app.css"
+import GlobalStyle from './components/styles.js';
 import { TestForm } from "/forms.jsx"
 
 import { Navbar } from './components/Navbar';
@@ -30,10 +31,11 @@ class App extends React.Component {
         return (
             <Router 
             history={browserHistory}>
+            <GlobalStyle/>
             <Navbar/>
             <Switch>
                 <Route exact path="/" render={routeProps => (
-                    <div className='main'>
+                    <div>
                     <ScrollToTopOnMount/>
                     <br/>
                     <Title id='title'/>

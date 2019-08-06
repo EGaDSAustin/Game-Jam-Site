@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core'
+import fallingPeople from '../assets/fallingPeople.png'
 
 export class Title extends React.Component {
     render() {
@@ -14,7 +15,7 @@ export class Title extends React.Component {
                 <Typography variant="h3" gutterBottom="true">
                     36 Hours
                 </Typography>
-                <img src="https://cdn.theatlantic.com/static/mt/assets/science/cat_caviar.jpg"/>
+                <img src = {fallingPeople} height = "100%" width = "100%"/>
                 <Typography variant="h4" gutterBottom="true" m={1}>
                     Come join us in making games, friends, and memories!
                 </Typography>
