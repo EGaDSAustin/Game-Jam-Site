@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export class Register extends React.Component {
     render(){
         return(
-            <Button variant="contained" color="primary" to="/form" component={Link}>
+            <Button variant="contained" color="primary" to="/register" component={Link}>
                 Click Here to Register! 
             </Button>
         );
