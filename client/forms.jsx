@@ -14,9 +14,7 @@ function Field({ type, index, field, updateField }) {
                     setValue(e.target.value);
                     updateField(index, value);
                 }}
-                onChange={e => {
-                    setValue(e.target.value);
-                }}/>
+                onChange={e => setValue(e.target.value)}/>
             </FormControl>
         </div>
     );
