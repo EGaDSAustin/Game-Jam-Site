@@ -1,9 +1,30 @@
 # EGaDS website
 - a lot is still being determined so nothing to see here...
 
-## Dependancies:
-- parcel
-- react
+## Getting Started
+
+### Prerequisites:
+- Latest version of Node
+
+Prior to working, be sure to install node modules when you clone
+
+```
+npm install
+```
+
+To start the project on your local machine:
+
+Run this command from the root directory of the project
+```
+npm run dev
+```
+
+## Built with:
+- React
+- Material-UI
+- Parcel
+- MongoDB
+
 
 ## Contributors
 - Ian McDonald

@@ -1,21 +1,39 @@
 import React from 'react';
-import { Card, Divider, Grid, Paper, Typography } from '@material-ui/core'
+import { Card, Divider, Grid, Paper, Typography, CardMedia, CardContent } from '@material-ui/core'
+import styled from 'styled-components'
 
+import circleMusic from '../assets/circleMusic.png'
+import circlePen from '../assets/circlePen.png'
+import circlePhone from '../assets/circlePhone.png'
+import circleSoda from '../assets/circleSoda.png'
+
+const Media = styled(CardMedia)`
+    height: 100px;
+`
+
+const StyledCard = styled(Card)`
+    
+`
 
 export class InfoGrid extends React.Component {
     render(){
         return(
         <Grid container spacing={3}>
             <Grid item xs={6} sm={3}>
-                <Card>
-                    <Typography variant="h5" align="center" gutterBottom="true">
-                        Who
-                    </Typography>
-                    <Divider/>
-                    <Typography variant="body1" align="center" paragraph="true">
-                        This event is hosted by EGaDS! The Electronic Game Developers Society is a student organization at UT Austin.
-                    </Typography>
-                </Card>
+                <StyledCard>
+                    <Media
+                        image = {circleMusic}
+                    />
+                    <CardContent>
+                        <Typography variant="h5" align="center" gutterBottom="true">
+                            Who
+                        </Typography>
+                        <Divider/>
+                        <Typography variant="body1" align="center" paragraph="true">
+                            This event is hosted by EGaDS! The Electronic Game Developers Society is a student organization at UT Austin.
+                        </Typography>
+                    </CardContent>
+                </StyledCard>
             </Grid>
             <Grid item xs={6} sm={3}>
                 <Card>
