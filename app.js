@@ -25,7 +25,7 @@ if(process.env.NODE_ENV === 'LOCAL') {
 }
 // routes should be handled by react router
 app.use(express.static(path.join(__dirname, './dist')));
-app.get('/*', (req, res) => res.sendFile(path.resolve(`${settings.PARCEL_DIST_DIR}/index.html`)));
+app.get('/*', (req, res) => res.sendFile(path.resolve(`${path.join(__dirname, settings.PARCEL_DIST_DIR)}/index.html`)));
 
 // run_db(); // TODO: fix the tutorial code so it works?
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
