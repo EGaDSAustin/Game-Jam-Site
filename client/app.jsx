@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { browserHistory } from 'react-router';
-import "./app.css"
+// import "./app.css"
 import GlobalStyle from './components/styles.js';
 import { TestForm } from "/forms.jsx"
 
@@ -21,7 +21,7 @@ class ScrollToTopOnMount extends React.Component {
       window.scrollTo(0, 0);
     }
   
-    render() {
+    render() {     
       return null;
     }
 }
@@ -43,7 +43,9 @@ class App extends React.Component {
                     <br/>
                     <Title id='title'/>
                     <br/>
+                    <center>
                     <InfoGrid id="about"/>
+                    </center>
                     <br/>
                     <Register id='register'/>
                     <br/>
