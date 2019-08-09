@@ -7,67 +7,87 @@ import circlePen from '../assets/circlePen.png'
 import circlePhone from '../assets/circlePhone.png'
 import circleSoda from '../assets/circleSoda.png'
 
-const Media = styled(CardMedia)`
-    height: 100px;
-`
 
 const StyledCard = styled(Card)`
-    
-`
+   && { background: #F5B031 };
+    width: 20vw;
+`;
+
+const Media = styled(CardMedia)`
+    height: 12vw;
+    width: 12vw;
+`;
+
 
 export class InfoGrid extends React.Component {
     render(){
         return(
-        <Grid container spacing={3}>
-            <Grid item xs={6} sm={3}>
-                <StyledCard>
-                    <Media
-                        image = {circleMusic}
-                    />
-                    <CardContent>
-                        <Typography variant="h5" align="center" gutterBottom="true">
-                            Who
-                        </Typography>
-                        <Divider/>
-                        <Typography variant="body1" align="center" paragraph="true">
-                            This event is hosted by EGaDS! The Electronic Game Developers Society is a student organization at UT Austin.
-                        </Typography>
-                    </CardContent>
+        <Grid container spacing={0}>
+            <Grid item xs={6}>
+            <StyledCard elevation={0}>
+                <Media //SO BAAAAAAALD
+                    image = {circleMusic}
+                />
+                <CardContent>
+                    <Typography variant="h5" align="center" gutterBottom="true">
+                        Who
+                    </Typography>
+                    
+                    <Typography variant="body1" align="center" paragraph="true">
+                        This event is hosted by EGaDS! The Electronic Game Developers Society is a student organization at UT Austin.
+                    </Typography>
+                </CardContent>
                 </StyledCard>
             </Grid>
-            <Grid item xs={6} sm={3}>
-                <Card>
+            <Grid item xs={6}>
+                <StyledCard elevation={0}>
+                    <Media
+                        image = {circlePen}
+                    />
+                    <CardContent>
                     <Typography variant="h5" align="center" gutterBottom="true">
                         What
                     </Typography>
-                    <Divider/>
+                    
                     <Typography variant="body1" align="center" paragraph="true">
                         UT Game Jam is a 36 hour event where participants work in teams to create a video game given a theme.
                     </Typography>
-                </Card>
+                    </CardContent>
+                </StyledCard>
             </Grid>
-            <Grid item xs={6} sm={3}>
-                <Card>
+            <Grid item xs={6}>
+                <StyledCard elevation={0}>
+                    <Media
+                        image = {circlePhone}
+                        align="center"
+                    />
+                    <CardContent>
                     <Typography variant="h5" align="center" gutterBottom="true">
                         Where
                     </Typography>
-                    <Divider/>
+                   
                     <Typography variant="body1" align="center" paragraph="true">
                         Multiple locations around The University of Texas at Austin. See schedule for more details!
-                    </Typography>    
-                </Card>
+                    </Typography>
+                    </CardContent>    
+                </StyledCard>
             </Grid>
-            <Grid item xs={6} sm={3}>
-                <Card>
+            <Grid item xs={6}>
+                <StyledCard elevation={0}>
+                    <Media
+                        image = {circleSoda}
+                        align="center"
+                    />
+                    <CardContent>
                     <Typography variant="h5" align="center" gutterBottom="true">
                         Why
                     </Typography>
-                    <Divider/>
                     <Typography variant="body1" align="center" paragraph="true">
                         Learn new skills and/or hone existing ones while making your own game!
                         <br/>
                     </Typography>
-                </Card>
+                    </CardContent>
+                </StyledCard>
             </Grid>
         </Grid>
         );
