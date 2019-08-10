@@ -7,8 +7,8 @@ const { settings } = require('./package.json');
 const { PORT } = require('./server/config');
 const { testDataBaseSubmission } = require('./server/database');
 
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); // TODO: check what the extended means
+app.use(bodyParser.json());
 
 // entry file
 const file = 'client/index.html';
@@ -24,10 +24,8 @@ if(process.env.NODE_ENV === 'LOCAL') {
 } else if (process.env.NODE_ENV === 'PROD') {
 }
 // routes should be handled by react router
-app.use(express.static(path.join(__dirname, './dist')));
+app.use(express.static(path.join(__dirname, settings.PARCEL_DIST_DIR)));
 app.get('/*', (req, res) => res.sendFile(path.resolve(`${settings.PARCEL_DIST_DIR}/index.html`)));
 
-testDataBaseSubmission();
 
-// run_db(); // TODO: fix the tutorial code so it works?
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

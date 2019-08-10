@@ -1,134 +1,36 @@
 const mongoose = require('mongoose');
-
+const Form = require('./models/form');
 const { mongo } = require('../secret.json');
 
-// try {
-//     const { mongo } = require('../secret.json');
-// } catch (ex) {
-//     console.log(`HEY MAN, you got no secrets, are you even real, your exception is: ${ex}`);
-// }
-
-const connectionString = `${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`;
-console.log(`connection str: ${mongo.address_prefix}${mongo.username}:${'******'}${mongo.address_suffix}`);
-
-const experienceLevel = mongoose.Schema({
-    programming: {
-        type: Number,
-        min: 1,
-        max: 5
-    },
-    two_d_art: {
-        type: Number,
-        min: 1,
-        max: 5
-    },
-    three_d_art: {
-        type: Number,
-        min: 1,
-        max: 5
-    },
-    music: {
-        type: Number,
-        min: 1,
-        max: 5
-    },
-    sound: {
-        type: Number,
-        min: 1,
-        max: 5
-    },
-    design: {
-        type: Number,
-        min: 1,
-        max: 5
-    },
-    narrative: {
-        type: Number,
-        min: 1,
-        max: 5
-    }
-})
-
-var formSchema = mongoose.Schema({
-    email: {
-        type: String,
-        required: [true, 'Email is required']
-    },
-    first_name: {
-        type: String,
-        required: [true, 'First Name is required']
-    },
-    last_name: {
-        type: String,
-        required: [true, 'Last Name is required']
-    },
-    pronouns: {
-        type: String,
-        required: [true, 'Name is required']
-    },
-    school: {
-        type: String,
-        required: [true, 'School is required']
-    },
-    major: {
-        type: String,
-        required: [true, 'Major is required']
-    },
-    year: {
-        type: String,
-        enum: ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Super Senior'],
-        required: [true, 'Year is required']
-    },
-    experience_level: {
-        type: experienceLevel,
-        required: [true, 'Experience is required']
-    },
-    preferred_disciplines: {
-        type: [String],
-        default: undefined,
-        required: [true, 'Disciplines is required']
-    },
-    resume_link: {
-        type: String,
-        required: [true, 'Resume is required']
-    },
-    desired_teammates: {
-        type: [String],
-        default: undefined
-    },
-    portfolio: String,
-    linkedIn: String,
-    created: {
-        type: Date,
-        required: [true, 'Date created is required']
-    }
-});
-
-//Secondary indexing for first + last name & email of submissions
-formSchema.index({
-    first_name: 1,
-    last_name: 1
-});
-formSchema.index({
-    email: 1
-});
-formSchema.set('autoIndex', false);
-
-const form_entry = mongoose.model('form_entry', formSchema, 'form_entry');
-
-// given the output from a form submission, enter in the entrys into the database
-async function enterFormSumbission(submission) {
-    // TODO: make sure the submission is valid before saving it to the db
-    // FIXME: make sure this is accurate
-    
-    return new form_entry({
-        ...submission,
-        created: Date.now()
-    }).save();
+function connectDatabase () {
+    const connectionString = `${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`;
+    console.log(`connection str: ${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`);
+    const connector = mongoose.connect(connectionString,
+        {
+            useNewUrlParser: true
+        }).catch(err => console.log(err));
 }
 
-async function testDataBaseSubmission() {
-    const my_submit = {
+
+function PutForm (form_recipt) {
+    const submit = new Form({...mySubmit, created: Date.now()});
+    submit.save().then(result => console.log(result)).catch(err => console.log(err));
+}
+
+
+// given the output from a form submission, enter in the entrys into the database
+// async function enterFormSumbission(submission) {
+//     // TODO: make sure the submission is valid before saving it to the db
+//     // FIXME: make sure this is accurate
+    
+//     return new form_entry({
+//         ...submission,
+//         created: Date.now()
+//     }).save();
+// }
+
+function testDataBaseSubmission() {
+    const mySubmit = {
         email: "sexycatlady69@jimminycrickets.io",
         first_name: "Bath",
         last_name: "Water",
@@ -161,37 +63,13 @@ async function testDataBaseSubmission() {
         linkedIn: "ian.linked.in",
     }
 
-    const connector = mongoose.connect(connectionString);
+    const submit = new Form({...mySubmit, created: Date.now()});
+    submit.save().then(result => console.log(result)).catch(err => console.log(err));
 
-
-    
-    async function findEntry(email) {
-        return await form_entry.findOne({ email })
-    }
-
-    async function forceGet(submission) {
-        let entry = await connector.then(async () => {
-            return findEntry(submission.email)
-        });
-        if (!entry) {
-            entry = await enterFormSumbission(submission);
-        }
-    }
-
-    
-    await mongoose.connect(connectionString).then(
-        console.log(`entry is: ${forceGet(my_submit)}`)
-    ).then(
-        console.log("DONE!")
-    );
-
-    // let v = await forceGet(my_submit);
-    // console.log(`entered submission, the cat lady: ${v}`);
-    // console.log(`totally a cat lady: ${await findEntry("sexycatlady69@jimminycrickets.io")}`);
-    // console.log(`not cat lady: ${await findEntry("notsexycatlady69@jimminycrickets.io")}`);
 }
+
 module.exports = {
-    formSchema,
-    enterFormSumbission,
+    connectDatabase,
+    PutForm,
     testDataBaseSubmission
 };

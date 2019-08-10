@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-
 function Field({type, index, field, updateField}) {
     const [value, setValue] = useState('');
 
