@@ -6,6 +6,7 @@ const StyledContainer = styled(Container)`
     padding-top: 5%;
 `;
 
+
 function createGallery() {
     var pastGames = [{
         name: "Picture Perfect",
@@ -56,8 +57,8 @@ function createGallery() {
         name: "B-lock",
         img:"https://img.itch.zone/aW1hZ2UvMzA2MDI3LzE1MDE4MzAucG5n/original/LlZsFx.png",
         link: "https://crabtree.itch.io/block"
-    }
-                    ];
+    }];
+    
     return (pastGames.map(item => 
         <Grid item xs={6} sm={4} md={3} lg={2}>
             <Card elevation={0}>
