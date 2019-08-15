@@ -164,7 +164,7 @@ export function TestForm(props){
             } else {
                 // WE GOOD HOMMIE
                 return true;
-            }
+            }// owo np
             console.log({errorFields});
             // run correct validation method
         }

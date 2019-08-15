@@ -1,11 +1,15 @@
 import React from 'react';
 import { Typography, Container, Link } from '@material-ui/core'
+import styled from 'styled-components'
 
+const StyledContainer = styled(Container)`
+    padding-top: 5%;
+`;
 
 export class Footer extends React.Component {
     render(){
         return(
-        	<Container maxWidth="sm">
+        	<StyledContainer maxWidth="sm">
         		<Typography variant="h5" align="center">
         			We can't wait to see you there! <br/> In the meantime...
         		</Typography>
@@ -18,7 +22,7 @@ export class Footer extends React.Component {
         			<Link href="https://www.facebook.com/groups/egadsaustin/"> Facebook</Link> page! Also, feel free to
                     join our <Link href="https://discord.gg/4ShtMPx">Discord server</Link> and talk to other members!
         		</Typography>
-        	</Container>
+        	</StyledContainer>
         );
     }
 }

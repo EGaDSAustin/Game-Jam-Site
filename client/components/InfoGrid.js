@@ -17,12 +17,15 @@ const Media = styled(CardMedia)`
     height: 12vw;
     width: 12vw;
 `;
-//BAAAAAALD SO BALDDDDDDDDDDDDDDDDDDDDDD
+
+const StyledGrid = styled(Grid)`
+    padding-top: 5%;
+`;
 
 export class InfoGrid extends React.Component {
     render(){
         return( 
-        <Grid container spacing={0}> 
+        <StyledGrid container spacing={0}> 
             <Grid item xs={6}>
             <StyledCard elevation={0}> 
                 <Media 
@@ -89,7 +92,7 @@ export class InfoGrid extends React.Component {
                     </CardContent>
                 </StyledCard>
             </Grid>
-        </Grid>
+        </StyledGrid>
         );
     }
 }

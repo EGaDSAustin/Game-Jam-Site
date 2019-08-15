@@ -47,16 +47,16 @@ class App extends React.Component {
                     <center>
                         <div id="about"><InfoGrid id="about" className="about"/></div>
                     </center>
-                    <br/>
-                        <div id='register'><Register/></div>
-                    <br/>
-                    <img src="http://dancesportlive.net/dsl/images/under_construction.gif" />
+                    
+                    
                     <br/>
                         <div id='schedule'><Schedule/></div>
                     <br/>
                         <div id='games'><Games/></div>
                     <br/>
                         <div id='sponsors'><Sponsors/></div>
+                    <br/>
+                        <div id='register'><Register/></div>
                     <br/>
                     <Footer/>
                     </div>
