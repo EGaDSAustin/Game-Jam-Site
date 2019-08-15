@@ -32,7 +32,8 @@ class App extends React.Component {
             <Router 
 
             history={browserHistory}
-            onUpdate={hashLinkScroll}>
+            onUpdate={hashLinkScroll}
+            >
             <GlobalStyle/>
 
             <Navbar/>
@@ -41,21 +42,21 @@ class App extends React.Component {
                     <div>
                     <ScrollToTopOnMount/>
                     <br/>
-                    <Title id='title'/>
+                        <div id='title'><Title/></div>
                     <br/>
                     <center>
-                    <InfoGrid id="about"/>
+                        <div id="about"><InfoGrid id="about" className="about"/></div>
                     </center>
                     <br/>
-                    <Register id='register'/>
+                        <div id='register'><Register/></div>
                     <br/>
                     <img src="http://dancesportlive.net/dsl/images/under_construction.gif" />
                     <br/>
-                    <Schedule id='schedule'/>
+                        <div id='schedule'><Schedule/></div>
                     <br/>
-                    <Games id='games'/>
+                        <div id='games'><Games/></div>
                     <br/>
-                    <Sponsors id='sponsors'/>
+                        <div id='sponsors'><Sponsors/></div>
                     <br/>
                     <Footer/>
                     </div>
