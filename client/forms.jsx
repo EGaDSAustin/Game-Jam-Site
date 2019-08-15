@@ -84,7 +84,7 @@ export function TestForm(props){
             validate: () => true
         },
         {
-            name: 'Year', // Are you trying to do year Started? Graduated? Started College? Fresh/Soph/Jun/Sen/Grad?
+            name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
             value: null,  
             type: "month", // could also be text or number depending on ^
             required: true ,

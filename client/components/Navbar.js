@@ -6,6 +6,15 @@ import { Link as ScrollLink } from 'react-scroll'
 import AppBar from '@material-ui/core/AppBar';
 import { Tabs, Tab, Toolbar } from '@material-ui/core';
 
+import styled from 'styled-components'
+
+
+const StyledTabs = styled(Tabs)`
+    background: #F5B031;
+    color: black;
+    font-weight: bold;
+`
+
 export class Navbar extends React.Component {
     constructor(props) {
         super(props);

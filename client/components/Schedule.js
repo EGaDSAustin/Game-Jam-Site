@@ -1,5 +1,10 @@
 import React from 'react';
-import { Typography, Container, Grid, Card } from '@material-ui/core'
+import { Typography, Container, Grid, Card } from '@material-ui/core';
+import styled from 'styled-components';
+
+const StyledCard = styled(Card)`
+    
+`;
 
 export class Schedule extends React.Component {
     render(){
@@ -14,7 +19,7 @@ export class Schedule extends React.Component {
                 <Grid container spacing = {10}>
                     <Grid item  xs = {12} sm = {6}>
                         <Typography variant = "h5" align = "left"> // Saturday, Sept 15 </Typography>
-                        <Card>
+                        <StyledCard>
                             <Grid container spacing = {3} alignItems = "center">
                                 <Grid item xs = {3}>
                                     <Typography variant = "h5"> 11:00 am </Typography>
@@ -44,7 +49,7 @@ export class Schedule extends React.Component {
                                     <Typography variant = "body1" align = "left"> SAC (Student Activity Center) closes </Typography>
                                 </Grid>
                             </Grid>
-                        </Card>
+                        </StyledCard>
                     </Grid>
                     
                     <Grid item  xs = {12} sm = {6}> 
