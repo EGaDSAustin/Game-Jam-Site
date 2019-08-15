@@ -9,7 +9,7 @@ import circleSoda from '../assets/circleSoda.png'
 
 
 const StyledCard = styled(Card)`
-   && { background: #F5B031 };
+    && { background: #F5B031 };
     width: 20vw;
 `;
 
@@ -17,16 +17,16 @@ const Media = styled(CardMedia)`
     height: 12vw;
     width: 12vw;
 `;
-
+//BAAAAAALD SO BALDDDDDDDDDDDDDDDDDDDDDD
 
 export class InfoGrid extends React.Component {
     render(){
-        return(
-        <Grid container spacing={0}>
+        return( 
+        <Grid container spacing={0}> 
             <Grid item xs={6}>
-            <StyledCard elevation={0}>
-                <Media //SO BAAAAAAALD
-                    image = {circleMusic}
+            <StyledCard elevation={0}> 
+                <Media 
+                    image = {circleMusic} 
                 />
                 <CardContent>
                     <Typography variant="h5" align="center" gutterBottom="true">
