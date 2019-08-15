@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 
 function Field({ type, index, field, updateField }) {
     const [value, setValue] = useState('');
-
     return (
         <div>
             <FormControl>
@@ -84,7 +83,7 @@ export function TestForm(props){
             validate: () => true
         },
         {
-            name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
+             name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
             value: null,  
             type: "month", // could also be text or number depending on ^
             required: true ,

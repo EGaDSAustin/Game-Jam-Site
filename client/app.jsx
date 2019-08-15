@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { browserHistory } from 'react-router';
 // import "./app.css"
 import GlobalStyle from './components/styles.js';
-import { TestForm } from "/forms.jsx"
+import { TestForm } from "/forms"
 
 import { Navbar } from './components/Navbar';
 import { Title } from './components/Title';
