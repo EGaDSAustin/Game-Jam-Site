@@ -1,9 +1,18 @@
 import React from 'react';
 import { Typography, Grid, Card, CardMedia, Container } from '@material-ui/core'
 import styled from 'styled-components'
+import './css/Games.css'
 
 const StyledContainer = styled(Container)`
     padding-top: 5%;
+`;
+
+const StyledCard = styled(Card)`
+    height: 100%;
+    width: 100%;
+    max-height: 180px;
+    max-width: 300px;
+    object-fit: cover;
 `;
 
 
@@ -16,7 +25,7 @@ function createGallery() {
     {
         name: "Ascent",
         img: "https://img.itch.zone/aW1nLzIyMDU2OTMucG5n/original/sJ265J.png",
-        link: "https://jackyoustra.itch.io/blocker"
+        link: "https://https://feezy15.itch.io/ascent.itch.io/blocker"
     },
     {
         name: "Blocker",
@@ -61,9 +70,12 @@ function createGallery() {
     
     return (pastGames.map(item => 
         <Grid item xs={6} sm={4} md={3} lg={2}>
-            <Card elevation={0}>
-                <a href={item.link}><img src={item.img} alt={item.name} height = "180px" width = "180px"/></a>
-            </Card>
+            <StyledCard elevation={0}>
+                <div className="card-container">
+                <a href={item.link}><img src={item.img} alt={item.name} height = "100%" width = "100%"/></a>
+                <div className="overlay">{item.name}</div>
+                </div>
+            </StyledCard>
         </Grid>
         )
         
