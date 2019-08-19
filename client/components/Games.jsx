@@ -25,7 +25,7 @@ function createGallery() {
     {
         name: "Ascent",
         img: "https://img.itch.zone/aW1nLzIyMDU2OTMucG5n/original/sJ265J.png",
-        link: "https://https://feezy15.itch.io/ascent.itch.io/blocker"
+        link: "https://feezy15.itch.io/ascent"
     },
     {
         name: "Blocker",
