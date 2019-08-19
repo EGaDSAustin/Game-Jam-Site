@@ -29,12 +29,12 @@ function createGallery() {
     },
     {
         name: "Blocker",
-        img: "https://img.itch.zone/aW1hZ2UvMzA2MDMzLzE1MDE4NjYucG5n/347x500/VrPRRk.png",
+        img: "https://img.itch.zone/aW1hZ2UvMzA2MDQxLzE1MDE4NTguanBn/347x500/68ucyK.jpg",
         link: "https://jackyoustra.itch.io/blocker"
     },
     { 
         name: "Impact!",
-        img:"https://img.itch.zone/aW1hZ2UvMzA2MDQxLzE1MDE4NTguanBn/original/Pcsztz.jpg",
+        img:"https://img.itch.zone/aW1hZ2UvMzA2MDMzLzE1MDE4NjYucG5n/347x500/VrPRRk.png",
         link: "https://absoluthecc.itch.io/impact"
     },
     { 
@@ -72,8 +72,9 @@ function createGallery() {
         <Grid item xs={6} sm={4} md={3} lg={2}>
             <StyledCard elevation={0}>
                 <div className="card-container">
-                <a href={item.link}><img src={item.img} alt={item.name} height = "100%" width = "100%"/></a>
+                <a href={item.link}><img src={item.img} alt={item.name} height = "100%" width = "100%"/>
                 <div className="overlay">{item.name}</div>
+                </a>
                 </div>
             </StyledCard>
         </Grid>
