@@ -2,18 +2,13 @@ import React from 'react';
 import { Typography, Grid, Card, CardMedia, Container } from '@material-ui/core'
 import styled from 'styled-components'
 import './css/Games.css'
+import SteveCard from './SteveCard'
+
 
 const StyledContainer = styled(Container)`
     padding-top: 5%;
 `;
 
-const StyledCard = styled(Card)`
-    height: 100%;
-    width: 100%;
-    max-height: 180px;
-    max-width: 300px;
-    object-fit: cover;
-`;
 
 
 function createGallery() {
@@ -69,15 +64,7 @@ function createGallery() {
     }];
     
     return (pastGames.map(item => 
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-            <StyledCard elevation={0}>
-                <div className="card-container">
-                <a href={item.link}><img src={item.img} alt={item.name} height = "100%" width = "100%"/>
-                <div className="overlay">{item.name}</div>
-                </a>
-                </div>
-            </StyledCard>
-        </Grid>
+            <SteveCard name={item.name} img={item.img} link={item.link} />
         )
         
     );

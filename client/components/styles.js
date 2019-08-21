@@ -1,12 +1,12 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  html {
     font-family: Roboto, sans-serif;
     color: black;
-    background-color: #F5B031;
     text-align: center;
-    height: 100vh;
+
+    background-image: -webkit-linear-gradient(#FA482E, #F5B031, #F9DA99);
   }
 `;
 export default GlobalStyle;
