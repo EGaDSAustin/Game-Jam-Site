@@ -6,11 +6,14 @@ const router = express.Router();
 
 router.get("/:email", (req, res, next) => {
     console.log("email "+req.params.email);
-    
-    const result = Form.findOne({email: req.params.email})
-    console.log(`submission: ${result}`);
-    // FIXME: Doesnt work
-    res.status(200).json(result);
+    Form.findOne({email: req.params.email}, function (error, form) {
+        if (error) {
+            res.status(500).send(error);
+            return;
+        }
+        console.log(form);
+        res.json(item);
+    });
 });
 
 router.post("/:email", (req, res, next) => {
