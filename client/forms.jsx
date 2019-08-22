@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { FormControl, Input, InputLabel } from '@material-ui/core';
+import { FormControl, Input, InputLabel, Select } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import  GameBoy from "./components/GameBoy"
 
 function Field({ type, index, field, updateField }) {
     const [value, setValue] = useState('');
@@ -29,7 +30,11 @@ class ScrollToTopOnMount extends React.Component {
     }
 }
 
-export function TestForm(props){
+export function TestForm(props) {
+    return (<GameBoy/>);
+}
+
+function TestForm2(props){
     const [fields, setFields] = useState([
         // Required
         {
@@ -83,9 +88,9 @@ export function TestForm(props){
             validate: () => true
         },
         {
-             name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
+            name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
             value: null,  
-            type: "month", // could also be text or number depending on ^
+            type: "text", // could also be text or number depending on ^
             required: true ,
             validate: () => true
         },
@@ -161,11 +166,11 @@ export function TestForm(props){
                 //alert("Please don't be mad ;-;")
                 return false;
             } else {
-                // WE GOOD HOMMIE
+                // WE GOOD HOMIE
                 return true;
             }// owo np
             console.log({errorFields});
-            // run correct validation method
+            // run correct validation method lmaooooooooooowowowowowowowoowowowowo
         }
     };
 

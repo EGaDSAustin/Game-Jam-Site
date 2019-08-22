@@ -1,13 +1,14 @@
-.main {
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+/* .main {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     text-align: center;
     height: 100vh;
     /* background-repeat: no-repeat; */
-    /* background-image: url("http://dancesportlive.net/dsl/images/under_construction.gif"); */
-}
+    /* background-image: url("http://dancesportlive.net/dsl/images/under_construction.gif"); 
+}*/
 
-.text {
+/* .text {
     background-size: 15px;
     -webkit-background-clip: text;
     color: transparent;
@@ -15,4 +16,9 @@
     -webkit-text-stroke-color: black;
     background-color: orange;
     background-image: -webkit-linear-gradient(22.5deg, rgba(0, 0, 0, .3) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .3) 75%, transparent 75%, transparent);
+} */
+
+.title {
+    padding: 20px;
 }
+
