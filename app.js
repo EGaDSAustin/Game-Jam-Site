@@ -18,17 +18,17 @@ console.log(`Node env is ${process.env.NODE_ENV}`);
 const backend = require("./server/routes");
 app.use('/routes', backend);
 
-// if(process.env.NODE_ENV === 'LOCAL') {
-//     // bundler settings
-//     const bundlerOptions = { outDir: settings.PARCEL_DIST_DIR };
+if(process.env.NODE_ENV === 'LOCAL') {
+    // bundler settings
+    const bundlerOptions = { outDir: settings.PARCEL_DIST_DIR };
 
-//     const bundler = new Bundler(file, bundlerOptions);
-//     app.use(bundler.middleware());
-// } else if (process.env.NODE_ENV === 'PROD') {
-// }
-// // routes should be handled by react router
-// app.use(express.static(path.join(__dirname, settings.PARCEL_DIST_DIR)));
+    const bundler = new Bundler(file, bundlerOptions);
+    app.use(bundler.middleware());
+} else if (process.env.NODE_ENV === 'PROD') {
+}
+// routes should be handled by react router
+app.use(express.static(path.join(__dirname, settings.PARCEL_DIST_DIR)));
 
-// app.get ('/*', (req, res) => res.sendFile(path.resolve(`${settings.PARCEL_DIST_DIR}/index.html`)));
+app.get ('/*', (req, res) => res.sendFile(path.resolve(`${settings.PARCEL_DIST_DIR}/index.html`)));
         
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
