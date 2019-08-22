@@ -1,60 +1,75 @@
-const mongo = require('mongodb');
 const mongoose = require('mongoose');
+const Form = require('./models/form');
+const { mongo } = require('../secret.json');
 
-/*
-required fields:
-    email:
-    first-name:
-    last-name:
-    password:
-    university:
-    experience-level:
-    prefered-disipline(s):
+function connectDatabase () {
+    const connectionString = `${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`;
+    console.log(`connection str: ${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`);
+    const connector = mongoose.connect(connectionString,
+        {
+            useNewUrlParser: true
+        }).catch(err => console.log(err));
+}
 
-non-required fields:
-    major:
-    perfered team-mates emails (that they registered with):
-*/
 
-// mongoose tutorial
-var test_run_db = () => {
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open',function () {
-        // connected
-    });
+function PutForm (form_recipt) {
+    const submit = new Form({...mySubmit, created: Date.now()});
+    submit.save().then(result => console.log(result)).catch(err => console.log(err));
+}
 
-    var kittySchema = new mongoose.Schema({
-        name: String
-    });
 
-    var Kitten = mongoose.model('Kitten', kittySchema);
+// given the output from a form submission, enter in the entrys into the database
+// async function enterFormSumbission(submission) {
+//     // TODO: make sure the submission is valid before saving it to the db
+//     // FIXME: make sure this is accurate
+    
+//     return new form_entry({
+//         ...submission,
+//         created: Date.now()
+//     }).save();
+// }
 
-    var silence = new Kitten({ name: 'Silence' });
-    console.log(silence.name); // 'Silence'
-
-    // NOTE: methods must be added to the schema before compiling it with mongoose.model()
-    kittySchema.methods.speak = function () {
-        var greeting = this.name ? "Meow name is " + this.name : "I don't have a name";
-        console.log(greeting);
+function testDataBaseSubmission() {
+    const mySubmit = {
+        email: "sexycatlady69@jimminycrickets.io",
+        first_name: "Bath",
+        last_name: "Water",
+        pronouns: "apache attack helicopter",
+        school: "UA",
+        major: "Computuh apache attack helicopter",
+        year: "Freshman",
+        experience_level: {
+            programming : 5,
+            two_d_art: 3,
+            three_d_art: 2,
+            music: 5,
+            sound: 1,
+            design: 3,
+            narrative: 1
+        },
+        preferred_disciplines: [
+            "artost",
+            "shcjeff",
+            "unemployment", 
+            "あぬんきき"
+        ],
+        resume_link: "resume.com",
+        desired_teammates: [
+            "owo steve-senpai",
+            "chan-kun",
+            "my name jeff"
+        ],
+        portfolio: "portfolio.com",
+        linkedIn: "ian.linked.in",
     }
 
-    var Kitten = mongoose.model('Kitten', kittySchema);
-    var fluffy = new Kitten({ name: 'fluffy' });
-    fluffy.speak(); // "Meow name is fluffy"
-    fluffy.save(function (err, fluffy) {
-        if (err) return console.error(err);
-        fluffy.speak();
-    });
+    const submit = new Form({...mySubmit, created: Date.now()});
+    submit.save().then(result => console.log(result)).catch(err => console.log(err));
 
-    Kitten.find(function (err, kittens) {
-        if (err) return console.error(err);
-        console.log(kittens);
-    });
-
-    Kitten.find({ name: /^fluff/ }, (kitten) => console.log(kitten.name));
-};
+}
 
 module.exports = {
-    // run_db
+    connectDatabase,
+    PutForm,
+    testDataBaseSubmission
 };

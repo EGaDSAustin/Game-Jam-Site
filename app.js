@@ -5,15 +5,18 @@ const bodyParser = require('body-parser');
 const Bundler = require('parcel-bundler');
 const { settings } = require('./package.json');
 const { PORT } = require('./server/config');
-// const { run_db } = require('./server/database');
+const { testDataBaseSubmission } = require('./server/database');
 
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); // TODO: check what the extended means
+app.use(bodyParser.json());
 
 // entry file
 const file = 'client/index.html';
 
 console.log(`Node env is ${process.env.NODE_ENV}`);
+
+const backend = require("./server/routes");
+app.use('/routes', backend);
 
 if(process.env.NODE_ENV === 'LOCAL') {
     // bundler settings
@@ -24,8 +27,8 @@ if(process.env.NODE_ENV === 'LOCAL') {
 } else if (process.env.NODE_ENV === 'PROD') {
 }
 // routes should be handled by react router
-app.use(express.static(path.join(__dirname, './dist')));
-app.get('/*', (req, res) => res.sendFile(path.resolve(`${settings.PARCEL_DIST_DIR}/index.html`)));
+app.use(express.static(path.join(__dirname, settings.PARCEL_DIST_DIR)));
 
-// run_db(); // TODO: fix the tutorial code so it works?
+app.get ('/*', (req, res) => res.sendFile(path.resolve(`${settings.PARCEL_DIST_DIR}/index.html`)));
+        
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
