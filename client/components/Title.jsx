@@ -1,7 +1,31 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles';
-import fallingPeople from '../assets/fallingPeople.png'
+import fallingPeople from '../assets/fallingPeople.png';
+import InfoCard from './InfoCard.jsx';
+import Grid from '@material-ui/core/Grid';
+import whoImage from '../assets/circleMusic.png';
+
+const styles = {
+  card: {
+    maxWidth: '100%'
+  },
+  media: {
+    height: 420,
+    width: 300
+  },
+  textSpacing: {
+    marginBottom: '10px'
+  },
+  cardMedia: {
+    align: 'center'
+  },
+  image: {
+    marginTop: '15px',
+    height: '200px',
+    width: 'auto',
+  }
+};
 
 export class Title extends React.Component {
     render() {
@@ -20,6 +44,42 @@ export class Title extends React.Component {
                 <img src = {fallingPeople} height = "100%" width = "100%"/>
                 <Typography variant="h3">Come join us in making games,</Typography>
                 <Typography variant="h3">friends, and memories!</Typography>
+                <div className="infoRow">
+                {/* <InfoCard
+                            category='Who?'
+                            photo={whoImage}
+                            alt_text='who_image'
+                            description="This event is hosted by EGaDS! The Electronic Game Developers Society is a student organization at UT Austin.">
+                        </InfoCard> */}
+                    <div className="infoCard">
+                        <img src={whoImage} alt='who_image' style={styles.image}/>
+                        <Typography variant="h2">Who?</Typography>
+                        <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
+                        <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
+                    </div>
+                    <div className="infoCard">
+                        <img src={whoImage} alt='who_image' style={styles.image}/>
+                        <Typography variant="h2">Who?</Typography>
+                        <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
+                        <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
+                    </div>
+                </div>
+                <div className="infoRow">
+                    <div className="infoCard">
+                        <img src={whoImage} alt='who_image' style={styles.image}/>
+                        <Typography variant="h2">Who?</Typography>
+                        <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
+                        <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
+                    </div>
+                    <div className="infoCard">
+                        <img src={whoImage} alt='who_image' style={styles.image}/>
+                        <Typography variant="h2">Who?</Typography>
+                        <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
+                        <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
+                    </div>
+                </div>
+                
+
             </Container>
         );
     }

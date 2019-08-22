@@ -22,3 +22,9 @@
     padding: 20px;
 }
 
+.infoCard {
+    display: inline-block;
+    width: 382px;
+    padding: 100px;
+}
+
