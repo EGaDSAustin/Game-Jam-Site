@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const Form = require('./models/form');
-const { mongo } = require('../secret.json');
-
+const { connectionString } = require('./config')
 function connectDatabase () {
-    const connectionString = `${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`;
-    console.log(`connection str: ${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`);
+    // const connectionString = `${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`;
+    // console.log(`connection str: ${mongo.address_prefix}${mongo.username}:${mongo.password}${mongo.address_suffix}`);
     const connector = mongoose.connect(connectionString,
         {
             useNewUrlParser: true
