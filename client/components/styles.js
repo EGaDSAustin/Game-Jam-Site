@@ -2,7 +2,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   html {
-    font-family: Roboto, sans-serif;
+    // font-family: Roboto, sans-serif;
+    font-family: Poppins, sans-serif;
     color: black;
     text-align: center;
 
