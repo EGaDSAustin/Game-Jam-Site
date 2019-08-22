@@ -32,19 +32,21 @@ const styles = {
       marginLeft: '5px',
       marginBottom: '20px',
       textAlign: 'left',
+    //   width: '52px',
       color: 'white'
     },
     time: {
         marginLeft: '25px',
         width: '82px',
         textAlign: 'center',
-        marginTop: '15px'
+        marginTop: '15px',
+        fontSize: '23px'
     },
     description: {
         width: '187px',
-        height: '90px',
+        height: '80px',
         marginLeft: '50px',
-        marginTop: '25px',
+        marginTop: '20px',
         textAlign: 'left'
     },
     container: {
@@ -53,90 +55,162 @@ const styles = {
         paddingRight: '0px', 
         paddingBottom: '20px',
         width: '369px', 
-        marginLeft: '0px'
+        marginLeft: '0px',
+        maxWidth: '369px'
+        // flexWrap: 'nowrap'
     }
   };
 
 export class Schedule extends React.Component {
     render(){
         return(
-            <StyledContainer maxWidth = "md">
+            <StyledContainer maxWidth = "xl" align="center" >
                 <Typography variant="h2" color='secondary'>Schedule</Typography>
                 
                 <br/>
 
-                {/* TODO: fix so that the schedules are further apart. Grid container spacing 10 is already max */}
-                <Grid container spacing = {10}>
-                        <Grid item  xs = {12} sm = {6}>
-                            <Typography variant="h3" gutterBottom style={styles.date}>// Saturday, Sept 15</Typography>
-                            <Container style={styles.container}>
-                                <Grid container spacing = {3} alignItems = "left">
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>11:00 am</Typography>
-                                        {/* <StyledTimes variant = "h4" align = "right"> 11:00 am </StyledTimes> */}
-                                    </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}> Doors open and team matchmaking begins </Typography>
-                                    </Grid>
-
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>11:30 am</Typography>
-                                    </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}> Short introductory presentation </Typography>
-                                    </Grid>
-
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>12:00 pm</Typography>
-                                    </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}> Theme reveal and official start of the game jam! </Typography>
-                                    </Grid>
-
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>3:00 am </Typography>
-                                    </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}> SAC (Student Activity Center) closes </Typography>
-                                    </Grid>
+                {/* TODO: the schedules may not be centered. also refactor code */}
+                <Grid container spacing = {5} style={{flexWrap: 'nowrap', marginLeft: '20px',  align: 'center', width:'80%'}}>
+                    <Grid item  xs = {6} sm = {6}>
+                        <Typography variant="h3" gutterBottom style={styles.date}>// Friday, Sept 20</Typography>
+                        <Container style={styles.container}>
+                            <Grid container spacing = {3} alignItems = "left" alignContent="center">
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>4:00 - 8:00 pm</Typography>
+                                    {/* <StyledTimes variant = "h4" align = "right"> 11:00 am </StyledTimes> */}
                                 </Grid>
-                                </Container>
-                        </Grid>
-
-                        <Grid item  xs = {12} sm = {6}>
-                            <Typography variant="h3" gutterBottom style={styles.date}>// Saturday, Sept 15</Typography>
-                            <Container style={styles.container}>
-                                <Grid container spacing = {3} alignItems = "left">
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>11:00 am</Typography>
-                                    </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}> Doors open and team matchmaking begins </Typography>
-                                    </Grid>
-
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>11:30 am</Typography>
-                                    </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}> Short introductory presentation </Typography>
-                                    </Grid>
-
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>12:00 pm</Typography>
-                                    </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}> Theme reveal and official start of the game jam! </Typography>
-                                    </Grid>
-
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>3:00 am </Typography>
-                                    </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}> SAC (Student Activity Center) closes </Typography>
-                                    </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>Sponsor and Student Mixer: Past games showcase, tabling, refreshments, jackbox/other icebreakers</Typography>
                                 </Grid>
-                                </Container>
-                        </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>5:00 pm</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}> Opening remarks </Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>5:15 pm</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}> Theme reveal and official start of the game jam! </Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>5:15 - 6:00 pm </Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>“How to Have a Successful Game Jam” Panel </Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>6:00 - 7:00 pm </Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>Sponsor/EGaDS workshop slot</Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>1:00 am </Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>Building closes</Typography>
+                                </Grid>
+                            </Grid>
+                            </Container>
+                    </Grid>
+
+                    <Grid item  xs = {12} sm = {6}>
+                        <Typography variant="h3" gutterBottom style={styles.date}>// Saturday, Sept 21</Typography>
+                        <Container style={styles.container}>
+                            <Grid container spacing = {3} alignItems = "left">
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>10:00 am</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>Building opens and breakfast is served</Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>11:00 - 12:00 pm</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>Sponsor/EGaDS workshop slot</Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>12:00 - 1:00 pm</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>Sponsor/EGaDS workshop slot</Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>1:00 pm </Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}> Lunch is served </Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>2:00 - 3:00 pm</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>Sponsor/EGaDS workshop slot</Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>7:00 pm </Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}> Dinner is served </Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>1:00 am </Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}> Building closes (Sleep and shower) </Typography>
+                                </Grid>
+                            </Grid>
+                            </Container>
+                    </Grid>
+
+                    <Grid item  xs = {12} sm = {6}>
+                        <Typography variant="h3" gutterBottom style={styles.date}>// Sunday, Sept 22</Typography>
+                        <Container style={styles.container}>
+                            <Grid container spacing = {3} alignItems = "left">
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>12:00 pm</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}> Building re-opens </Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>1:00 pm</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}> Submissions are due on itch.io, Lunch is served </Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>1:15 - 2:30 pm</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}>Judging</Typography>
+                                </Grid>
+
+                                <Grid item xs = {3}>
+                                    <Typography variant="h4" style={styles.time}>2:30 pm </Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography variant = "body1" style={styles.description}> Awards and final remarks </Typography>
+                                </Grid>
+                            </Grid>
+                            </Container>
+                    </Grid>
                 </Grid>
             </StyledContainer>
         )

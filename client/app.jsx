@@ -70,32 +70,6 @@ class App extends React.Component {
     }
 }
 
-{/* class App extends Component {
-  render() {
-    return (<MuiThemeProvider theme={theme}>
-      <div className="App">
-        <header>
-          <NavBar/>
-          <br/><br/><br/>
-        </header>
-        <Route path="/" exact component={Splash}/>
-        <Route path="/university" exact component={University}/>
-        <Route path="/city" exact component={City}/>
-        <Route path="/degree" exact component={Degree}/>
-        <Route path="/about" component={About}/>
-        <Route path="/degreeInstance" component={DegreeInstance}/>
-        <Route path="/university/:id" component={UniversityInstance}/>
-        <Route path="/city/:id" component={CityInstance}/>
-        <Route path="/degree/:id" component={DegreeInstance}/>
-        <Route path="/search" component={GlobalSearchResults}/>
-      </div> 
-      <Footer/>
-      
-    </MuiThemeProvider>);
-  }
-} */}
-
-
 function hashLinkScroll() {
     const { hash } = window.location;
         if (hash !== '') {
@@ -206,11 +180,11 @@ const theme = createMuiTheme({
                 boxShadow: 'none'
             },
       },
-      MuiGrid: {
-        container: {
-          // backgroundColor: white
-        }
-      }
+      // MuiContainer: {
+      //   maxWidthLg: {
+      //     maxWidth: '100%'
+      //   }
+      // }
     }
     
 

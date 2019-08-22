@@ -1,15 +1,30 @@
 import React from 'react';
-import { Typography, Grid, Card, CardMedia, Container } from '@material-ui/core'
+import { Typography, Grid, Card, CardMedia, Container, Box } from '@material-ui/core'
 import styled from 'styled-components'
 import './css/Games.css'
 import SteveCard from './SteveCard'
+import '../app.css'
 
 
 const StyledContainer = styled(Container)`
     padding-top: 5%;
 `;
 
-
+const styles = {
+    container: {
+        backgroundColor: 'white', 
+        // width: 'calc(100% - 0px)',
+        // width: '100vw',
+ position: 'relative',
+        // margin:'0px',
+        // marginTop: '40px',
+        padding: '0px',
+        display: 'block'
+    },
+    header: {
+        padding: '40px'
+    }
+  };
 
 function createGallery() {
     var pastGames = [{
@@ -73,15 +88,19 @@ function createGallery() {
 export class Games extends React.Component {
     render(){
         return(
-            <StyledContainer maxWidth="lg">
-                <Typography variant="h3" align="center">
+            // <Box style={styles.container}>
+            <Container maxWidth="false" style={styles.container}>
+                {/* <Typography variant="h3" align="center">
                     Previous Game Jam Games
-                </Typography>
+                </Typography> */}
+                <Typography variant="h2" color='secondary' style={styles.header}>Previous game jam games</Typography>
                 <br/>
-            	<Grid container spacing={4}>
-                    {createGallery()}
-                </Grid>
-            </StyledContainer>
+                <div className="gamesGallery" align="center">
+                    <Grid container spacing={4} align="center" style={{width: '80%'}}>
+                        {createGallery()}
+                    </Grid>
+                </div>
+            </Container>
         );
     }
 } // https://www.clickertraining.com/files/u1/lab_puppy_250.jpg
