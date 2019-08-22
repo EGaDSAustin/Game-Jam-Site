@@ -5,6 +5,7 @@ import fallingPeople from '../assets/fallingPeople.png';
 import InfoCard from './InfoCard.jsx';
 import Grid from '@material-ui/core/Grid';
 import whoImage from '../assets/circleMusic.png';
+import RegisterImage from '../assets/temp_elf_handstand.JPG';
 
 const styles = {
   card: {
@@ -78,6 +79,9 @@ export class Title extends React.Component {
                         <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
                     </div>
                 </div>
+
+                {/* TODO: make this inline with the where why blocks */}
+                <img src = {RegisterImage} alt='register image' style={{maxWidth: '100%',width: 'auto'}}/>
                 
 
             </Container>

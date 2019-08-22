@@ -44,11 +44,11 @@ class App extends React.Component {
                     <ScrollToTopOnMount/>
                     <br/>
                         <div id='title'><Title/></div>
-                    <br/>
+                    {/* <br/>
                     <center>
-                        {/* <div id="about"><InfoGrid id="about" className="about"/></div> */}
+                        <div id="about"><InfoGrid id="about" className="about"/></div>
                     </center>
-                    <br/>
+                    <br/> */}
                         <div id='register'><Register/></div>
                     <br/>
                     
@@ -111,9 +111,12 @@ function hashLinkScroll() {
 }
 
 let dark_color = '#5D5116';
+let darker_color = '#302F0C';
 let light_green = '#968326'
 let caption_color = '#494B4E';
 let accent_color = '#E4C400';
+let white = '#FFFFFF';
+let orange = '#DC7F23';
 
 
 // global style
@@ -144,24 +147,43 @@ const theme = createMuiTheme({
         letterSpacing: 'normal',
         lineHeight: '1.4em',
       },
+      h4: {
+        fontFamily: 'Futura LT Book',
+        color: orange,
+        fontSize: '30px',
+        fontWeight: 'bold',
+        letterSpacing: 'normal',
+        lineHeight: '1.4em',
+      },
+      body1: {
+        fontFamily: 'Futura LT Book',
+        color: darker_color,
+        fontSize: '15px',
+        letterSpacing: 'normal',
+        lineHeight: '1.8em',
+      },
       subtitle1: {
         fontFamily: 'Raleway',
         color: dark_color,
         fontSize: '18px',
         fontWeight: '600',
-        letterSpacing: '0.05em',
+        letterSpacing: 'normal',
         lineHeight: 'normal',
       },
     },
 
     palette: {
         primary: {
-        main: light_green,
-        light: dark_color,
-        dark: dark_color
+          main: light_green,
+          light: dark_color,
+          dark: dark_color
         },
         secondary: {
-        main: dark_color
+          main: dark_color
+        },
+        text: {
+          primary: dark_color,
+          secondary: white
         }
     },
     overrides: {
@@ -182,8 +204,13 @@ const theme = createMuiTheme({
                 letterSpacing: 'normal',
                 fontWeight: '600',
                 boxShadow: 'none'
-            }
+            },
       },
+      MuiGrid: {
+        container: {
+          // backgroundColor: white
+        }
+      }
     }
     
 

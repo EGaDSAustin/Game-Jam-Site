@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
 /* .main {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
@@ -28,3 +28,15 @@
     padding: 100px;
 }
 
+.scheduleElem {
+    background-color: white;
+    width: 369px;
+    height: 162px;
+}
+
+@font-face {
+    font-family: 'Futura LT Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Futura LT Book'), url('./assets/FuturaLT-Book.woff') format('woff');
+}

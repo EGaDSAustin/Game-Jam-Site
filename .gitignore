@@ -49,6 +49,7 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
+*.TMP
 
 secret.json
 secrets.json
