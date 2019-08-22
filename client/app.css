@@ -34,6 +34,11 @@
     height: 162px;
 }
 
+#games {
+    /* TODO: stretch to full width?? */
+    width: calc(100% + 10px);
+}
+
 @font-face {
     font-family: 'Futura LT Book';
     font-style: normal;
