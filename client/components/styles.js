@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+var heightValue = "auto";
 const GlobalStyle = createGlobalStyle`
   html {
     // font-family: Roboto, sans-serif;
@@ -7,7 +8,9 @@ const GlobalStyle = createGlobalStyle`
     color: black;
     text-align: center;
 
+
     background-image: -webkit-linear-gradient(#FA482E, #F5B031, #F9DA99);
+    height: ${heightValue};
   }
 `;
 export default GlobalStyle;

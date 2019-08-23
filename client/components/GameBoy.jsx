@@ -1,10 +1,25 @@
 import React, {useState, useEffect, Component} from 'react'
-import { FormControl, Input, InputLabel, Select, Button } from '@material-ui/core';
+import { CardMedia, FormControl, Input, InputLabel, Select, Button, Container } from '@material-ui/core';
 import axios from 'axios';
+import GameBoyImage from '../assets/gb_screen.png'
+import styled from 'styled-components'
+
+const StyledContainer = styled(Container)`
+    
+    
+`; //:( :c :O :[ >:] :> :3 (~ o_o)~ 
+//y scre
+
 
 
 const questions = [
     // Required
+    {
+        name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
+        type: "number", // could also be text or number depending on ^
+        required: true,
+        key: "year"
+    },
     {
         name: 'Email',
         type: "email",
@@ -46,12 +61,6 @@ const questions = [
         type: "text",
         required: true,
         key: "major"
-    },
-    {
-        name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
-        type: "text", // could also be text or number depending on ^
-        required: true,
-        key: "year"
     },
     {
         name: 'Experience Level',
@@ -103,7 +112,7 @@ export function GameBoy() {
     const [submission, setSubmission] = useState({});
 
     function updateSubmission(key, value) {
-        const sub = {...fields}
+        const sub = {...submission}
         sub[key] = value;
         setSubmission(sub);
     }
@@ -118,30 +127,85 @@ export function GameBoy() {
         });
     } 
 
-    const screens = questions.map(q => 
+    function nextScreen() {
+        if (questionNumber+1 == questions.length) {
+            
+        } else {
+            setQuestionNumber(questionNumber+1);
+        }
+    };
+
+    function prevScreen() {
+        setQuestionNumber(Math.max(questionNumber-1, 0));
+    };
+
+    
+    const screens = [
+        ...questions.map((q, idx )=> 
         <Screen 
             type={q.type} 
-            field={q}
+            question={q}
+            state={submission}
+            index={idx}
             update={value => updateSubmission(q.key, value)}
+            next={nextScreen}
+        />),
+        <Screen
+            type={"submit"} 
+            question={{name: "submit"}}
+            state={submission}
+            index={questions.length}
+            update={value => {}}
+            next={() => {}}
         />
-    );
+    ];
+    
+
 
     return(
-    <div>
-        {screens[questionNumber]}
-        <Button onClick={()=>setQuestionNumber(Math.min(questionNumber+1, questions.length-1))}>NEXT</Button>
-    </div>
+    <StyledContainer>
+        
+        <FormControl>
+            <img src = {GameBoyImage}/>
+            {screens[questionNumber]}
+            <Button onClick={prevScreen}>PREV</Button>
+            <Button onClick={nextScreen}>NEXT</Button>
+        </FormControl>
+    </StyledContainer>
     );
 }
 
-function Screen({type, field, update}) {
-    const [state, setState] = useState();
+
+
+function Screen({type, question, state, index, update, next}) {
+    const [value, setValue] = useState("");
+    const [idx, setIdx] = useState(index);
     // FIXME: figure out if on blure happens on button click, send a submiT command
     // on next click
-
     // TODO: whole component
     // Pass in the update stoof
-    return(<div>{field.name}</div>); 
+
+    useEffect(() => {
+        if (idx != index) {
+            setValue(state[question.key] || "");
+            setIdx(index);
+        }
+    });
+
+    return(
+    <div id={`${question.name}-screen`} className="screen">
+            <InputLabel>{`${question.name}: `}</InputLabel>
+            <Input type={type} value={value}
+            onBlur={e => {
+                setValue(e.target.value);
+                update(value);
+            }}
+            onChange={e => {
+                setValue(e.target.value)
+            }}
+        />
+    </div>
+    ); 
 }
 
 export default GameBoy;

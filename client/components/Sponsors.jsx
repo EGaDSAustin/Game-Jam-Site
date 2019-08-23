@@ -101,9 +101,9 @@ export function Sponsors () {
             link: "http://nootnoot.net/",
         },
         {
-            name: "NootNoot",
-            logo: "https://emblemsbf.com/img/91217.jpg",
-            link: "http://nootnoot.net/",
+            name: "Straw Hat Squad",
+            logo: "https://img03.deviantart.net/2186/i/2011/009/1/e/one_piece_luffy_smile_by_g_manbg-d36riyu.jpg",
+            link: "https://onepace.net/?episode=123",
         },
         
     ];

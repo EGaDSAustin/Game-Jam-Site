@@ -65,25 +65,25 @@ export class Title extends React.Component {
                         <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
                     </div>
                 </div>
-                <div className="infoRow">
-                    <div className="infoCard">
-                        <img src={whoImage} alt='who_image' style={styles.image}/>
-                        <Typography variant="h2">Who?</Typography>
-                        <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
-                        <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
-                    </div>
-                    <div className="infoCard">
-                        <img src={whoImage} alt='who_image' style={styles.image}/>
-                        <Typography variant="h2">Who?</Typography>
-                        <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
-                        <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
-                    </div>
-                </div>
-
-                {/* TODO: make this inline with the where why blocks */}
-                <img src = {RegisterImage} alt='register image' style={{maxWidth: '100%',width: 'auto'}}/>
                 
+                  <div className="infoRow">
+                      <div className="infoCard">
+                          <img src={whoImage} alt='who_image' style={styles.image}/>
+                          <Typography variant="h2">Who?</Typography>
+                          <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
+                          <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
+                      </div>
+                      
+                      <div className="infoCard">
+                          <img src={whoImage} alt='who_image' style={styles.image}/>
+                          <Typography variant="h2">Who?</Typography>
+                          <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
+                          <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
+                      </div>
+                    </div>
 
+                  {/* TODO: make this inline with the where why blocks*/}
+                  <img src = {RegisterImage} alt='register image' style={{maxWidth: '100%', width: 'auto', position: 'relative', top: '-150px', marginBottom: '-150px'}}/>
             </Container>
         );
     }

@@ -7,7 +7,7 @@ import sparkle1 from '../assets/sparkle1.JPG';
 import sparkle2 from '../assets/sparkle2.JPG';
 
 const StyledContainer = styled(Container)`
-    padding-top: 5%;
+    padding-top: 0;
 `;
 
 const styles = {

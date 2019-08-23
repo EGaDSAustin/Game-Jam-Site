@@ -17,7 +17,7 @@ const StyledCard = styled(Card)`
     height: 100%;
     width: 100%;
     max-height: 180px;
-    max-width: 300px;
+    max-width: 180px;
     object-fit: cover;
 `;
 
@@ -26,9 +26,10 @@ export default function SteveCard ({name, img, link}) {
         <Grid item xs={6} sm={4} md={3} lg={2}>
                     <StyledCard elevation={0}>
                         <div className="card-container">
-                        <a href={link}><img src={img} alt={name} height = "100%" width = "100%"/>
-                        <div className="overlay">{name}</div>
-                        </a>
+                            <a href={link}><img src={img} class="gallery_img" alt={name} height = "100%" width = "100%"/>
+                            {/* <div className="name_overlay">{name}</div> */}
+                            <Typography variant="h4" className="name_overlay" style={{fontSize: '20px', verticalAlign: 'middle'}}>{name}</Typography>
+                            </a>
                         </div>
                     </StyledCard>
                 </Grid>

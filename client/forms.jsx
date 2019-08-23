@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FormControl, Input, InputLabel } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
+import GameBoy from './components/GameBoy'
 
 function Field({ type, index, field, updateField }) {
     const [value, setValue] = useState('');
@@ -30,6 +31,10 @@ class ScrollToTopOnMount extends React.Component {
 }
 
 export function TestForm(props){
+    return <GameBoy/>;
+}
+
+export function TestForm2(props){
     const [fields, setFields] = useState([
         // Required
         {
