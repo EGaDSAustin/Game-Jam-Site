@@ -1,5 +1,7 @@
-import React, {useState, Component} from 'react'
+import React, {useState, useEffect, Component} from 'react'
 import { FormControl, Input, InputLabel, Select, Button } from '@material-ui/core';
+import axios from 'axios';
+
 
 const questions = [
     // Required
@@ -27,12 +29,12 @@ const questions = [
         required: true,
         key: "pronouns"
     },
-    {
-        name: 'Password',
-        type: "password",
-        required: true,
-        key: null
-    },
+    // {
+    //     name: 'Password',
+    //     type: "password",
+    //     required: true,
+    //     key: null
+    // },
     {
         name: 'School',
         type: "text",
@@ -98,12 +100,23 @@ const questions = [
 
 export function GameBoy() {
     const [questionNumber, setQuestionNumber] = useState(0);
+    const [submission, setSubmission] = useState({});
 
     function updateSubmission(key, value) {
         const sub = {...fields}
         sub[key] = value;
         setSubmission(sub);
     }
+
+    // FIXME: does this work? who knows this is just the idea 
+    function submitSumbmission(sub) {
+        axios.post(`/routes/form/${sub.email}`, sub).
+        then(result => console.log(`response: ${result}`)).
+        catch(err => {
+            // FIXME: IDK something logical maybe
+            throw err;
+        });
+    } 
 
     const screens = questions.map(q => 
         <Screen 
