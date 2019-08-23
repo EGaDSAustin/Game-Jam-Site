@@ -45,7 +45,7 @@ export class Title extends React.Component {
                 <img src = {fallingPeople} height = "100%" width = "100%"/>
                 <Typography variant="h3">Come join us in making games,</Typography>
                 <Typography variant="h3">friends, and memories!</Typography>
-                <div className="infoRow">
+                <div className="infoRow" id="about">
                 {/* <InfoCard
                             category='Who?'
                             photo={whoImage}

@@ -1,15 +1,49 @@
 .overlay {
-    position: absolute;
-    background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.5);
-    bottom: 0;
+    /* position: absolute; */
+    /* background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); */
+    /* top:0; left:0;
+    vertical-align: middle;
     color: #f1f1f1;
     width: 100%;
     transition: .5s ease;
-    opacity: 0;
+    opacity: 1;
     color: white;
     font-size: 20px;
-    text-align: center;
+    text-align: center; */
+
+
+    /* color:#fff;
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    box-align: center;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s; */
+}
+
+img {
+    -webkit-filter: brightness(100%);
+}
+
+img:hover {
+    
+    -webkit-filter:  brightness(80%) blur(2px);
+    filter: brightness(80%) blur(2px);
+    -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+img:hover > .overlay {
+    opacity: 1;
+    
 }
 
 .card-container {
@@ -18,6 +52,7 @@
     height: 100%;
 }
 
-.card-container:hover .overlay {
+/* .card-container:hover .overlay {
     opacity: 1;
-}
+} */
+
