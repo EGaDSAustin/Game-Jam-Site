@@ -129,7 +129,7 @@ function createGallery() {
         link: "https://joyshocker.itch.io/deception-demo2"
     },
     { 
-        name: "Trashketbrawl",
+        name: "Trashket Brawl",
         img: trashketbrawl,
         link: "https://flador.itch.io/trashketbrawl"
     },
@@ -161,7 +161,7 @@ function createGallery() {
 export class Games extends React.Component {
     render(){
         return(
-            <div className="fullWidthBackground" style={styles.container}>
+            <div style={styles.container}>
                 <Typography variant="h2" color='secondary' style={styles.header}>Previous game jam games</Typography>
                 <br/>
                 <div className="gamesGallery" align="center">

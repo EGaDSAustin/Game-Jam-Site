@@ -128,7 +128,7 @@ export function Sponsors () {
     ];
 
     return(
-        <div className="fullWidthBackground" style={styles.container}>
+        <div style={styles.container}>
             <Typography variant="h2" style={styles.header}>Sponsors</Typography>
             <Typography variant="subtitle1" color="textSecondary" style={styles.description}>Interested in becoming a sponsor?</Typography>
             <Typography variant="subtitle1" color="textSecondary" style={styles.description}>Click <a href="https://test-egads-website.herokuapp.com/" style={styles.link}>here</a> for more information!</Typography>

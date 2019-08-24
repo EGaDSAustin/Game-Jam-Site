@@ -1,7 +1,6 @@
-
-.fullWidthBackground {
-  margin-left: -10px;
-  margin-right: -10px;
+/* allow for edge to edge backgrounds*/
+body {
+  margin: 0px;
 }
 
 /* navbar */
