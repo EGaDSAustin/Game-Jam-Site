@@ -53,7 +53,7 @@ export class Title extends React.Component {
                     </div>
                 </div>
                 
-                  <div className="infoRow">
+                  <div className="infoRow2" id="register">
                       <div className="infoCard">
                           <img src={whoImage} alt='who_image' style={styles.image}/>
                           <Typography variant="h2">Who?</Typography>

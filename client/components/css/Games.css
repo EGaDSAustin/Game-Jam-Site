@@ -3,7 +3,7 @@
 }
 
 .gallery_img:hover {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(66, 43, 0, 0.3);
     -webkit-filter:  brightness(80%) blur(2px);
     filter: brightness(80%) blur(2px);
     -webkit-transform: scale(1.02);

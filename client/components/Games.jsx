@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Grid } from '@material-ui/core'
 import './css/Games.css'
-import SteveCard from './SteveCard'
+import GameCard from './GameCard'
 import '../app.css'
 
 // game images import
@@ -152,7 +152,7 @@ function createGallery() {
 ];
     
     return (pastGames.map(item => 
-            <SteveCard name={item.name} img={item.img} link={item.link} />
+            <GameCard name={item.name} img={item.img} link={item.link} />
         )
         
     );
