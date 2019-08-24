@@ -39,30 +39,19 @@ class App extends React.Component {
 
             <Navbar/>
             <Switch>
-                <Route exact path="/" render={routeProps => (
-                    <div>
-                      <ScrollToTopOnMount/>
-                      <br/>
-                        <div id='title'><Title/></div>
-                      {/* <br/>
-                      <center>
-                          <div id="about"><InfoGrid id="about" className="about"/></div>
-                      </center>
-                      <br/> */}
-                          <div><Register/></div>
-                      {/* <br/> */}
-                      
-                      
-                          <div><Schedule/></div>
-                      {/* <br/> */}
-                          <div id='games'><Games/></div>
-                      {/* <br/> */}
-                          <div id='sponsors'><Sponsors/></div>
-                    
-                      <Footer/>
-                    </div>
-                )}/>
-                <Route path="/register" component={TestForm}/>
+              <Route exact path="/" render={routeProps => (
+                  <div>
+                    <ScrollToTopOnMount/>
+                    <br/>
+                      <div id='title'><Title/></div>
+                      <div><Register/></div>
+                      <div><Schedule/></div>
+                      <div id='games'><Games/></div>
+                      <div id='sponsors'><Sponsors/></div>
+                    <Footer/>
+                  </div>
+              )}/>
+              <Route path="/register" component={TestForm}/>
             </Switch>
             </Router>
             </MuiThemeProvider>
@@ -97,7 +86,6 @@ let yellow = "#F6B637";
 // global style
 const theme = createMuiTheme({
     typography: {
-    //   fontFamily: 'Poppins',
       h1: {
         fontFamily: 'Poppins',
         color: 'white',
@@ -182,6 +170,7 @@ const theme = createMuiTheme({
                 boxShadow: 'none'
             },
       },
+      // Navbar button
       MuiTab: {
         root: {
           fontFamily: 'Raleway',
@@ -197,8 +186,6 @@ const theme = createMuiTheme({
         }
       },
     }
-    
-
 });
 
 
