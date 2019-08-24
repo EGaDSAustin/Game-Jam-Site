@@ -171,6 +171,7 @@ const theme = createMuiTheme({
                 backgroundColor: light_green
             },
             root: {
+                
                 textTransform: 'normal',
                 fontFamily: 'Poppins',
                 color: 'white',

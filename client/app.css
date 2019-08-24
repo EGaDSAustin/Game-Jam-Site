@@ -6,8 +6,17 @@
 
 /* navbar */
 a.MuiButtonBase-root.MuiTab-root.MuiTab-textColorInherit {
-  font-size: 16px;
+  padding: 6px 16px;
+  font-size: 18px;
   min-width: 0;
+}
+a.MuiButtonBase-root.MuiTab-root.MuiTab-textColorInherit:hover {
+  color: #968326;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 /* links */
