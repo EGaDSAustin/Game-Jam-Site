@@ -1,6 +1,5 @@
 import React from 'react';
-import { Typography, Grid, Card, CardMedia, Container, Box } from '@material-ui/core'
-import styled from 'styled-components'
+import { Typography, Grid } from '@material-ui/core'
 import './css/Games.css'
 import SteveCard from './SteveCard'
 import '../app.css'
@@ -34,6 +33,7 @@ const styles = {
         // position: 'relative',
         paddingBottom: '90px',
         paddingTop: '50px',
+        marginTop: '100px',
         // display: 'block'
     },
     header: {
@@ -46,7 +46,7 @@ function createGallery() {
     {
         name: "Junkyard Brawl",
         img: junkyardbrawl,
-        link: "https://feezy15.itch.io/ascent"
+        link: "https://bootskats.itch.io/junkyard-brawl"
     },
     {
         name: "Trash Dash",

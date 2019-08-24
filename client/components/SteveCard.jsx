@@ -14,12 +14,8 @@ import styled from 'styled-components'
  */
 
 const StyledCard = styled(Card)`
-    // height: 100%;
-    // width: 100%;
     height: 170px;
     width: 170px;
-    // max-height: 170px;
-    // max-width: 170px;
 `;
 
 export default function SteveCard ({name, img, link}) {

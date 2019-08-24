@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 var heightValue = "auto";
 const GlobalStyle = createGlobalStyle`
@@ -7,9 +7,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: Poppins, sans-serif;
     color: black;
     text-align: center;
-
-
-    background-image: -webkit-linear-gradient(#FA482E, #F5B031, #F9DA99);
+    background-color: #f5b031;
     height: ${heightValue};
   }
 `;

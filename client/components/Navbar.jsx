@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import { NavHashLink } from 'react-router-hash-link'
 
 import AppBar from '@material-ui/core/AppBar';
-import { Tabs, Tab, Toolbar } from '@material-ui/core';
-
+import { Tabs, Tab, Toolbar, Container } from '@material-ui/core';
 import styled from 'styled-components'
+import icon from '../assets/mistletoe.PNG'
 
 
 const StyledTabs = styled(Tabs)`
-    background: #100E23;
+    background: transparent;
     color: white;
     font-weight: bold;
 `
@@ -27,17 +27,18 @@ export class Navbar extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <AppBar>
-                    <StyledTabs centered>
+                <img src={icon} alt='navbar icon' style={{marginTop: '20px'}}/>
+                {/* <AppBar position="static"> */}
+                    <StyledTabs centered style={{marginTop: '0'}}>
                         <Tab value={0} label="Home" to="/" onClick={ScrollToTop} component={Link} />
                         <Tab value={1} label="About" to="/#about" smooth component={NavHashLink}/>
-                        <Tab value={2} label="Schedule" to="/#schedule" smooth component={NavHashLink}/>
-                        <Tab value={3} label="Games" to="/#games" smooth component={NavHashLink}/>
-                        <Tab value={4} label="Sponsors" to="/#sponsors" smooth component={NavHashLink}/>
                         <Tab value={5} label="Register" to="register" component={Link}/>
+                        <Tab value={2} label="Schedule" to="/#schedule" smooth component={NavHashLink}/>
+                        {/* <Tab value={3} label="Games" to="/#games" smooth component={NavHashLink}/> */}
+                        <Tab value={4} label="Sponsors" to="/#sponsors" smooth component={NavHashLink}/>
+                        
                     </StyledTabs>
-                </AppBar>
-                <Toolbar />
+                {/* </AppBar> */}
             </React.Fragment>
         );
     }

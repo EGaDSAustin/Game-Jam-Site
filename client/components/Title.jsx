@@ -8,19 +8,6 @@ import whoImage from '../assets/circleMusic.png';
 import RegisterImage from '../assets/temp_elf_handstand.JPG';
 
 const styles = {
-  card: {
-    maxWidth: '100%'
-  },
-  media: {
-    height: 420,
-    width: 300
-  },
-  textSpacing: {
-    marginBottom: '10px'
-  },
-  cardMedia: {
-    align: 'center'
-  },
   image: {
     marginTop: '15px',
     height: '200px',
@@ -34,8 +21,8 @@ export class Title extends React.Component {
 
             <Container>
                 {/* <div style="width: 804px; min-height: 125px; pointer-events: none; visibility: inherit;" data-min-height="125" class="title" id="TODO"> */}
-                <div className="title">
-                    <Typography variant="h1">UT Game Jam</Typography>
+                <div className="title" style={{marginBottom: '20px'}}>
+                    <Typography variant="h1" >UT Game Jam</Typography>
                     <Typography variant="h1">2019</Typography>
                 </div>
                 
@@ -43,7 +30,7 @@ export class Title extends React.Component {
                 <Typography variant="subtitle1">36 hours</Typography>
 
                 <img src = {fallingPeople} height = "100%" width = "100%"/>
-                <Typography variant="h3">Come join us in making games,</Typography>
+                <Typography variant="h3" style={{marginTop: '50px'}}>Come join us in making games,</Typography>
                 <Typography variant="h3">friends, and memories!</Typography>
                 <div className="infoRow" id="about">
                 {/* <InfoCard

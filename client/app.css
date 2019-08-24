@@ -1,49 +1,18 @@
 
-/* .main {
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    text-align: center;
-    height: 100vh;
-    /* background-repeat: no-repeat; */
-    /* background-image: url("http://dancesportlive.net/dsl/images/under_construction.gif"); 
-}*/
-
-/* .text {
-    background-size: 15px;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    background-color: orange;
-    background-image: -webkit-linear-gradient(22.5deg, rgba(0, 0, 0, .3) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, .3) 50%, rgba(0, 0, 0, .3) 75%, transparent 75%, transparent);
-} */
-
-/* a {
-  position: block;
-  color: rgb(255, 68, 246);
-  background: #0ce970;
-  border: 0px solid;
-  margin: 2px 4px 7px 4px;
-  padding: 2px 3px;
-  border-radius: 5%;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  font-family: cursive;
-  box-shadow: 0 5px #025880;
-} */
-
-/* a:hover {
-  background-color: rgb(175, 46, 169);
-}
-
-a:active {
-  background-color: rgb(175, 46, 169);
-  box-shadow: 0 3px #666;
-  transform: translateY(2px);
-} */
-
 .fullWidthBackground {
   margin-left: -10px;
+  margin-right: -10px;
+}
+
+/* navbar */
+a.MuiButtonBase-root.MuiTab-root.MuiTab-textColorInherit {
+  font-size: 16px;
+  min-width: 0;
+}
+
+/* links */
+a {
+  color: #A52F1D;
 }
 
 @keyframes flicker {

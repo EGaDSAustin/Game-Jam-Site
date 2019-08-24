@@ -41,25 +41,25 @@ class App extends React.Component {
             <Switch>
                 <Route exact path="/" render={routeProps => (
                     <div>
-                    <ScrollToTopOnMount/>
-                    <br/>
+                      <ScrollToTopOnMount/>
+                      <br/>
                         <div id='title'><Title/></div>
-                    {/* <br/>
-                    <center>
-                        <div id="about"><InfoGrid id="about" className="about"/></div>
-                    </center>
-                    <br/> */}
-                        <div id='register'><Register/></div>
-                    <br/>
+                      {/* <br/>
+                      <center>
+                          <div id="about"><InfoGrid id="about" className="about"/></div>
+                      </center>
+                      <br/> */}
+                          <div id='register'><Register/></div>
+                      <br/>
+                      
+                      
+                          <div id='schedule'><Schedule/></div>
+                      <br/>
+                          <div id='games'><Games/></div>
+                      {/* <br/> */}
+                          <div id='sponsors'><Sponsors/></div>
                     
-                    
-                        <div id='schedule'><Schedule/></div>
-                    <br/>
-                        <div id='games'><Games/></div>
-                    <br/>
-                        <div id='sponsors'><Sponsors/></div>
-                    
-                    <Footer/>
+                      <Footer/>
                     </div>
                 )}/>
                 <Route path="/register" component={TestForm}/>
@@ -91,6 +91,7 @@ let caption_color = '#494B4E';
 let accent_color = '#E4C400';
 let white = '#FFFFFF';
 let orange = '#DC7F23';
+let yellow = "#F6B637";
 
 
 // global style
@@ -180,11 +181,20 @@ const theme = createMuiTheme({
                 boxShadow: 'none'
             },
       },
-      // MuiContainer: {
-      //   maxWidthLg: {
-      //     maxWidth: '100%'
-      //   }
-      // }
+      MuiTab: {
+        root: {
+          fontFamily: 'Raleway',
+          fontWeight: '600',
+          letterSpacing: 'normal',
+          lineHeight: '1em',
+          textTransform: 'none',
+          minHeight: '0px'
+        },
+        textColorInherit: {
+          color: dark_color,
+          opacity: 1
+        }
+      },
     }
     
 
