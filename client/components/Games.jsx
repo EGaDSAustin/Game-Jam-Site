@@ -28,17 +28,13 @@ import illegalaliens from '../assets/games/illegalaliens.png'
 import cozycatcafe from '../assets/games/cozycatcafe.png'
 
 
-const StyledContainer = styled(Container)`
-    padding-top: 5%;
-`;
-
 const styles = {
     container: {
         backgroundColor: 'white',
-        position: 'relative',
+        // position: 'relative',
         paddingBottom: '90px',
         paddingTop: '50px',
-        display: 'block'
+        // display: 'block'
     },
     header: {
         padding: '20px'
@@ -56,11 +52,6 @@ function createGallery() {
         name: "Trash Dash",
         img: trashdash,
         link: "https://raneyj.itch.io/trash-dash"
-    },
-    {
-        name: "Picture Perfect",
-        img: pictureperfect,
-        link: "https://crimecommitter.itch.io/picture-perfect"
     },
     {
         name: "Block Adventures",
@@ -81,6 +72,11 @@ function createGallery() {
         name: "Ascent",
         img: ascent,
         link: "https://feezy15.itch.io/ascent"
+    },
+    {
+        name: "Picture Perfect",
+        img: pictureperfect,
+        link: "https://crimecommitter.itch.io/picture-perfect"
     },
     {
         name: "Trashteroids",
@@ -165,11 +161,7 @@ function createGallery() {
 export class Games extends React.Component {
     render(){
         return(
-            // <Box style={styles.container}>
-            <Container maxWidth="false" style={styles.container}>
-                {/* <Typography variant="h3" align="center">
-                    Previous Game Jam Games
-                </Typography> */}
+            <div className="fullWidthBackground" style={styles.container}>
                 <Typography variant="h2" color='secondary' style={styles.header}>Previous game jam games</Typography>
                 <br/>
                 <div className="gamesGallery" align="center">
@@ -177,7 +169,7 @@ export class Games extends React.Component {
                         {createGallery()}
                     </Grid>
                 </div>
-            </Container>
+            </div>
         );
     }
 } // https://www.clickertraining.com/files/u1/lab_puppy_250.jpg
