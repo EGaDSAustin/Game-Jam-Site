@@ -14,19 +14,21 @@ import styled from 'styled-components'
  */
 
 const StyledCard = styled(Card)`
-    height: 100%;
-    width: 100%;
-    max-height: 180px;
-    max-width: 180px;
-    object-fit: cover;
+    // height: 100%;
+    // width: 100%;
+    height: 170px;
+    width: 170px;
+    // max-height: 170px;
+    // max-width: 170px;
 `;
 
 export default function SteveCard ({name, img, link}) {
     return (
-        <Grid item xs={6} sm={4} md={3} lg={2}>
+        // TODO make the spacing between items smaller and non-variable?
+        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
                     <StyledCard elevation={0}>
                         <div className="card-container">
-                            <a href={link}><img src={img} class="gallery_img" alt={name} height = "100%" width = "100%"/>
+                            <a href={link}><img src={img} class="gallery_img" alt={name} height = "100%" width = "100%" style={{objectFit: 'cover'}}/>
                             {/* <div className="name_overlay">{name}</div> */}
                             <Typography variant="h4" className="name_overlay" style={{fontSize: '20px', verticalAlign: 'middle'}}>{name}</Typography>
                             </a>

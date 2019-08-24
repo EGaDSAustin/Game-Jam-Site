@@ -142,7 +142,7 @@ const theme = createMuiTheme({
         fontSize: '18px',
         fontWeight: '600',
         letterSpacing: 'normal',
-        lineHeight: 'normal',
+        lineHeight: '1.5em',
       },
     },
 

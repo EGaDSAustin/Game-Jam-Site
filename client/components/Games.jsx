@@ -5,6 +5,28 @@ import './css/Games.css'
 import SteveCard from './SteveCard'
 import '../app.css'
 
+// game images import
+import pictureperfect from '../assets/games/pictureperfect.png'
+import blockstar from '../assets/games/blockstar.gif'
+import b_lock from '../assets/games/b-lockkk.png'
+import blockadventures from '../assets/games/blockadventures.png'
+import junkyardbrawl from '../assets/games/junkyardbrawl.png'
+import littleblockers from '../assets/games/littleblockers.png'
+import trashdash from '../assets/games/trashdash.png'
+import garbagegladiators from '../assets/games/garbagegladiators.png'
+import ascent from '../assets/games/ascent.png'
+import trashteroids from '../assets/games/trashteroids.gif'
+import tetrisblocker from '../assets/games/tetrisblocker.png'
+import ignite from '../assets/games/ignite.png'
+import missionimpawsible from '../assets/games/missionimpawsible.png'
+import deception from '../assets/games/deception.png'
+import impact from '../assets/games/impactt.png'
+import swiffersadventure from '../assets/games/swiffersadventure.png'
+import landfill from '../assets/games/landfill.png'
+import trashketbrawl from '../assets/games/trashketbrawl.png'
+import illegalaliens from '../assets/games/illegalaliens.png'
+import cozycatcafe from '../assets/games/cozycatcafe.png'
+
 
 const StyledContainer = styled(Container)`
     padding-top: 5%;
@@ -12,71 +34,126 @@ const StyledContainer = styled(Container)`
 
 const styles = {
     container: {
-        backgroundColor: 'white', 
-        // width: 'calc(100% - 0px)',
-        // width: '100vw',
- position: 'relative',
-        // margin:'0px',
-        // marginTop: '40px',
-        padding: '0px',
+        backgroundColor: 'white',
+        position: 'relative',
+        paddingBottom: '90px',
+        paddingTop: '50px',
         display: 'block'
     },
     header: {
-        padding: '40px'
+        padding: '20px'
     }
   };
 
 function createGallery() {
-    var pastGames = [{
+    var pastGames = [
+    {
+        name: "Junkyard Brawl",
+        img: junkyardbrawl,
+        link: "https://feezy15.itch.io/ascent"
+    },
+    {
+        name: "Trash Dash",
+        img: trashdash,
+        link: "https://raneyj.itch.io/trash-dash"
+    },
+    {
         name: "Picture Perfect",
-        img: "https://img.itch.zone/aW1hZ2UvMzA2MDIxLzE1MDE3OTUucG5n/347x500/LrTq%2BV.png",
+        img: pictureperfect,
         link: "https://crimecommitter.itch.io/picture-perfect"
     },
     {
+        name: "Block Adventures",
+        img: blockadventures,
+        link: "https://zorzag.itch.io/block-adventure"
+    },
+    {
+        name: "Little Blockers",
+        img: littleblockers,
+        link: "https://verybester.itch.io/little-blockers"
+    },
+    {
+        name: "Garbage Gladiators",
+        img: garbagegladiators,
+        link: "https://someotherguy.itch.io/garbage-gladiators"
+    },
+    {
         name: "Ascent",
-        img: "https://img.itch.zone/aW1nLzIyMDU2OTMucG5n/original/sJ265J.png",
+        img: ascent,
         link: "https://feezy15.itch.io/ascent"
+    },
+    {
+        name: "Trashteroids",
+        img: trashteroids,
+        link: "https://jomard123.itch.io/trashteroids"
+    },
+    { 
+        name: "Tetris Blocker",
+        img: tetrisblocker,
+        link: "https://raneyj.itch.io/tetris-blocker"
+    },
+    { 
+        name: "B-lock",
+        img: b_lock,
+        link: "https://crabtree.itch.io/block"
+    },
+    { 
+        name: "Ignite",
+        img: ignite,
+        link: "https://typesteam.itch.io/ignite"
+    },
+    {
+        name: "Block Star",
+        img: blockstar,
+        link: "https://justin2jam.itch.io/block-star"
+    },
+    { 
+        name: "Impact!",
+        img: impact,
+        link: "https://absoluthecc.itch.io/impact"
+    },
+    { 
+        name: "Mission ImPAWsible",
+        img: missionimpawsible,
+        link: "https://imcdo.itch.io/mission-impawsible"
+    },
+    { 
+        name: "LandFill",
+        img: landfill,
+        link: "https://imcdo.itch.io/landfill-2017-fall-tycoon"
+    },
+    { 
+        name: "Cozy Cat Cafe",
+        img: cozycatcafe,
+        link: "https://globalgamejam.org/2019/games/cozy-cat-cafe"
+    },
+    { 
+        name: "Deception",
+        img: deception,
+        link: "https://joyshocker.itch.io/deception-demo2"
+    },
+    { 
+        name: "Trashketbrawl",
+        img: trashketbrawl,
+        link: "https://flador.itch.io/trashketbrawl"
+    },
+    { 
+        name: "Swiffer's Adventure",
+        img: swiffersadventure,
+        link: "https://sara77789.itch.io/swiffers-adventure"
+    },
+    { 
+        name: "Illegal Aliens",
+        img: illegalaliens,
+        link: "https://jonathan-serbent.itch.io/illegal-aliens"
     },
     {
         name: "Blocker",
         img: "https://img.itch.zone/aW1hZ2UvMzA2MDQxLzE1MDE4NTguanBn/347x500/68ucyK.jpg",
         link: "https://jackyoustra.itch.io/blocker"
     },
-    { 
-        name: "Impact!",
-        img:"https://img.itch.zone/aW1hZ2UvMzA2MDMzLzE1MDE4NjYucG5n/347x500/VrPRRk.png",
-        link: "https://absoluthecc.itch.io/impact"
-    },
-    { 
-        name: "Deception",
-        img:"https://img.itch.zone/aW1hZ2UvMzA2MDU4LzE1MDE5NTcucG5n/original/KLvjhP.png",
-        link: "https://joyshocker.itch.io/deception-demo2"
-    },
-    { 
-        name: "Tetris Blocker",
-        img:"https://img.itch.zone/aW1hZ2UvMzA2MDE4LzE1MDE4NTIucG5n/original/ndIp%2Fh.png",
-        link: "https://raneyj.itch.io/tetris-blocker"
-    },
-    { 
-        name: "Illegal Aliens",
-        img:"https://img.itch.zone/aW1hZ2UvMzA1OTkxLzE1MDE2NjIucG5n/original/4AcwnV.png",
-        link: "https://jonathan-serbent.itch.io/illegal-aliens"
-    },
-    { 
-        name: "Mission ImPAWsible",
-        img:"https://img.itch.zone/aW1hZ2UvMzA2MDI2LzE1MDE4MjEucG5n/original/9LvIvA.png",
-        link: "https://imcdo.itch.io/mission-impawsible"
-    },
-    {
-        name: "Block Adventures",
-        img:"https://img.itch.zone/aW1hZ2UvMzA2MDE0LzE1MDE4NDgucG5n/original/pp6jqn.png",
-        link: "https://justin2jam.itch.io/block-star"
-    },
-    { 
-        name: "B-lock",
-        img:"https://img.itch.zone/aW1hZ2UvMzA2MDI3LzE1MDE4MzAucG5n/original/LlZsFx.png",
-        link: "https://crabtree.itch.io/block"
-    }];
+    
+];
     
     return (pastGames.map(item => 
             <SteveCard name={item.name} img={item.img} link={item.link} />
@@ -96,7 +173,7 @@ export class Games extends React.Component {
                 <Typography variant="h2" color='secondary' style={styles.header}>Previous game jam games</Typography>
                 <br/>
                 <div className="gamesGallery" align="center">
-                    <Grid container spacing={4} align="center" style={{width: '80%'}}>
+                    <Grid container spacing={3} align="center" style={{width: '70%'}}>
                         {createGallery()}
                     </Grid>
                 </div>
