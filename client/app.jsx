@@ -53,7 +53,7 @@ class App extends React.Component {
                       <br/>
                       
                       
-                          <div id='schedule'><Schedule/></div>
+                          <div><Schedule/></div>
                       <br/>
                           <div id='games'><Games/></div>
                       {/* <br/> */}

@@ -5,6 +5,9 @@ import fallingPeople from '../assets/fallingPeople.png';
 import InfoCard from './InfoCard.jsx';
 import Grid from '@material-ui/core/Grid';
 import whoImage from '../assets/circleMusic.png';
+import whatImage from '../assets/circleMusic.png';
+import whereImage from '../assets/circleMusic.png';
+import whyImage from '../assets/circleMusic.png';
 import RegisterImage from '../assets/temp_elf_handstand.JPG';
 
 const styles = {
@@ -33,43 +36,39 @@ export class Title extends React.Component {
                 <Typography variant="h3" style={{marginTop: '50px'}}>Come join us in making games,</Typography>
                 <Typography variant="h3">friends, and memories!</Typography>
                 <div className="infoRow" id="about">
-                {/* <InfoCard
-                            category='Who?'
-                            photo={whoImage}
-                            alt_text='who_image'
-                            description="This event is hosted by EGaDS! The Electronic Game Developers Society is a student organization at UT Austin.">
-                        </InfoCard> */}
-                    <div className="infoCard">
+                    <InfoCard
+                        category='Who?'
+                        photo={whoImage} alt_text='who_image'
+                        description= {
+                            <div>
+                                <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
+                                <Typography variant="subtitle1">The Electronic Game Developers Society</Typography>
+                                <Typography variant="subtitle1">is a student organization at UT Austin.</Typography>
+                            </div>
+                        }
+                        />
+                    <InfoCard
+                        category='What?'
+                        photo={whatImage} alt_text='what_image'
+                        description= "UT Game Jam is a 36 hour event where\nparticipants work in teams to create a\nvideo game given a theme."/>
+                    {/* <div className="infoCard">
                         <img src={whoImage} alt='who_image' style={styles.image}/>
                         <Typography variant="h2">Who?</Typography>
                         <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
                         <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
-                    </div>
-                    <div className="infoCard">
-                        <img src={whoImage} alt='who_image' style={styles.image}/>
-                        <Typography variant="h2">Who?</Typography>
-                        <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
-                        <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
-                    </div>
+                    </div> */}
                 </div>
                 
-                  <div className="infoRow2" id="register">
-                      <div className="infoCard">
-                          <img src={whoImage} alt='who_image' style={styles.image}/>
-                          <Typography variant="h2">Who?</Typography>
-                          <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
-                          <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
-                      </div>
-                      
-                      <div className="infoCard">
-                          <img src={whoImage} alt='who_image' style={styles.image}/>
-                          <Typography variant="h2">Who?</Typography>
-                          <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
-                          <Typography variant="subtitle1">The Electronic Game Developers Society is a student organization at UT Austin.</Typography>
-                      </div>
-                    </div>
-
-                  {/* TODO: make this inline with the where why blocks*/}
+                <div className="infoRow" id="register">
+                    <InfoCard
+                        category='Where?'
+                        photo={whereImage} alt_text='where_image'
+                        description= "Multiple locations around\nThe University of Texas at\nAustin. See schedule for\nmore details!"/>
+                    <InfoCard
+                        category='Why?'
+                        photo={whyImage} alt_text='why_image'
+                        description= "Learn new skills and/or\nhone existing ones\nwhile making your own\ngame!"/>
+                </div>
                   <img src = {RegisterImage} alt='register image' style={{maxWidth: '100%', width: 'auto', position: 'relative', top: '-150px', marginBottom: '-150px'}}/>
             </Container>
         );

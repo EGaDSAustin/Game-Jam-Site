@@ -28,6 +28,9 @@ const StyledTimes = styled(Typography)`
 `
 
 const styles = {
+    header: {
+        padding: '20px'
+    },
     date: {
       marginLeft: '5px',
       marginBottom: '20px',
@@ -65,9 +68,7 @@ export class Schedule extends React.Component {
     render(){
         return(
             <StyledContainer maxWidth = "xl" align="center" >
-                <Typography variant="h2" color='secondary'>Schedule</Typography>
-                
-                <br/>
+                <Typography variant="h2" color='secondary' id="schedule" style={styles.header}>Schedule</Typography>
 
                 {/* TODO: the schedules may not be centered. also refactor code */}
                 <Grid container spacing = {5} style={{flexWrap: 'nowrap', marginLeft: '20px',  align: 'center', width:'80%'}}>

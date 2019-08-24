@@ -84,10 +84,14 @@ a {
     animation-iteration-count: infinite;
 }
 
+.infoRow .infoCard {
+  padding: 20px 130px;
+}
+
 .infoCard {
     display: inline-block;
-    width: 382px;
-    padding: 100px;
+    /* width: 382px; */
+    /* padding: 100px; */
 }
 
 .scheduleElem {
