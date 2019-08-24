@@ -49,12 +49,12 @@ class App extends React.Component {
                           <div id="about"><InfoGrid id="about" className="about"/></div>
                       </center>
                       <br/> */}
-                          <div id='register'><Register/></div>
-                      <br/>
+                          <div><Register/></div>
+                      {/* <br/> */}
                       
                       
                           <div><Schedule/></div>
-                      <br/>
+                      {/* <br/> */}
                           <div id='games'><Games/></div>
                       {/* <br/> */}
                           <div id='sponsors'><Sponsors/></div>

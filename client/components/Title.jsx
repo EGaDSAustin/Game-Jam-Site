@@ -33,7 +33,7 @@ export class Title extends React.Component {
                 <Typography variant="subtitle1">36 hours</Typography>
 
                 <img src = {fallingPeople} height = "100%" width = "100%"/>
-                <Typography variant="h3" style={{paddingTop: '50px'}} id="about">Come join us in making games,</Typography>
+                <Typography variant="h3" style={{paddingTop: '40px'}} id="about">Come join us in making games,</Typography>
                 <Typography variant="h3">friends, and memories!</Typography>
                 <Grid container spacing={9}>
                     <Grid item xs={6}>
@@ -61,7 +61,7 @@ export class Title extends React.Component {
                         </Grid>
                     </Grid>
                 
-                <Grid container spacing={4} justify="center">
+                <Grid container spacing={4} justify="center" id="register">
                     <Grid item xs={5}>
                     <InfoCard
                         category='Where?'
