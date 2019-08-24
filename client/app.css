@@ -84,15 +84,13 @@ a {
     animation-iteration-count: infinite;
 }
 
-.infoRow .infoCard {
-  padding: 20px 130px;
-}
+/* .infoRow .infoCard {
+  padding: 20px 133px;
+} */
 
-.infoCard {
+/* .infoCard {
     display: inline-block;
-    /* width: 382px; */
-    /* padding: 100px; */
-}
+} */
 
 .scheduleElem {
     background-color: white;
