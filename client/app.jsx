@@ -8,12 +8,12 @@ import { TestForm } from "/forms"
 
 import { Navbar } from './components/Navbar';
 import { Title } from './components/Title';
-import { InfoGrid } from './components/InfoGrid';
 import { Register } from './components/Register';
 import { Schedule } from './components/Schedule';
 import { Games } from './components/Games';
 import { Sponsors } from './components/Sponsors';
 import { Footer } from './components/Footer';
+import FadeIn from './components/FadeInOnView.jsx';
 
 const formUrl = "https://forms.gle/gDWmRyD17iM6np3f9"
 
@@ -55,9 +55,11 @@ class App extends React.Component {
             </Switch>
             </Router>
             </MuiThemeProvider>
+            // animateHTML();
         );
     }
 }
+
 
 function hashLinkScroll() {
     const { hash } = window.location;
@@ -185,7 +187,7 @@ const theme = createMuiTheme({
           opacity: 1
         }
       },
-    }
+    },
 });
 
 

@@ -1,6 +1,6 @@
 import React, {useState, Component} from 'react';
 import { Container, Typography, Link, Grid, Paper } from '@material-ui/core'
-import SteveCard from './SteveCard'
+import GameCard from './GameCard'
 import styled from 'styled-components'
 
 const StyledContainer = styled(Container)`
@@ -78,47 +78,6 @@ export function Sponsors () {
             logo: "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg",
             link: "http://www.cutestpaw.com/tag/dogs/",
         },
-        {
-            name: "NootNoot",
-            logo: "https://emblemsbf.com/img/91217.jpg",
-            link: "http://nootnoot.net/",
-        },
-        {
-            name: "NootNoot",
-            logo: "https://emblemsbf.com/img/91217.jpg",
-            link: "http://nootnoot.net/",
-        },
-        {
-            name: "NootNoot",
-            logo: "https://emblemsbf.com/img/91217.jpg",
-            link: "http://nootnoot.net/",
-        },
-        {
-            name: "NootNoot",
-            logo: "https://emblemsbf.com/img/91217.jpg",
-            link: "http://nootnoot.net/",
-        },
-        {
-            name: "NootNoot",
-            logo: "https://emblemsbf.com/img/91217.jpg",
-            link: "http://nootnoot.net/",
-        },
-        {
-            name: "NootNoot",
-            logo: "https://emblemsbf.com/img/91217.jpg",
-            link: "http://nootnoot.net/",
-        },
-        {
-            name: "NootNoot",
-            logo: "https://emblemsbf.com/img/91217.jpg",
-            link: "http://nootnoot.net/",
-        },
-        {
-            name: "Straw Hat Squad",
-            logo: "https://img03.deviantart.net/2186/i/2011/009/1/e/one_piece_luffy_smile_by_g_manbg-d36riyu.jpg",
-            link: "https://onepace.net/?episode=123",
-        },
-        
     ];
 
     return(
@@ -141,7 +100,7 @@ export function Sponsors () {
         //         </Typography>
         //         <Grid container spacing={1}>
         //         {sponsors.map(sponsor => 
-        //             <SteveCard name={sponsor.name} img={sponsor.logo} link={sponsor.link} />
+        //             <GameCard name={sponsor.name} img={sponsor.logo} link={sponsor.link} />
         //         )}
         //     </Grid>
         //     </StyledContainer>

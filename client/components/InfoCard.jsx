@@ -18,7 +18,9 @@ const InfoCard = (props) => {
   return (
     <div className="infoCard" padding='20px'>
         <img src={props.photo} alt={props.alt_text} style={styles.image}/>
-        <Typography variant="h2">{props.category}</Typography>
+        <Typography variant="h2" style={{marginBottom: '5px'}}>{props.category}</Typography>
+
+        {/* Determines how to format the description based on the type */}
         {(typeof props.description == "string") ? 
           props.description.split("\\n").map((i) => {
               return <Typography variant="subtitle1">{i}</Typography>;

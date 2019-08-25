@@ -28,17 +28,13 @@ export class Navbar extends React.Component {
         return (
             <React.Fragment>
                 <img src={icon} alt='navbar icon' style={{marginTop: '20px'}}/>
-                {/* <AppBar position="static"> */}
-                    <StyledTabs centered style={{marginTop: '0'}}>
+                    <StyledTabs centered style={{marginTop: '0'}} className="navbar">
                         <Tab value={0} label="Home" to="/" onClick={ScrollToTop} component={Link} />
                         <Tab value={1} label="About" to="/#about" smooth component={NavHashLink}/>
                         <Tab value={2} label="Register" to="/#register" smooth component={NavHashLink}/>
                         <Tab value={3} label="Schedule" to="/#schedule" smooth component={NavHashLink}/>
-                        {/* <Tab value={3} label="Games" to="/#games" smooth component={NavHashLink}/> */}
                         <Tab value={4} label="Sponsors" to="/#sponsors" smooth component={NavHashLink}/>
-                        
                     </StyledTabs>
-                {/* </AppBar> */}
             </React.Fragment>
         );
     }

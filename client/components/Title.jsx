@@ -14,13 +14,14 @@ export class Title extends React.Component {
     render() {
         return(
             <Container>
-                <div className="title" style={{marginBottom: '20px'}}>
+                {/* zIndex shows stack position, must have position set to work */}
+                <div className="title" style={{marginBottom: '20px', zIndex: '6', position: 'relative'}}>
                     <Typography variant="h1" >UT Game Jam</Typography>
                     <Typography variant="h1">2019</Typography>
                 </div>
 
                 {/* zIndex shows stack position, must have position set to work */}
-                <div style={{zIndex: '6', position: 'relative'}}>
+                <div className="title_description" style={{zIndex: '6', position: 'relative'}}>
                     <Typography variant="subtitle1">September 20th</Typography>
                     <Typography variant="subtitle1">36 hours</Typography>
                 </div>

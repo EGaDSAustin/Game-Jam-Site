@@ -36,6 +36,12 @@ const styles = {
         width: '369px', 
         marginLeft: '0px',
         maxWidth: '369px'
+    },
+    mainGrid: {
+        flexWrap: 'nowrap', 
+        marginLeft: '20px',
+        align: 'center',
+        width:'80%'
     }
   };
 
@@ -123,7 +129,7 @@ const schedule_info = [
 function createSchedule() {
     return (
         // MAIN GRID that holds all the days
-        <Grid container spacing = {5} style={{flexWrap: 'nowrap', marginLeft: '20px',  align: 'center', width:'80%'}}>
+        <Grid container spacing = {5} style={styles.mainGrid} className="hidden">
             {schedule_info.map(date_item => {
                 console.log("date_item.date",date_item)
                 return (
