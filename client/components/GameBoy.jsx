@@ -5,13 +5,13 @@ import GameBoyImage from '../assets/gb_screen.png'
 import styled from 'styled-components'
 
 const StyledContainer = styled(Container)`
-    
-    
-`; //:( :c :O :[ >:] :> :3 (~ o_o)~ 
-//y scre
-
-
-
+    background-image: url(${GameBoyImage});
+    width:50vh;
+    height:50vh;
+    max-width:50vh;
+    max-height: 50vh;
+`; 
+//hmmmmmm :thinking:
 const questions = [
     // Required
     {
@@ -164,9 +164,8 @@ export function GameBoy() {
 
     return(
     <StyledContainer>
-        
         <FormControl>
-            <img src = {GameBoyImage}/>
+            {/* <img src={GameBoyImage}/> */}
             {screens[questionNumber]}
             <Button onClick={prevScreen}>PREV</Button>
             <Button onClick={nextScreen}>NEXT</Button>
@@ -180,7 +179,7 @@ export function GameBoy() {
 function Screen({type, question, state, index, update, next}) {
     const [value, setValue] = useState("");
     const [idx, setIdx] = useState(index);
-    // FIXME: figure out if on blure happens on button click, send a submiT command
+    // FIXME: figure out if on blur happens on button click, send a submiT command
     // on next click
     // TODO: whole component
     // Pass in the update stoof
@@ -193,6 +192,7 @@ function Screen({type, question, state, index, update, next}) {
     });
 
     return(
+    
     <div id={`${question.name}-screen`} className="screen">
             <InputLabel>{`${question.name}: `}</InputLabel>
             <Input type={type} value={value}
@@ -205,7 +205,7 @@ function Screen({type, question, state, index, update, next}) {
             }}
         />
     </div>
-    ); 
+    );
 }
 
 export default GameBoy;
