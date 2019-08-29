@@ -1,5 +1,5 @@
 import React, {useState, useEffect, Component} from 'react'
-import { CardMedia, FormControl, Input, InputLabel, Select, Button, Container } from '@material-ui/core';
+import { CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
 import axios from 'axios';
 import GameBoyImage from '../assets/gb_screen.png'
 import styled from 'styled-components'
@@ -8,6 +8,7 @@ const StyledContainer = styled(Container)`
     background-image: url(${GameBoyImage});
     background-repeat: no-repeat;
     background-size: 50vh 50vh;
+    background-position: center;
     width:50vh;
     height:50vh;
     padding: 4vh;
@@ -22,9 +23,17 @@ const questions = [
     // Required
     {
         name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
-        type: "number", // could also be text or number depending on ^
+        type: "text", // could also be text or number depending on ^
         required: true,
-        key: "year"
+        key: "year",
+        choices: [
+            "Freshman",
+            "Softmore",
+            "Junior",
+            "Senior",
+            "Super Senior",
+            "Other"
+        ]
     },
     {
         name: 'Email',
@@ -196,9 +205,32 @@ function Screen({type, question, state, index, update, next, prev}) {
         }
     });
 
+    if (question.choices != null) {
+        return(
+            <div id={`${question.name}-screen`} className="screen">
+            <InputLabel>{question.name}</InputLabel>
+            <Select
+                value={value}
+                onBlur={e => {
+                    setValue(e.target.value);
+                    update(value);
+                }}
+                onChange={e => {
+                    setValue(e.target.value)
+                }}
+                >
+                {/* FIXME: doesnt work */}
+                {question.choices.map(c => {
+                    <MenuItem value={c}>c</MenuItem>
+                })}
+            </Select>
+            <Button onClick={prev}>PREV</Button>
+            <Button onClick={next}>NEXT</Button>
+        </div>
+        );
+    }
     return(
-    
-    <div id={`${question.name}-screen`} className="screen">
+        <div id={`${question.name}-screen`} className="screen">
             <InputLabel>{`${question.name}: `}</InputLabel>
             <Input type={type} value={value}
             onBlur={e => {
@@ -209,12 +241,11 @@ function Screen({type, question, state, index, update, next, prev}) {
                 setValue(e.target.value)
             }}
 
-        />
-        <Button onClick={prev}>PREV</Button>
-        <Button onClick={next}>NEXT</Button>
-    </div>
-
-    );
+            />
+            <Button onClick={prev}>PREV</Button>
+            <Button onClick={next}>NEXT</Button>
+        </div>
+        );
 }
 
 export default GameBoy;
