@@ -6,12 +6,18 @@ import styled from 'styled-components'
 
 const StyledContainer = styled(Container)`
     background-image: url(${GameBoyImage});
+    background-repeat: no-repeat;
+    background-size: 50vh 50vh;
     width:50vh;
     height:50vh;
+    padding: 4vh;
     max-width:50vh;
     max-height: 50vh;
 `; 
-//hmmmmmm :thinking:
+
+
+
+//hmmm :thinking:
 const questions = [
     // Required
     {
@@ -123,13 +129,36 @@ export function GameBoy() {
         then(result => console.log(`response: ${result}`)).
         catch(err => {
             // FIXME: IDK something logical maybe
+            console.log(err);
             throw err;
         });
     } 
 
+    
+
+    
+    const screens = [
+        ...questions.map((q, idx) => 
+        <Screen 
+            type={q.type} 
+            question={q}
+            state={submission}
+            index={idx}
+            update={value => updateSubmission(q.key, value)}
+            next={nextScreen}
+            prev={prevScreen}
+        />),
+        <Button
+            onClick={()=> {
+                console.log(`submission is: ${submission}`);
+                submitSumbmission(submission);
+            }}
+        >Submit Form!</Button>
+    ];
+
     function nextScreen() {
-        if (questionNumber+1 == questions.length) {
-            
+        if (questionNumber == screens.length) {
+            console.log("END OF QUESTIONS");
         } else {
             setQuestionNumber(questionNumber+1);
         }
@@ -138,45 +167,21 @@ export function GameBoy() {
     function prevScreen() {
         setQuestionNumber(Math.max(questionNumber-1, 0));
     };
-
-    
-    const screens = [
-        ...questions.map((q, idx )=> 
-        <Screen 
-            type={q.type} 
-            question={q}
-            state={submission}
-            index={idx}
-            update={value => updateSubmission(q.key, value)}
-            next={nextScreen}
-        />),
-        <Screen
-            type={"submit"} 
-            question={{name: "submit"}}
-            state={submission}
-            index={questions.length}
-            update={value => {}}
-            next={() => {}}
-        />
-    ];
     
 
 
     return(
     <StyledContainer>
         <FormControl>
-            {/* <img src={GameBoyImage}/> */}
             {screens[questionNumber]}
-            <Button onClick={prevScreen}>PREV</Button>
-            <Button onClick={nextScreen}>NEXT</Button>
+           
         </FormControl>
     </StyledContainer>
     );
 }
 
 
-
-function Screen({type, question, state, index, update, next}) {
+function Screen({type, question, state, index, update, next, prev}) {
     const [value, setValue] = useState("");
     const [idx, setIdx] = useState(index);
     // FIXME: figure out if on blur happens on button click, send a submiT command
@@ -203,8 +208,12 @@ function Screen({type, question, state, index, update, next}) {
             onChange={e => {
                 setValue(e.target.value)
             }}
+
         />
+        <Button onClick={prev}>PREV</Button>
+        <Button onClick={next}>NEXT</Button>
     </div>
+
     );
 }
 
