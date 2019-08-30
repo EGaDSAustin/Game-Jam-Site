@@ -79,7 +79,7 @@ const questions = [
     },
     {
         name: 'Experience Level',
-        type: "text",
+        type: "subQuestion",
         required: true,
         subQuestions:[
             {
@@ -262,7 +262,40 @@ function Screen({type, question, state, index, update, next, prev}) {
             <Button onClick={next}>NEXT</Button>
         </div>
         );
+    } else if (question.subQuestions != null) {
+        if (value == null) value = {}; 
+
+        return(
+            <div id={`${question.name}-screen`} className="screen">
+            <Typography>{question.name}</Typography>
+            <Typography>{`value: ${value}`}</Typography>
+            <br/>
+            <FormControl>
+                {question.subQuestions.map((q, idx) => 
+                    <div id={`${question.name}-subQuestion-${q.name}`} className="subQuestion">
+                        <InputLabel>{`${q.name}: `}</InputLabel>
+                        <Input type={q.type} value={value[q.key]}
+                            onBlur={e => {
+                                let v = {...value};
+                                v[q.key] = e.target.value;
+                                setValue(v);
+                                update(value);
+                            }}
+                            onChange={e => {
+                                let v = {...value};
+                                v[q.key] = e.target.value;
+                                setValue(v);
+                            }}
+                        />
+                    </div>
+                )}
+            </FormControl>
+            <Button onClick={prev}>PREV</Button>
+            <Button onClick={next}>NEXT</Button>
+        </div>
+        );
     }
+    // FIMXE: this needs fixin
     return(
         <div id={`${question.name}-screen`} className="screen">
             <InputLabel>{`${question.name}: `}</InputLabel>
