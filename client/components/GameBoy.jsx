@@ -1,5 +1,5 @@
 import React, {useState, useEffect, Component} from 'react'
-import { CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
+import { Typography, CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
 import axios from 'axios';
 import GameBoyImage from '../assets/gb_screen.png'
 import styled from 'styled-components'
@@ -81,6 +81,45 @@ const questions = [
         name: 'Experience Level',
         type: "text",
         required: true,
+        subQuestions:[
+            {
+                name: "programming",
+                type: "number", 
+                key: "programming"
+                
+            },
+            {
+                name: "programming",
+                type: "number", 
+                key: "programming"
+            },
+            {
+                name: "programming",
+                type: "number", 
+                key: "programming"
+            },
+            {
+                name: "programming",
+                type: "number", 
+                key: "programming"
+            },
+            {
+                name: "programming",
+                type: "number", 
+                key: "programming"
+            },
+            {
+                name: "programming",
+                type: "number", 
+                key: "programming"
+            },
+            {
+                name: "programming",
+                type: "number", 
+                key: "programming"
+            },
+           
+        ],
         key: "experience_level"
     },
     {
@@ -211,18 +250,13 @@ function Screen({type, question, state, index, update, next, prev}) {
             <InputLabel>{question.name}</InputLabel>
             <Select
                 value={value}
-                onBlur={e => {
-                    setValue(e.target.value);
-                    update(value);
-                }}
                 onChange={e => {
                     setValue(e.target.value)
                 }}
                 >
-                {/* FIXME: doesnt work */}
-                {question.choices.map(c => {
-                    <MenuItem value={c}>c</MenuItem>
-                })}
+                {question.choices.map(c => 
+                    <MenuItem value={c}>{c}</MenuItem>
+                )}
             </Select>
             <Button onClick={prev}>PREV</Button>
             <Button onClick={next}>NEXT</Button>
@@ -242,6 +276,7 @@ function Screen({type, question, state, index, update, next, prev}) {
             }}
 
             />
+            <br/>
             <Button onClick={prev}>PREV</Button>
             <Button onClick={next}>NEXT</Button>
         </div>
