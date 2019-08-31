@@ -1,5 +1,5 @@
 import React, {useState, useEffect, Component} from 'react'
-import { Typography, CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
+import { Slider, Typography, CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
 import axios from 'axios';
 import GameBoyImage from '../assets/gb_screen.png'
 import styled from 'styled-components'
@@ -83,40 +83,33 @@ const questions = [
         required: true,
         subQuestions:[
             {
-                name: "programming",
-                type: "number", 
+                name: "Programming",
                 key: "programming"
                 
             },
             {
-                name: "programming",
-                type: "number", 
-                key: "programming"
+                name: "2D Art",
+                key: "two_d_art"
             },
             {
-                name: "programming",
-                type: "number", 
-                key: "programming"
+                name: "3D modeling",
+                key: "three_d_art"
             },
             {
-                name: "programming",
-                type: "number", 
-                key: "programming"
+                name: "Music",
+                key: "music"
             },
             {
-                name: "programming",
-                type: "number", 
-                key: "programming"
+                name: "Writing",
+                key: "narrative"
             },
             {
-                name: "programming",
-                type: "number", 
-                key: "programming"
+                name: "Game Audio",
+                key: "sound"
             },
             {
-                name: "programming",
-                type: "number", 
-                key: "programming"
+                name: "Design",
+                key: "design"
             },
            
         ],
@@ -126,7 +119,8 @@ const questions = [
         name: 'Preferred Disciplines',
         type: "text",
         required: true,
-        key: "preferred_disciplines"
+        key: "preferred_disciplines",
+        multi: true
     },
     {
         name: 'Resume',
@@ -139,7 +133,8 @@ const questions = [
         name: 'Preferred Teammates',
         type: "text",
         required: false,
-        key: "desired_teammates"
+        key: "desired_teammates",
+        multi: true
     },
     {
         name: 'Portfolio Link',
@@ -222,9 +217,80 @@ export function GameBoy() {
     <StyledContainer>
         <FormControl>
             {screens[questionNumber]}
-           
         </FormControl>
     </StyledContainer>
+    );
+}
+
+
+
+function SelectQuestion({question, setValue, value}) {
+    
+    return(
+        <div id={`${question.name}-screen`} className="screen">
+        <InputLabel>{question.name}</InputLabel>
+        <Select
+            value={value}
+            onChange={e => {
+                setValue(e.target.value);
+            }}
+            >
+            {question.choices.map(c => 
+                <MenuItem value={c}>{c}</MenuItem>
+            )}
+        </Select>
+    </div>
+    );
+}
+
+function MultiString({question, setValue, value, startAmount=3}) {
+    debugger;
+    if (value == [] || value == "" || value == null || value == {} /*???*/) {
+        console.log(value);
+        setValue(Array(startAmount).fill(""));
+    }
+    useEffect(()=> console.log(value));
+    return (
+        <div>
+            <Typography>{question.name}</Typography>
+            {
+                value.map((v, idx) => 
+                <div>
+                    <Input type={type} value={value}
+                    onChange={e => {
+                        let v = value;
+                        v[idx] = e.target.value;
+                        setValue(v);
+                    }}
+                    />
+                    
+                    <Button onClick={setValue([...value].splice(idx, 1))}>remove</Button>
+                </div>)
+            }
+            <Button onClick={setValue([...value, ""])}>add</Button>
+
+        </div>
+    );
+}
+
+function MultiQuestion({question, idx, setValue, value}) {
+    return(
+        <div id={`subQuestion-${question.name}`} className="subQuestion">
+        <Typography>{`${question.name}: `}</Typography>
+        <Slider 
+            value={value[question.key] != null ? value[question.key]:0}
+            onChange={(e, tgt) => {
+                let v = {...value};
+                v[question.key] =tgt;
+                setValue(v);
+            }}
+            min={0}
+            max={5}
+            marks
+            valueLabelDisplay="auto"
+            aria-labelledby="discrete-slider"
+        />
+    </div>
     );
 }
 
@@ -246,56 +312,53 @@ function Screen({type, question, state, index, update, next, prev}) {
 
     if (question.choices != null) {
         return(
-            <div id={`${question.name}-screen`} className="screen">
-            <InputLabel>{question.name}</InputLabel>
-            <Select
+        <div>
+            <SelectQuestion
+                question={question}
                 value={value}
-                onChange={e => {
-                    setValue(e.target.value)
-                }}
-                >
-                {question.choices.map(c => 
-                    <MenuItem value={c}>{c}</MenuItem>
-                )}
-            </Select>
+                setValue={(v) => {setValue(v); update(v);}}
+            />
             <Button onClick={prev}>PREV</Button>
             <Button onClick={next}>NEXT</Button>
         </div>
         );
     } else if (question.subQuestions != null) {
-        if (value == null) value = {}; 
+        if (value == "") setValue({}); 
 
         return(
             <div id={`${question.name}-screen`} className="screen">
             <Typography>{question.name}</Typography>
-            <Typography>{`value: ${value}`}</Typography>
             <br/>
-            <FormControl>
                 {question.subQuestions.map((q, idx) => 
-                    <div id={`${question.name}-subQuestion-${q.name}`} className="subQuestion">
-                        <InputLabel>{`${q.name}: `}</InputLabel>
-                        <Input type={q.type} value={value[q.key]}
-                            onBlur={e => {
-                                let v = {...value};
-                                v[q.key] = e.target.value;
-                                setValue(v);
-                                update(value);
-                            }}
-                            onChange={e => {
-                                let v = {...value};
-                                v[q.key] = e.target.value;
-                                setValue(v);
-                            }}
-                        />
-                    </div>
+                    <MultiQuestion 
+                        question={q}
+                        idx={idx}
+                        setValue={(v) => {setValue(v); update(v);}}
+                        value={value}
+                    />
                 )}
-            </FormControl>
+                <br/>
             <Button onClick={prev}>PREV</Button>
             <Button onClick={next}>NEXT</Button>
         </div>
         );
+    } else if (question.multi) {
+        if (value == "") setValue([]); 
+
+        return(
+        <div id={`${question.name}-screen`} className="screen">
+            <MultiString 
+                question={question}
+                value={value}
+                setValue={(v) => {setValue(v); update(v);}}
+            />
+            <br/>
+            <Button onClick={prev}>PREV</Button>
+            <Button onClick={next}>NEXT</Button>
+        </div>
+        );
+
     }
-    // FIMXE: this needs fixin
     return(
         <div id={`${question.name}-screen`} className="screen">
             <InputLabel>{`${question.name}: `}</InputLabel>
