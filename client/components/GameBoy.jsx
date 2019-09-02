@@ -111,7 +111,6 @@ const questions = [
                 name: "Design",
                 key: "design"
             },
-           
         ],
         key: "experience_level"
     },
@@ -158,7 +157,30 @@ const questions = [
 
 export function GameBoy() {
     const [questionNumber, setQuestionNumber] = useState(0);
-    const [submission, setSubmission] = useState({});
+    const [submission, setSubmission] = useState({
+        email: "",
+        first_name: "",
+        last_name: "",
+        pronouns: "",
+        school: "",
+        major: "",
+        year: "",
+        experience_level: {
+            programming: 0,
+            two_d_art: 0,
+            three_d_art: 0,
+            music: 0,
+            sound: 0,
+            design: 0,
+            narrative: 0
+        },
+        preferred_disciplines: [],
+        resume_link: "",
+        desired_teamates: [],
+        portfolio: "",
+        linkedIn: "",
+        github: ""
+    });
 
     function updateSubmission(key, value) {
         const sub = {...submission}
@@ -177,30 +199,8 @@ export function GameBoy() {
         });
     } 
 
-    
-
-    
-    const screens = [
-        ...questions.map((q, idx) => 
-        <Screen 
-            type={q.type} 
-            question={q}
-            state={submission}
-            index={idx}
-            update={value => updateSubmission(q.key, value)}
-            next={nextScreen}
-            prev={prevScreen}
-        />),
-        <Button
-            onClick={()=> {
-                console.log(`submission is: ${submission}`);
-                submitSumbmission(submission);
-            }}
-        >Submit Form!</Button>
-    ];
-
     function nextScreen() {
-        if (questionNumber == screens.length) {
+        if (questionNumber == questions.length) {
             console.log("END OF QUESTIONS");
         } else {
             setQuestionNumber(questionNumber+1);
@@ -216,7 +216,16 @@ export function GameBoy() {
     return(
     <StyledContainer>
         <FormControl>
-            {screens[questionNumber]}
+            {
+                <Screen 
+                    question={questions[questionNumber]}
+                    state={submission}
+                    value={submission[questions[questionNumber].key]}
+                    setValue={value => updateSubmission(questions[questionNumber].key, value)}
+                />
+            }
+            <Button onClick={prevScreen}>PREV</Button>
+            <Button onClick={nextScreen}>NEXT</Button>
         </FormControl>
     </StyledContainer>
     );
@@ -244,30 +253,27 @@ function SelectQuestion({question, setValue, value}) {
 }
 
 function MultiString({question, setValue, value, startAmount=3}) {
-    debugger;
-    if (value == [] || value == "" || value == null || value == {} /*???*/) {
-        console.log(value);
-        setValue(Array(startAmount).fill(""));
-    }
-    useEffect(()=> console.log(value));
     return (
         <div>
             <Typography>{question.name}</Typography>
+            <Typography>{JSON.stringify(value)}</Typography>
+            <FormControl>
             {
-                value.map((v, idx) => 
+                value.map((rv, idx) => 
                 <div>
-                    <Input type={type} value={value}
+                    <Input type="string" value={value[idx]}
                     onChange={e => {
-                        let v = value;
+                        let v = [...value];
                         v[idx] = e.target.value;
                         setValue(v);
                     }}
                     />
                     
-                    <Button onClick={setValue([...value].splice(idx, 1))}>remove</Button>
+                    <Button onClick={()=>setValue([...value].splice(idx, 1))}>remove</Button>
                 </div>)
             }
-            <Button onClick={setValue([...value, ""])}>add</Button>
+            </FormControl>
+            <Button onClick={()=>setValue([...value, ""])}>add</Button>
 
         </div>
     );
@@ -290,93 +296,59 @@ function MultiQuestion({question, idx, setValue, value}) {
             valueLabelDisplay="auto"
             aria-labelledby="discrete-slider"
         />
+
+        {/* FIXME: NEXT AND PREV BUTTON MOVED HERE */}
+    </div>
+    );
+}
+
+function StringScreen({question, setValue, value}) {
+    return (
+        <div id={`${question.name}-screen`} className="screen">
+        <InputLabel>{`${question.name}: `}</InputLabel>
+        <Input type={question.type} value={value}
+        onChange={e => {
+            setValue(e.target.value)
+        }}
+
+        />
     </div>
     );
 }
 
 
-function Screen({type, question, state, index, update, next, prev}) {
-    const [value, setValue] = useState("");
-    const [idx, setIdx] = useState(index);
-    // FIXME: figure out if on blur happens on button click, send a submiT command
-    // on next click
-    // TODO: whole component
-    // Pass in the update stoof
+function isArray(v) {
+    return v !== null && v instanceof Array
+}
 
-    useEffect(() => {
-        if (idx != index) {
-            setValue(state[question.key] || "");
-            setIdx(index);
-        }
-    });
+function isObj(v) {
+    return typeof v==='object' && v!==null && !(v instanceof Array) && !(v instanceof Date);
+}
 
+function Screen({question, value, setValue}) {
     if (question.choices != null) {
-        return(
-        <div>
-            <SelectQuestion
-                question={question}
-                value={value}
-                setValue={(v) => {setValue(v); update(v);}}
-            />
-            <Button onClick={prev}>PREV</Button>
-            <Button onClick={next}>NEXT</Button>
-        </div>
-        );
-    } else if (question.subQuestions != null) {
-        if (value == "") setValue({}); 
-
-        return(
-            <div id={`${question.name}-screen`} className="screen">
-            <Typography>{question.name}</Typography>
-            <br/>
-                {question.subQuestions.map((q, idx) => 
-                    <MultiQuestion 
-                        question={q}
-                        idx={idx}
-                        setValue={(v) => {setValue(v); update(v);}}
-                        value={value}
-                    />
-                )}
-                <br/>
-            <Button onClick={prev}>PREV</Button>
-            <Button onClick={next}>NEXT</Button>
-        </div>
-        );
-    } else if (question.multi) {
-        if (value == "") setValue([]); 
-
-        return(
+        return (SelectQuestion({question: question, setValue: setValue, value: value}));
+    // } else if (question.multi != null) {
+    } else if (isObj(value)) {
+        return (
         <div id={`${question.name}-screen`} className="screen">
-            <MultiString 
-                question={question}
-                value={value}
-                setValue={(v) => {setValue(v); update(v);}}
-            />
-            <br/>
-            <Button onClick={prev}>PREV</Button>
-            <Button onClick={next}>NEXT</Button>
+        <Typography>{question.name}</Typography>
+        <br/>
+            {question.subQuestions.map((q, idx) => 
+                <MultiQuestion 
+                    question={q}
+                    idx={idx}
+                    setValue={setValue}
+                    value={value}
+                />
+            )}
         </div>
         );
-
+    } else if (isArray(value)) {
+        return(MultiString({question: question, setValue: setValue, value: value}));
+    } else {
+        return (StringScreen({question: question, value:value, setValue:setValue}));
     }
-    return(
-        <div id={`${question.name}-screen`} className="screen">
-            <InputLabel>{`${question.name}: `}</InputLabel>
-            <Input type={type} value={value}
-            onBlur={e => {
-                setValue(e.target.value);
-                update(value);
-            }}
-            onChange={e => {
-                setValue(e.target.value)
-            }}
-
-            />
-            <br/>
-            <Button onClick={prev}>PREV</Button>
-            <Button onClick={next}>NEXT</Button>
-        </div>
-        );
 }
 
 export default GameBoy;
