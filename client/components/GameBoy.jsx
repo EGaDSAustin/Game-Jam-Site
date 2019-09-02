@@ -1,5 +1,5 @@
 import React, {useState, useEffect, Component} from 'react'
-import { Slider, Typography, CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
+import { IconButton, Slider, Typography, CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import axios from 'axios';
 import GameBoyImage from '../assets/gb_screen.png';
@@ -7,6 +7,7 @@ import styled from "styled-components";
 import SnackBar from "./SnackBar";
 import {withRouter} from 'react-router-dom'
 import { Link as RouterLink } from 'react-router-dom'
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const StyledContainer = styled(Container)`
     background-image: url(${GameBoyImage});
@@ -20,7 +21,7 @@ const StyledContainer = styled(Container)`
     max-height: 80vmin;
  `; 
 
-const screenStyles = makeStyles({
+const screenStyles = makeStyles(theme => ({
     sliderPage: {
         align: "center",
         wwidth: "30vh",
@@ -33,11 +34,10 @@ const screenStyles = makeStyles({
         
     },
     multiStringFieldDeleteButton: {
-        color: "red",
-        width: "10%",
-
+        backgroundColor: theme.palette.error.dark,
+        color: "white"
     }
-});
+}));
 
 // const classes=useStyles(); <div classname={classes.sliderPage}></div>
 
@@ -324,12 +324,15 @@ function MultiStringField({value, setValue, deleteField}) {
     const classes = screenStyles();
     
     return(<FormControl className={classes.multiStringField}>
-        <Input type="string" value={value}
-        onChange={e => {
-            setValue(e.target.value);
-        }}
-        />
-        <Button className={classes.multiStringFieldDeleteButton} onClick={deleteField}>x</Button>
+        <span>
+            <Input type="string" value={value}
+            onChange={e => {
+                setValue(e.target.value);
+            }}
+            />
+            <IconButton className={classes.multiStringFieldDeleteButton} onClick={deleteField}><DeleteIcon fontSize="inherit"/></IconButton>
+        </span>
+        <br/>
     </FormControl>);
 }
 
@@ -355,6 +358,7 @@ function MultiString({question, setValue, value}) {
                     }}
                 />)
             }
+            <br/>
             <Button onClick={()=>setValue([...value, ""])}>add</Button>
 
         </div>

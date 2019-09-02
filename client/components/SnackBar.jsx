@@ -4,7 +4,7 @@ import ErrorIcon from '@material-ui/icons/Error';
 
 const useStyles = makeStyles(theme => ({
     error: {
-        backgroundColor: theme.palette.error.dark,
+        backgroundColor: theme.palette.error.dark
     },
     icon: {
         fontSize: 20,
