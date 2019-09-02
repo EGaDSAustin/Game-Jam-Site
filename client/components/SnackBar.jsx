@@ -34,7 +34,7 @@ export default function SnackBar ({message, open, setOpen}) {
             TransitionComponent={GrowTransition}
             message={<span className={classes.message}>
                 <ErrorIcon className={classes.icon}/>  
-                {message}
+                <p style={{paddingLeft: "10px"}}>{message}</p>
                 </span>}    
         />
     )

@@ -5,6 +5,8 @@ import axios from 'axios';
 import GameBoyImage from '../assets/gb_screen.png';
 import styled from "styled-components";
 import SnackBar from "./SnackBar";
+import {withRouter} from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 
 const StyledContainer = styled(Container)`
     background-image: url(${GameBoyImage});
@@ -180,11 +182,11 @@ const questions = [
 
 
 export function GameBoy() {
-   
+
     const defaultSnackbarMessage = "This is a required Field";
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState(defaultSnackbarMessage);
-   
+
     const [questionNumber, setQuestionNumber] = useState(0);
     const [submission, setSubmission] = useState({
         email: "",
@@ -218,12 +220,10 @@ export function GameBoy() {
         setSubmission(sub);
     }
 
-    // FIXME: does this work? who knows this is just the idea 
     function submitSubmission(sub) {
         axios.post(`/routes/form/${sub.email}`, sub).
         then(result => console.log(`response: ${result}`)).
         catch((err) => {
-            // FIXME: IDK something logical maybe
             setSnackbarMessage(err.response.data.error.message);
             setSnackbarOpen(true);
             // console.log(err);
@@ -250,7 +250,13 @@ export function GameBoy() {
 
     function getNextButton() {
         if (questionNumber == questions.length - 1) {
-            return (<Button onClick={() => submitSubmission(submission)}>Submit</Button>);
+            return (
+            <Button 
+            onClick={() => submitSubmission(submission)}
+            to="/"
+            component={RouterLink}
+            >Submit</Button> 
+            );
         } else {
             return(<Button onClick={() => {
                 console.log(!submission[questions[questionNumber].key]);
