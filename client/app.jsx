@@ -74,6 +74,8 @@ function hashLinkScroll() {
     }
 }
 
+
+
 let dark_color = '#5D5116';
 let darker_color = '#302F0C';
 let light_green = '#968326'

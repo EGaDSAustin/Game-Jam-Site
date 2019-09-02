@@ -3,6 +3,10 @@ body {
   margin: 0px;
 }
 
+:root {
+    --schedule-opacity: 0;
+}
+
 /* navbar */
 a.MuiButtonBase-root.MuiTab-root.MuiTab-textColorInherit {
   padding: 6px 16px;
@@ -132,6 +136,32 @@ a {
     font-weight: normal;
     src: local('Futura LT Book'), url('./assets/FuturaLT-Book.woff') format('woff');
 }
+
+/* #schedulesMainGrid {
+    flex-wrap: nowrap;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-content: center;
+    align-self: center;
+    width: 80%;
+    opacity: var(--schedule-opacity);
+} */
+  
+/* #very-specific-design {
+    text-align: center;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+}
+
+#scaleable-wrapper {
+    padding: 20px;
+    resize: both;
+    position: relative;
+    height: 400px;
+} */
 
 /* mobile optimization */
 #content-desktop {display: block;}
