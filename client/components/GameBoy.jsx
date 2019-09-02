@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import axios from 'axios';
 import GameBoyImage from '../assets/gb_screen.png';
 import styled from "styled-components";
+import SnackBar from "./SnackBar";
 
 const StyledContainer = styled(Container)`
     background-image: url(${GameBoyImage});
@@ -20,7 +21,7 @@ const StyledContainer = styled(Container)`
 const screenStyles = makeStyles({
     sliderPage: {
         align: "center",
-        width: "30vh",
+        wwidth: "30vh",
     },
     multiString: {
         
@@ -177,7 +178,13 @@ const questions = [
 
 
 
+
 export function GameBoy() {
+   
+    const defaultSnackbarMessage = "This is a required Field";
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState(defaultSnackbarMessage);
+   
     const [questionNumber, setQuestionNumber] = useState(0);
     const [submission, setSubmission] = useState({
         email: "",
@@ -215,11 +222,12 @@ export function GameBoy() {
     function submitSubmission(sub) {
         axios.post(`/routes/form/${sub.email}`, sub).
         then(result => console.log(`response: ${result}`)).
-        catch(err => {
+        catch((err) => {
             // FIXME: IDK something logical maybe
-            alert(err);
+            setSnackbarMessage(err.response.data.error.message);
+            setSnackbarOpen(true);
             // console.log(err);
-            throw err;
+            // throw err;
         });
     } 
 
@@ -227,24 +235,32 @@ export function GameBoy() {
         if (questionNumber == questions.length) {
             console.log("END OF QUESTIONS");
         } else {
-            
             setQuestionNumber(questionNumber+1);
         }
-    };
+    }
 
     function prevScreen() {
+        setSnackbarMessage(defaultSnackbarMessage);
         setQuestionNumber(Math.max(questionNumber-1, 0));
-    };
-    
+    }
+
     function getPrevButton() {
-        return(<Button onClick={prevScreen}>Back</Button>);
+        if (questionNumber != 0) return(<Button onClick={prevScreen}>Back</Button>);
     }
 
     function getNextButton() {
         if (questionNumber == questions.length - 1) {
-            return (<Button onClick={submitSubmission(submission)}>Submit</Button>);
+            return (<Button onClick={() => submitSubmission(submission)}>Submit</Button>);
         } else {
-            return(<Button onClick={nextScreen}>Next</Button>);
+            return(<Button onClick={() => {
+                console.log(!submission[questions[questionNumber].key]);
+                if (questions[questionNumber].required && !submission[questions[questionNumber].key]) {
+                    setSnackbarOpen(true);
+                } else {
+                    console.log("next");
+                    nextScreen();
+                }
+            }}>Next</Button>);
         }
     }
 
@@ -258,6 +274,11 @@ export function GameBoy() {
                 />
                 {getPrevButton()}
                 {getNextButton()}
+                <SnackBar 
+                    open={snackbarOpen}
+                    setOpen={setSnackbarOpen}
+                    message={snackbarMessage}
+                />
             </StyledContainer>
     );
 }
@@ -366,7 +387,6 @@ function StringScreen({question, setValue, value}) {
         onChange={e => {
             setValue(e.target.value)
         }}
-
         />
     </div>
     );
