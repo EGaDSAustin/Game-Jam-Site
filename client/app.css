@@ -77,7 +77,7 @@ a {
     }
     to {
         opacity:1;
-        transform: translateY(0%));
+        transform: translateY(0px);
     }
 }
 @-moz-keyframes fadeIn { /* Firefox */
@@ -87,7 +87,7 @@ a {
     }
     to {
         opacity:1;
-        -moz-transform: translateY(0%);
+        -moz-transform: translateY(0px);
     }
 }
 @-webkit-keyframes fadeIn { /* Safari and Chrome */
@@ -97,7 +97,7 @@ a {
     }
     to {
         opacity:1;
-        -webkit-transform: translateY(0%));
+        -webkit-transform: translateY(0px);
     }
 }
 @-o-keyframes fadeIn { /* Opera */
@@ -107,7 +107,7 @@ a {
     }
     to {
         opacity: 1;
-        -o-transform: translateY(0%);
+        -o-transform: translateY(0px);
     }
 }
 
@@ -126,14 +126,18 @@ a {
     height: 162px;
 }
 
-#games {
-    /* TODO: stretch to full width?? */
-    width: calc(100% + 10px);
-}
-
 @font-face {
     font-family: 'Futura LT Book';
     font-style: normal;
     font-weight: normal;
     src: local('Futura LT Book'), url('./assets/FuturaLT-Book.woff') format('woff');
+}
+
+/* mobile optimization */
+#content-desktop {display: block;}
+#content-mobile {display: none;}
+
+@media (pointer:coarse) {
+    #content-desktop {display: none;}
+    #content-mobile {display: block;}
 }

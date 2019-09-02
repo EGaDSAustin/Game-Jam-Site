@@ -1,6 +1,5 @@
 import React from 'react';
-import { Typography, Container, Grid, Card } from '@material-ui/core';
-import styled from 'styled-components'
+import { Typography, Grid } from '@material-ui/core';
 
 /**
  * a wonderful and pretty card, just like its creator
@@ -12,23 +11,31 @@ import styled from 'styled-components'
  * 
  */
 
-const StyledCard = styled(Card)`
-    height: 170px;
-    width: 170px;
-`;
+const styles = {
+    container: {
+        height: '170px', 
+        width: '170px', 
+        overflow: 'hidden',
+        marginLeft: '10px'
+    },
+    image: {
+        objectFit: 'cover'
+    },
+    name: {
+        fontSize: '20px', 
+        verticalAlign: 'middle'
+    }
+}
 
 export default function GameCard ({name, img, link}) {
     return (
-        // this is perfect uwu
-        <Grid item xs={6} sm={5} md={4} lg={3} xl={2}>
-                    <StyledCard elevation={0}>
-                        <div className="card-container">
-                            <a href={link}><img src={img} className="gallery_img" alt={name} height = "100%" width = "100%" style={{objectFit: 'cover'}}/>
-                            {/* <div className="name_overlay">{name}</div> */}
-                            <Typography variant="h4" className="name_overlay" style={{fontSize: '20px', verticalAlign: 'middle'}}>{name}</Typography>
-                            </a>
-                        </div>
-                    </StyledCard>
-                </Grid>
+        // TODO make the spacing between items smaller and non-variable?
+        <Grid item xs={5} sm={4} md={3} lg={2} xl={2}>
+            <div className="card-container" style={styles.container}>
+                <a href={link}><img src={img} className="gallery_img" alt={name} height = "100%" width = "100%" style={styles.image}/>
+                <Typography variant="h4" className="name_overlay" style={styles.name}>{name}</Typography>
+                </a>
+            </div>
+        </Grid>
     );
 }

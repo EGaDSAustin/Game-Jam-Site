@@ -1,7 +1,8 @@
 import React from 'react';
-import { Typography, Container, Grid, Card } from '@material-ui/core';
-import Fade from '@material-ui/core/Fade';
-import LazyLoad from 'react-lazyload';
+import { Typography, Container, Grid } from '@material-ui/core';
+
+// determine the opacity based on how many objects have the className "hidden", used for the bug where schedules were opacity 0 when changing the view (like going to the register page)
+var opacityy = document.getElementsByClassName("hidden").length > 0 ? '0' : '1'
 
 const styles = {
     header: {
@@ -41,7 +42,8 @@ const styles = {
         flexWrap: 'nowrap', 
         marginLeft: '20px',
         align: 'center',
-        width:'80%'
+        width:'80%',
+        opacity: opacityy
     }
   };
 
@@ -63,54 +65,54 @@ const schedule_info = [
                 description: "Theme reveal and official start of the game jam!"
             },
             {
-                time: "5:15 - 6:00 pm",
+                time: "5:20 pm",
                 description: '“How to Have a Successful Game Jam” Panel'
             },
-            {
-                time: "6:00 - 7:00 pm",
-                description: "Sponsor/EGaDS workshop slot"
-            },
+            // {
+            //     time: "6:00 - 7:00 pm",
+            //     description: "Sponsor/EGaDS workshop slot"
+            // },
             {
                 time: "1:00 am",
-                description: "Building closes"
+                description: "SAC closes"
     },],},
     {
         date: "Saturday, Sept 21",
         events: [
             {
                 time: "10:00 am",
-                description: "Building opens and breakfast is served"
+                description: "SAC reopens and breakfast is served"
             },
-            {
-                time: "11:00am",
-                description: "Sponsor/EGaDS workshop slot"
-            },
-            {
-                time: "12:00pm",
-                description: "Sponsor/EGaDS workshop slot"
-            },
+            // {
+            //     time: "11:00am",
+            //     description: "Sponsor/EGaDS workshop slot"
+            // },
+            // {
+            //     time: "12:00pm",
+            //     description: "Sponsor/EGaDS workshop slot"
+            // },
             {
                 time: "1:00 pm",
                 description: "Lunch is served"
             },
-            {
-                time: "2:00 - 3:00 pm",
-                description: "Sponsor/EGaDS workshop slot"
-            },
+            // {
+            //     time: "2:00 - 3:00 pm",
+            //     description: "Sponsor/EGaDS workshop slot"
+            // },
             {
                 time: "7:00 pm",
                 description: "Dinner is served"
             },
             {
                 time: "1:00 am",
-                description: "Building closes (Go sleep and shower)"
+                description: "SAC closes (Go sleep and shower)"
     },],},
     {
         date: "Sunday, Sept 22",
         events: [
             {
                 time: "12:00 pm",
-                description: "Building re-opens"
+                description: "SAC reopens"
             },
             {
                 time: "1:00 pm",
@@ -131,7 +133,6 @@ function createSchedule() {
         // MAIN GRID that holds all the days
         <Grid container spacing = {5} style={styles.mainGrid} className="hidden">
             {schedule_info.map(date_item => {
-                console.log("date_item.date",date_item)
                 return (
                     // SINGLE DAY GRID
                     <Grid item xs={6} sm={6}>
@@ -156,6 +157,8 @@ function createSchedule() {
     );
 }
 
+
+
 export class Schedule extends React.Component {
     render(){
         return(
@@ -166,3 +169,4 @@ export class Schedule extends React.Component {
         )
     }
 }
+
