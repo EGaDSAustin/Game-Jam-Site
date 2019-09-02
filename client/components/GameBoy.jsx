@@ -8,15 +8,35 @@ import styled from "styled-components";
 const StyledContainer = styled(Container)`
     background-image: url(${GameBoyImage});
     background-repeat: no-repeat;
-    background-size: 50vh 50vh;
+    background-size: 80vmin 80vmin;
     background-position: center;
-    width:50vh;
-    height:50vh;
-    padding: 4vh;
-    max-width:50vh;
-    max-height: 50vh;
+    width:80vmin;
+    height:80vmin;
+    padding: 4vmin;
+    max-width: 80vmin;
+    max-height: 80vmin;
  `; 
 
+const screenStyles = makeStyles({
+    sliderPage: {
+        align: "center",
+        width: "30vh",
+    },
+    multiString: {
+        
+    },
+    multiStringField: {
+        width: "80%",
+        
+    },
+    multiStringFieldDeleteButton: {
+        color: "red",
+        width: "10%",
+
+    }
+});
+
+// const classes=useStyles(); <div classname={classes.sliderPage}></div>
 
 //hmmm :thinking:
 const questions = [
@@ -197,7 +217,8 @@ export function GameBoy() {
         then(result => console.log(`response: ${result}`)).
         catch(err => {
             // FIXME: IDK something logical maybe
-            console.log(err);
+            alert(err);
+            // console.log(err);
             throw err;
         });
     } 
@@ -206,6 +227,7 @@ export function GameBoy() {
         if (questionNumber == questions.length) {
             console.log("END OF QUESTIONS");
         } else {
+            
             setQuestionNumber(questionNumber+1);
         }
     };
@@ -214,32 +236,30 @@ export function GameBoy() {
         setQuestionNumber(Math.max(questionNumber-1, 0));
     };
     
+    function getPrevButton() {
+        return(<Button onClick={prevScreen}>Back</Button>);
+    }
 
-    function getScreen() {
-        if (questionNumber == questions.length) {
-            return (
-            <StyledContainer>
-            <Button
-                onClick={submitSubmission(submission)}
-            >Submit</Button>
-            <Button onClick={prevScreen}>PREV</Button>
-            </StyledContainer>);
+    function getNextButton() {
+        if (questionNumber == questions.length - 1) {
+            return (<Button onClick={submitSubmission(submission)}>Submit</Button>);
         } else {
-            return (
-                <StyledContainer>
+            return(<Button onClick={nextScreen}>Next</Button>);
+        }
+    }
+
+    return(
+            <StyledContainer>
                 <Screen
                     question={questions[questionNumber]}
                     state={submission}
                     value={submission[questions[questionNumber].key]}
                     setValue={value => updateSubmission(questions[questionNumber].key, value)}
                 />
-                <Button onClick={prevScreen}>PREV</Button>
-                <Button onClick={nextScreen}>NEXT</Button>
-                </StyledContainer>);
-        }
-    }
-
-    return(getScreen());
+                {getPrevButton()}
+                {getNextButton()}
+            </StyledContainer>
+    );
 }
 
 
@@ -272,21 +292,25 @@ function logAndReturn(v, message="") {
     console.log(message + " " + v);
     return v;
 }
+
 function MultiStringField({value, setValue, deleteField}) {
+    const classes = screenStyles();
     
-    return(<FormControl>
+    return(<FormControl className={classes.multiStringField}>
         <Input type="string" value={value}
         onChange={e => {
             setValue(e.target.value);
         }}
         />
-        <Button onClick={deleteField}>remove</Button>
+        <Button className={classes.multiStringFieldDeleteButton} onClick={deleteField}>x</Button>
     </FormControl>);
 }
 
 function MultiString({question, setValue, value}) {
+    const classes = screenStyles();
+
     return (
-        <div>
+        <div className={classes.multiString}>
             <Typography>{question.name}</Typography>
             {
                 value.map((rv, idx) => 
@@ -311,8 +335,10 @@ function MultiString({question, setValue, value}) {
 }
 
 function MultiQuestion({question, idx, setValue, value}) {
+    const classes = screenStyles();
+    
     return(
-        <div id={`subQuestion-${question.name}`} className="subQuestion">
+        <div id={`subQuestion-${question.name}`} className={classes.sliderPage}>
         <Typography>{`${question.name}: `}</Typography>
         <Slider 
             value={value[question.key] != null ? value[question.key]:0}
