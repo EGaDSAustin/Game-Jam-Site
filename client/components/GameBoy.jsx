@@ -8,7 +8,7 @@ import SnackBar from "./SnackBar";
 import {withRouter} from 'react-router-dom'
 import { Link as RouterLink } from 'react-router-dom'
 import DeleteIcon from '@material-ui/icons/Delete';
-
+import SubmitButton from "./SubmitButton"
 const StyledContainer = styled(Container)`
     background-image: url(${GameBoyImage});
     background-repeat: no-repeat;
@@ -35,7 +35,8 @@ const screenStyles = makeStyles(theme => ({
     },
     multiStringFieldDeleteButton: {
         backgroundColor: theme.palette.error.dark,
-        color: "white"
+        color: "white",
+        transform: "scale(.5)"
     }
 }));
 
@@ -221,13 +222,18 @@ export function GameBoy() {
     }
 
     function submitSubmission(sub) {
-        axios.post(`/routes/form/${sub.email}`, sub).
-        then(result => console.log(`response: ${result}`)).
+        console.log("submit");
+        return axios.post(`/routes/form/`, sub).
+        then(result => {
+            console.log(`response: ${JSON.stringify(result)}`);
+            return true;
+        }).
         catch((err) => {
             setSnackbarMessage(err.response.data.error.message);
             setSnackbarOpen(true);
             // console.log(err);
             // throw err;
+            return false;
         });
     } 
 
@@ -251,11 +257,9 @@ export function GameBoy() {
     function getNextButton() {
         if (questionNumber == questions.length - 1) {
             return (
-            <Button 
-            onClick={() => submitSubmission(submission)}
-            to="/"
-            component={RouterLink}
-            >Submit</Button> 
+                <SubmitButton 
+                    submit={()=>{return submitSubmission(submission)}}
+                />
             );
         } else {
             return(<Button onClick={() => {
