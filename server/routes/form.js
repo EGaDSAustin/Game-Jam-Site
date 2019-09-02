@@ -11,7 +11,7 @@ connectDatabase();
 const router = express.Router();
 
 router.get("/:email", (req, res, next) => {
-    console.log("email "+req.params.email);
+    console.log("email " + req.params.email);
     Form.findOne({email: req.params.email}).
     exec((error, form) => {
         if (error) {

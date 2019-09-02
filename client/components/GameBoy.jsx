@@ -1,8 +1,9 @@
 import React, {useState, useEffect, Component} from 'react'
 import { Slider, Typography, CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import axios from 'axios';
-import GameBoyImage from '../assets/gb_screen.png'
-import styled from 'styled-components'
+import GameBoyImage from '../assets/gb_screen.png';
+import styled from "styled-components";
 
 const StyledContainer = styled(Container)`
     background-image: url(${GameBoyImage});
@@ -14,8 +15,7 @@ const StyledContainer = styled(Container)`
     padding: 4vh;
     max-width:50vh;
     max-height: 50vh;
-`; 
-
+ `; 
 
 
 //hmmm :thinking:
@@ -28,7 +28,7 @@ const questions = [
         key: "year",
         choices: [
             "Freshman",
-            "Softmore",
+            "Sophomore",
             "Junior",
             "Senior",
             "Super Senior",
@@ -54,7 +54,7 @@ const questions = [
         key: "last_name"
     },
     {
-        name: 'Pronoun',
+        name: 'Preferred Pronouns',
         type: "text",
         required: true,
         key: "pronouns"
@@ -155,6 +155,8 @@ const questions = [
     },
 ];
 
+
+
 export function GameBoy() {
     const [questionNumber, setQuestionNumber] = useState(0);
     const [submission, setSubmission] = useState({
@@ -166,30 +168,31 @@ export function GameBoy() {
         major: "",
         year: "",
         experience_level: {
-            programming: 0,
-            two_d_art: 0,
-            three_d_art: 0,
-            music: 0,
-            sound: 0,
-            design: 0,
-            narrative: 0
+            programming: 1,
+            two_d_art: 1,
+            three_d_art: 1,
+            music: 1,
+            sound: 1,
+            design: 1,
+            narrative: 1
         },
         preferred_disciplines: [],
         resume_link: "",
-        desired_teamates: [],
+        desired_teammates: [],
         portfolio: "",
         linkedIn: "",
         github: ""
     });
 
     function updateSubmission(key, value) {
+        console.log("an update has occured");
         const sub = {...submission}
         sub[key] = value;
         setSubmission(sub);
     }
 
     // FIXME: does this work? who knows this is just the idea 
-    function submitSumbmission(sub) {
+    function submitSubmission(sub) {
         axios.post(`/routes/form/${sub.email}`, sub).
         then(result => console.log(`response: ${result}`)).
         catch(err => {
@@ -212,29 +215,36 @@ export function GameBoy() {
     };
     
 
-
-    return(
-    <StyledContainer>
-        <FormControl>
-            {
-                <Screen 
+    function getScreen() {
+        if (questionNumber == questions.length) {
+            return (
+            <StyledContainer>
+            <Button
+                onClick={submitSubmission(submission)}
+            >Submit</Button>
+            <Button onClick={prevScreen}>PREV</Button>
+            </StyledContainer>);
+        } else {
+            return (
+                <StyledContainer>
+                <Screen
                     question={questions[questionNumber]}
                     state={submission}
                     value={submission[questions[questionNumber].key]}
                     setValue={value => updateSubmission(questions[questionNumber].key, value)}
                 />
-            }
-            <Button onClick={prevScreen}>PREV</Button>
-            <Button onClick={nextScreen}>NEXT</Button>
-        </FormControl>
-    </StyledContainer>
-    );
+                <Button onClick={prevScreen}>PREV</Button>
+                <Button onClick={nextScreen}>NEXT</Button>
+                </StyledContainer>);
+        }
+    }
+
+    return(getScreen());
 }
 
 
 
-function SelectQuestion({question, setValue, value}) {
-    
+function SelectQuestion({question, setValue, value}) { 
     return(
         <div id={`${question.name}-screen`} className="screen">
         <InputLabel>{question.name}</InputLabel>
@@ -246,33 +256,54 @@ function SelectQuestion({question, setValue, value}) {
             >
             {question.choices.map(c => 
                 <MenuItem value={c}>{c}</MenuItem>
-            )}
+                )}
         </Select>
     </div>
     );
 }
 
-function MultiString({question, setValue, value, startAmount=3}) {
+function isObj(v) {
+    return typeof v==='object' && v!==null && !(v instanceof Array) && !(v instanceof Date);
+}
+function isArray(v) {
+    return v !== null && v instanceof Array
+}
+function logAndReturn(v, message="") {
+    console.log(message + " " + v);
+    return v;
+}
+function MultiStringField({value, setValue, deleteField}) {
+    
+    return(<FormControl>
+        <Input type="string" value={value}
+        onChange={e => {
+            setValue(e.target.value);
+        }}
+        />
+        <Button onClick={deleteField}>remove</Button>
+    </FormControl>);
+}
+
+function MultiString({question, setValue, value}) {
     return (
         <div>
             <Typography>{question.name}</Typography>
-            <Typography>{JSON.stringify(value)}</Typography>
-            <FormControl>
             {
                 value.map((rv, idx) => 
-                <div>
-                    <Input type="string" value={value[idx]}
-                    onChange={e => {
+                <MultiStringField
+                    value={rv}
+                    setValue={(val)=>{
                         let v = [...value];
-                        v[idx] = e.target.value;
+                        v[idx] = val;
+                        setValue(v);
+                    }}  
+                    deleteField={()=> {
+                        let v = [...value];
+                        v.splice(idx, 1);
                         setValue(v);
                     }}
-                    />
-                    
-                    <Button onClick={()=>setValue([...value].splice(idx, 1))}>remove</Button>
-                </div>)
+                />)
             }
-            </FormControl>
             <Button onClick={()=>setValue([...value, ""])}>add</Button>
 
         </div>
@@ -290,14 +321,13 @@ function MultiQuestion({question, idx, setValue, value}) {
                 v[question.key] =tgt;
                 setValue(v);
             }}
-            min={0}
+            min={1}
             max={5}
             marks
             valueLabelDisplay="auto"
             aria-labelledby="discrete-slider"
         />
 
-        {/* FIXME: NEXT AND PREV BUTTON MOVED HERE */}
     </div>
     );
 }
@@ -316,14 +346,6 @@ function StringScreen({question, setValue, value}) {
     );
 }
 
-
-function isArray(v) {
-    return v !== null && v instanceof Array
-}
-
-function isObj(v) {
-    return typeof v==='object' && v!==null && !(v instanceof Array) && !(v instanceof Date);
-}
 
 function Screen({question, value, setValue}) {
     if (question.choices != null) {
