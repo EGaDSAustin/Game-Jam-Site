@@ -152,7 +152,7 @@ function createGallery() {
 ];
     
     return (pastGames.map(item => 
-            <GameCard name={item.name} img={item.img} link={item.link} />
+            <GameCard name={item.name} img={item.img} link={item.link}/>
         )
         
     );
@@ -160,6 +160,7 @@ function createGallery() {
 
 export class Games extends React.Component {
     render(){
+        // console.log(maxWidth)
         return(
             <div style={styles.container}>
                 <Typography variant="h2" color='secondary' style={styles.header}>Previous game jam games</Typography>
@@ -168,6 +169,14 @@ export class Games extends React.Component {
                     <Grid container spacing={3} align="center" style={{width: '70%'}}>
                         {createGallery()}
                     </Grid>
+                </div>
+
+                <div id="content-desktop">
+                    <Typography variant="h2" color='secondary' style={styles.header}>DESKTOP</Typography>
+                </div>
+
+                <div id="content-mobile">
+                <Typography variant="h2" color='secondary' style={styles.header}>MOBILE</Typography>
                 </div>
             </div>
         );

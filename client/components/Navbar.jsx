@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { NavHashLink } from 'react-router-hash-link'
 
-import AppBar from '@material-ui/core/AppBar';
-import { Tabs, Tab, Toolbar, Container } from '@material-ui/core';
+import { Tabs, Tab } from '@material-ui/core';
 import styled from 'styled-components'
 import icon from '../assets/mistletoe.PNG'
 
@@ -33,10 +32,10 @@ export class Navbar extends React.Component {
                         <Tab value={1} label="About" to="/#about" smooth component={NavHashLink}/>
                         <Tab value={2} label="Register" to="/#register" smooth component={NavHashLink}/>
                         <Tab value={3} label="Schedule" to="/#schedule" smooth component={NavHashLink}/>
-                        <Tab value={4} label="Games" to="/#games" smooth component={NavHashLink}/>
-                        <Tab value={5} label="Sponsors" to="/#sponsors" smooth component={NavHashLink}/>
+                        <Tab value={4} label="Sponsors" to="/#sponsors" smooth component={NavHashLink}/>
                     </StyledTabs>
             </React.Fragment>
+            
         );
     }
 }

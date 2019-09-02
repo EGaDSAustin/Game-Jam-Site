@@ -13,7 +13,8 @@ import { Schedule } from './components/Schedule';
 import { Games } from './components/Games';
 import { Sponsors } from './components/Sponsors';
 import { Footer } from './components/Footer';
-import FadeIn from './components/FadeInOnView.jsx';
+// import MobileNavbar from './components/mobile/MobileNavbar.jsx';
+
 
 const formUrl = "https://forms.gle/gDWmRyD17iM6np3f9"
 
@@ -36,7 +37,6 @@ class App extends React.Component {
             onUpdate={hashLinkScroll}
             >
             <GlobalStyle/>
-
             <Navbar/>
             <Switch>
               <Route exact path="/" render={routeProps => (
@@ -55,7 +55,6 @@ class App extends React.Component {
             </Switch>
             </Router>
             </MuiThemeProvider>
-            // animateHTML();
         );
     }
 }
