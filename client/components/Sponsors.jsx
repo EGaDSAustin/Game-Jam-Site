@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core'
-import Masonry from 'masonry-layout'
+// import Masonry from 'masonry-layout'
 
 // sponsor logos
 // import niantic from '../assets/sponsors/niantic.png'
