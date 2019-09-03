@@ -293,10 +293,10 @@ export function GameBoy() {
             // }
         }
 
-        return axios.post(`/routes/form/`, sub).
+        axios.post(`/routes/form/`, sub).
             then(result => {
                 // console.log(`response: ${result}`)
-                return true;
+                history.push('/');
             }).
             catch((err) => {
                 try {
@@ -306,14 +306,11 @@ export function GameBoy() {
                     setSnackbarMessage("Woopsies, an error");
                 }   
                 setSnackbarOpen(true);
-                return false;
             });
     }
 
     function nextScreen() {
-        if (questionNumber == questions.length) {
-            ()=>{return submitSubmission(submission)}();
-        }else if (questions[questionNumber].required && !submission[questions[questionNumber].key]) {
+        if (questions[questionNumber].required && !submission[questions[questionNumber].key]) {
                     setSnackbarOpen(true);
         } else {
             if (questions[questionNumber].validate != null && !questions[questionNumber].validate(submission[questions[questionNumber].key])) {
@@ -321,15 +318,16 @@ export function GameBoy() {
                 setSnackbarOpen(true);
             } else {
                 setSnackbarMessage(defaultSnackbarMessage)
-                if (questionNumber == questions.length) {
+                if (questionNumber == questions.length-1) {
                     // console.log("END OF QUESTIONS");
                 } else {
                     setQuestionNumber(questionNumber + 1);
                 }
             }
         }
-
-        
+        if (questionNumber == questions.length-1) {
+            submitSubmission(submission);
+        }
     }
 
     function prevScreen() {
@@ -348,7 +346,7 @@ export function GameBoy() {
             return (
 
                 <SubmitButton 
-                    submit={()=>{return submitSubmission(submission)}}
+                    submit={()=>{submitSubmission(submission)}}
                 />
             );
         } else {
