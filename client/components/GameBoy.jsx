@@ -311,7 +311,9 @@ export function GameBoy() {
     }
 
     function nextScreen() {
-        if (questions[questionNumber].required && !submission[questions[questionNumber].key]) {
+        if (questionNumber == questions.length) {
+            ()=>{return submitSubmission(submission)}();
+        }else if (questions[questionNumber].required && !submission[questions[questionNumber].key]) {
                     setSnackbarOpen(true);
         } else {
             if (questions[questionNumber].validate != null && !questions[questionNumber].validate(submission[questions[questionNumber].key])) {
