@@ -116,14 +116,15 @@ a {
     }
 }
 
-#schedulesMainGrid {
+/* #schedulesMainGrid {
     white-space: nowrap;
     align-items: center;
     opacity: var(--schedule-opacity);
-}
+} */
 
 #very-specific-design {
-    transform: var(--schedule-scale)
+    transform: var(--schedule-scale);
+    opacity: var(--schedule-opacity);
 }
 
 .schedulesSingleGrid {

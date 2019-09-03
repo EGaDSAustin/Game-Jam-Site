@@ -50,6 +50,7 @@ chrome-user-data
 *.swp
 *.swo
 *.TMP
+*.crdownload
 
 secret.json
 secrets.json
