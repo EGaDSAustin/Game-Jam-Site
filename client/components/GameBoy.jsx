@@ -276,10 +276,9 @@ export function GameBoy() {
             const v = submit[k];
             if (v instanceof String && v == "") continue;
             else if (v instanceof String) sub[k] = v.toLowerCase();
-            else {
+            else if(v){
                 sub[k] = v;
             }
-            console.log(JSON.stringify(sub));
             // else if (isObj(v)) {
             //     for (let [kk, vv] of sub) {
             //         if (vv instanceof String && vv == "") sub[k][kk] = undefined;
@@ -293,6 +292,7 @@ export function GameBoy() {
             //     }
             // }
         }
+        console.log("submission " + JSON.stringify(sub));
 
         return axios.post(`/routes/form/`, sub).
             then(result => {
