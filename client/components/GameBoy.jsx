@@ -273,12 +273,13 @@ export function GameBoy() {
         let sub = {};
         // cleanup submission 
         for (let k of Object.keys(submit)) {
-            const v = sub[k];
+            const v = submit[k];
             if (v instanceof String && v == "") continue;
             else if (v instanceof String) sub[k] = v.toLowerCase();
             else {
                 sub[k] = v;
             }
+            console.log(JSON.stringify(sub));
             // else if (isObj(v)) {
             //     for (let [kk, vv] of sub) {
             //         if (vv instanceof String && vv == "") sub[k][kk] = undefined;

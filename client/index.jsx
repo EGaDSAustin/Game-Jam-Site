@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './app.jsx'
 import { animateHTML } from './components/FadeInOnView.jsx'
 
+// setInterval(console.clear, 100);
+
 ReactDOM.render(
     <App />,
     document.getElementById('react-container')
