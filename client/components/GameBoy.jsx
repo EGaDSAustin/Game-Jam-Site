@@ -293,7 +293,7 @@ export function GameBoy() {
             // }
         }
 
-        return axios.post(`/routes/form/${sub.email}`, sub).
+        return axios.post(`/routes/form/`, sub).
             then(result => {
                 console.log(`response: ${result}`)
                 return true;
@@ -304,7 +304,7 @@ export function GameBoy() {
                     
                 } catch {
                     setSnackbarMessage("Woopsies, an error");
-                }
+                }   
                 setSnackbarOpen(true);
                 return false;
             });

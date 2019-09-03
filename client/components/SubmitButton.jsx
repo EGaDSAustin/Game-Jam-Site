@@ -6,12 +6,12 @@ function RouterlessSubmitButton({history, submit}) {
     const onSubmit = () => {
         console.log("submit code");
         
-        const sub = () => {
-            const s = submit();
-            console.log(s);
-            return s;
-        }
-        sub().then(res => {
+        // const sub = () => {
+        //     const s = submit();
+        //     console.log(s);
+        //     return s;
+        // }
+        submit().then(res => {
             console.log("res " + res);
             if (res) {
                 console.log("success submit");
