@@ -292,10 +292,10 @@ export function GameBoy() {
             //     }
             // }
         }
-
+        console.log("sending sub");
         axios.post(`/routes/form/`, sub).
             then(result => {
-                // console.log(`response: ${result}`)
+                console.log(`response: ${result}`)
                 history.push('/');
             }).
             catch((err) => {
@@ -305,6 +305,7 @@ export function GameBoy() {
                 } catch {
                     setSnackbarMessage("Woopsies, an error");
                 }   
+                console.log("response error");
                 setSnackbarOpen(true);
             });
     }
