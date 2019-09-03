@@ -311,11 +311,23 @@ export function GameBoy() {
     }
 
     function nextScreen() {
-        if (questionNumber == questions.length) {
-            // console.log("END OF QUESTIONS");
+        if (questions[questionNumber].required && !submission[questions[questionNumber].key]) {
+                    setSnackbarOpen(true);
         } else {
-            setQuestionNumber(questionNumber + 1);
+            if (questions[questionNumber].validate != null && !questions[questionNumber].validate(submission[questions[questionNumber].key])) {
+                setSnackbarMessage("invalid submission");
+                setSnackbarOpen(true);
+            } else {
+                setSnackbarMessage(defaultSnackbarMessage)
+                if (questionNumber == questions.length) {
+                    // console.log("END OF QUESTIONS");
+                } else {
+                    setQuestionNumber(questionNumber + 1);
+                }
+            }
         }
+
+        
     }
 
     function prevScreen() {
@@ -338,19 +350,7 @@ export function GameBoy() {
                 />
             );
         } else {
-            return (<Button onClick={() => {
-                if (questions[questionNumber].required && !submission[questions[questionNumber].key]) {
-                    setSnackbarOpen(true);
-                } else {
-                    if (questions[questionNumber].validate != null && !questions[questionNumber].validate(submission[questions[questionNumber].key])) {
-                        setSnackbarMessage("invalid submission");
-                        setSnackbarOpen(true);
-                    } else {
-                        setSnackbarMessage(defaultSnackbarMessage)
-                        nextScreen();
-                    }
-                }
-            }}>Next</Button>);
+            return (<Button onClick={nextScreen}>Next</Button>);
         }
     }
 
