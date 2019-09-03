@@ -170,14 +170,14 @@ export class Games extends React.Component {
                         {createGallery()}
                     </Grid>
                 </div>
-                
-                <div id="content-desktop">
+
+                {/* <div id="content-desktop">
                     <Typography variant="h2" color='secondary' style={styles.header}>DESKTOP</Typography>
                 </div>
 
                 <div id="content-mobile">
                 <Typography variant="h2" color='secondary' style={styles.header}>MOBILE</Typography>
-                </div>
+                </div> */}
             </div>
         );
     }
