@@ -224,10 +224,12 @@ export function GameBoy() {
         axios.post(`/routes/form/${sub.email}`, sub).
         then(result => console.log(`response: ${result}`)).
         catch((err) => {
-            setSnackbarMessage(err.response.data.error.message);
+            try {
+                setSnackbarMessage(err.response.data.error.message);
+            } catch {
+                setSnackbarMessage("Woopsies, an error");
+            }
             setSnackbarOpen(true);
-            // console.log(err);
-            // throw err;
         });
     } 
 

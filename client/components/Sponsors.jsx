@@ -1,7 +1,13 @@
 import React, {useState, Component} from 'react';
-import { Container, Typography, Link, Grid, Paper } from '@material-ui/core'
-import GameCard from './GameCard'
-import styled from 'styled-components'
+import { Container, Typography, Link, Grid, Paper } from '@material-ui/core';
+import GameCard from './GameCard';
+import styled from 'styled-components';
+import ealogo from '../assets/sponsors/ealogo.png';
+import hoftlogo from '../assets/sponsors/hoftlogo.png';
+import kabamlogo from '../assets/sponsors/kabamlogo.PNG';
+import nianticlogo from '../assets/sponsors/nianticlogo.png';
+import riotgameslogo from '../assets/sponsors/riotgameslogo.png';
+import zyngalogo from '../assets/sponsors/zyngalogo.png';
 
 const StyledContainer = styled(Container)`
     padding-top: 5%;
@@ -26,58 +32,39 @@ const styles = {
     }
   };
 
-export class Sponsors2 extends Component {
-    render() {
-        return(
-            <StyledContainer>
-                <Grid container spacing={1}>
-                    <Grid item xs={12} sm={3}>
-                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                    <img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg" alt="sponsor img" width="100" height="100"></img>
-                    </Grid>
-                </Grid>
-            </StyledContainer>
-        );
-    }
-}
-
-
 export function Sponsors () {
     const sponsors = [
         {
             name: "Niantic",
-            logo: "https://upload.wikimedia.org/wikipedia/en/d/d3/NIA_logo.svg",
+            logo: nianticlogo,
             link: "https://nianticlabs.com/",
         },
         {
-            name: "Panic Button",
-            logo: "https://upload.wikimedia.org/wikipedia/en/8/89/Panic_Button_logo.png",
-            link: "http://panicbuttongames.com/about.php",
+            name: "EA",
+            logo: ealogo,
+            link: "https://www.ea.com/",
         },
         {
-            name: "Farbridge",
-            logo: "https://miro.medium.com/fit/c/256/256/1*JS-VVQ-I7iusO1si7L3tsA.png",
-            link: "http://farbridge.com/",
+            name: "HOFT",
+            logo: hoftlogo,
+            link: "https://hoft.edu",
         },
         {
-            name: "Cute Dogo",
-            logo: "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_1280.jpg",
-            link: "http://www.cutestpaw.com/tag/dogs/",
+            name: "Kabam",
+            logo: kabamlogo,
+            link: "https://kabam.com/",
         },
+        {
+            name: "Riot",
+            logo: riotgameslogo,
+            link: "https://www.riotgames.com/en",
+        },
+        {
+            name: "zynga",
+            logo: zyngalogo,
+            link: "https://www.zynga.com/",
+        },
+        
     ];
 
     return(
@@ -90,19 +77,19 @@ export function Sponsors () {
                     {createGallery()}
                 </Grid>
             </div> */}
-        </div>
-        // <StyledContainer>
-        //         <Typography variant="h3" gutterBottom="true">
-        //             Sponsors
-        //         </Typography>
-        //         <Typography variant="subtitle1" gutterBottom="true">
-        //             Interested in becoming a sponsor? Click <Link href="">here</Link> for more information!
-        //         </Typography>
-        //         <Grid container spacing={1}>
-        //         {sponsors.map(sponsor => 
-        //             <GameCard name={sponsor.name} img={sponsor.logo} link={sponsor.link} />
-        //         )}
-        //     </Grid>
-        //     </StyledContainer>
+        <StyledContainer>
+                <Typography variant="h3" gutterBottom="true">
+                    Sponsors
+                </Typography>
+                <Typography variant="subtitle1" gutterBottom="true">
+                    Interested in becoming a sponsor? Click <Link href="">here</Link> for more information!
+                </Typography>
+                <Grid container spacing={1}>
+                {sponsors.map(sponsor => 
+                    <GameCard name={sponsor.name} img={sponsor.logo} link={sponsor.link} />
+                    )}
+            </Grid>
+            </StyledContainer>
+            </div>
     );
 }
