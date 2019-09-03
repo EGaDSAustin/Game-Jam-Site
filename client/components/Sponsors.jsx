@@ -92,7 +92,7 @@ export function Sponsors () {
                 return(
                     <a href={sponsor.link}><img src={sponsor.logo} alt={sponsor.name} height = 'auto' width = {sponsor.size} style={{padding: '10px'}}/></a>
             )})} */}
-            <img src={collage} alt="sponsors collage" height = 'auto' width ="70%" style={{padding: '10px'}}/>
+            <img src={collage} alt="sponsors collage" height = 'auto' width ="55%" style={{padding: '10px'}}/>
         </div>
     );
 }
