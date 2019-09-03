@@ -293,15 +293,20 @@ export function GameBoy() {
             // }
         }
 
-        axios.post(`/routes/form/${sub.email}`, sub).
-            then(result => console.log(`response: ${result}`)).
+        return axios.post(`/routes/form/${sub.email}`, sub).
+            then(result => {
+                console.log(`response: ${result}`)
+                return true;
+            }).
             catch((err) => {
                 try {
                     setSnackbarMessage(err.response.data.error.message);
+                    
                 } catch {
                     setSnackbarMessage("Woopsies, an error");
                 }
                 setSnackbarOpen(true);
+                return false;
             });
     }
 
