@@ -6,7 +6,8 @@
   "scripts": {
     "start": "sh scripts/start.sh",
     "dev": "sh scripts/dev-start.sh",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "sh scripts/build.sh"
   },
   "repository": {
     "type": "git",
