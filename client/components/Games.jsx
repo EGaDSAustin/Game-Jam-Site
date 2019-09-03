@@ -170,7 +170,7 @@ export class Games extends React.Component {
                         {createGallery()}
                     </Grid>
                 </div>
-
+                
                 <div id="content-desktop">
                     <Typography variant="h2" color='secondary' style={styles.header}>DESKTOP</Typography>
                 </div>

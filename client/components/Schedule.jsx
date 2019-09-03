@@ -2,7 +2,12 @@ import React from 'react';
 import { Typography, Container, Grid } from '@material-ui/core';
 
 // determine the opacity based on how many objects have the className "hidden", used for the bug where schedules were opacity 0 when changing the view (like going to the register page)
-var opacityy = document.getElementsByClassName("hidden").length > 0 ? '0' : '1'
+var opacityy = document.getElementsByClassName("hidden").length > 0 ? '0' : '1';
+
+// document.documentElement.style
+//     .setProperty('--schedule-opacity', document.getElementsByClassName("hidden").length > 0 ? '0' : '1');
+
+
 
 const styles = {
     header: {
@@ -39,10 +44,10 @@ const styles = {
         maxWidth: '369px'
     },
     mainGrid: {
-        flexWrap: 'nowrap', 
-        marginLeft: '20px',
+        whiteSpace: 'nowrap', 
+        // marginLeft: '20px',
         align: 'center',
-        width:'80%',
+        // width:'80%',
         opacity: opacityy
     }
   };
@@ -131,29 +136,28 @@ const schedule_info = [
 function createSchedule() {
     return (
         // MAIN GRID that holds all the days
-        <Grid container spacing = {5} style={styles.mainGrid} className="hidden">
+        <div style={styles.mainGrid} className="hidden" id="very-specific-design">
             {schedule_info.map(date_item => {
                 return (
                     // SINGLE DAY GRID
-                    <Grid item xs={6} sm={6}>
-                    <Typography variant="h3" gutterBottom style={styles.date}>// {date_item.date}</Typography>
-                    {date_item.events.map(event => {
-                        return (
-                            // INDIVIDUAL EVENTS
-                            <Container style={styles.container}>
-                                <Grid container spacing = {3} alignItems = "left" alignContent="center">
-                                    <Grid item xs = {3}>
-                                        <Typography variant="h4" style={styles.time}>{event.time}</Typography>
+                    <div style={{padding: '0px 20px', display: 'inline-block', verticalAlign: 'top', whiteSpace: 'normal'}} >
+                        <Typography variant="h3" gutterBottom style={styles.date}>// {date_item.date}</Typography>
+                        {date_item.events.map(event => {
+                            return (
+                                // INDIVIDUAL EVENTS
+                                <Container style={styles.container}>
+                                    <Grid container spacing = {3} alignItems = "left" alignContent="center">
+                                        <Grid item xs = {3}>
+                                            <Typography variant="h4" style={styles.time}>{event.time}</Typography>
+                                        </Grid>
+                                        <Grid item xs = {9}>
+                                            <Typography variant = "body1" style={styles.description}>{event.description}</Typography>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item xs = {9}>
-                                        <Typography variant = "body1" style={styles.description}>{event.description}</Typography>
-                                    </Grid>
-                                </Grid>
-                            </Container>
-                    )})}
-                </Grid>);
+                                </Container>
+                    )})}</div>);
             })}
-        </Grid>
+        </div>
     );
 }
 
@@ -170,3 +174,31 @@ export class Schedule extends React.Component {
     }
 }
 
+// function createSchedule() {
+//     return (
+//         // MAIN GRID that holds all the days
+//         <Grid container spacing = {5} style={styles.mainGrid} className="hidden" id="very-specific-design">
+//             {schedule_info.map(date_item => {
+//                 return (
+//                     // SINGLE DAY GRID
+//                     <Grid item xs={6} sm={6}>
+//                     <Typography variant="h3" gutterBottom style={styles.date}>// {date_item.date}</Typography>
+//                     {date_item.events.map(event => {
+//                         return (
+//                             // INDIVIDUAL EVENTS
+//                             <Container style={styles.container}>
+//                                 <Grid container spacing = {3} alignItems = "left" alignContent="center">
+//                                     <Grid item xs = {3}>
+//                                         <Typography variant="h4" style={styles.time}>{event.time}</Typography>
+//                                     </Grid>
+//                                     <Grid item xs = {9}>
+//                                         <Typography variant = "body1" style={styles.description}>{event.description}</Typography>
+//                                     </Grid>
+//                                 </Grid>
+//                             </Container>
+//                     )})}
+//                 </Grid>);
+//             })}
+//         </Grid>
+//     );
+// }

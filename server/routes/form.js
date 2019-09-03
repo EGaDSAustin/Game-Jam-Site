@@ -10,12 +10,40 @@ connectDatabase();
 
 const router = express.Router();
 
+function validateEmail(email) {
+    // Maybe change to something other than a reg. ex.
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+}
+
+function validateLink(link) {
+    return /^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/.test(link);
+}
+
+function validateResponse(req,res){
+    if (! validateEmail(req.params.email)) {
+        res.status(500).json({
+            error: {
+                message: "Invalid Email address"
+            }
+        });
+        return;
+    }
+
+    // Validate what links down here 
+}
+
 router.get("/:email", (req, res, next) => {
-    console.log("email " + req.params.email);
+    
+    validateResponse(req,res);
+
     Form.findOne({email: req.params.email}).
     exec((error, form) => {
         if (error) {
-            res.status(500).send(error);
+            res.status(500).json({
+                error: {
+                    message: error.message
+                }
+            })
             return;
         }
         console.log(form);
@@ -23,12 +51,12 @@ router.get("/:email", (req, res, next) => {
     });
 });
 
-router.post("/:email", (req, res, next) => {
+router.post("/", (req, res, next) => {
     // Form.deleteMany({email: "sexycatlady69@jimminycrickets.io"}, (err, res) => console.log(err.message));
-    console.log("email: " + req.params.email);
+    console.log("email: " + req.body.email);
     console.log("created");
 
-    Form.findOne({email: req.params.email}).
+    Form.findOne({email: req.body.email}).
     exec((err, result) => {
         if (err) {
             console.log(err);
