@@ -295,7 +295,7 @@ export function GameBoy() {
 
         return axios.post(`/routes/form/`, sub).
             then(result => {
-                console.log(`response: ${result}`)
+                // console.log(`response: ${result}`)
                 return true;
             }).
             catch((err) => {
@@ -312,7 +312,7 @@ export function GameBoy() {
 
     function nextScreen() {
         if (questionNumber == questions.length) {
-            console.log("END OF QUESTIONS");
+            // console.log("END OF QUESTIONS");
         } else {
             setQuestionNumber(questionNumber + 1);
         }
@@ -405,7 +405,7 @@ function isArray(v) {
     return v !== null && v instanceof Array
 }
 function logAndReturn(v, message = "") {
-    console.log(message + " " + v);
+    // console.log(message + " " + v);
     return v;
 }
 

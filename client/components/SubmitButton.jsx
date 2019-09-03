@@ -4,7 +4,7 @@ import {withRouter, Redirect} from "react-router-dom";
 
 function RouterlessSubmitButton({history, submit}) {
     const onSubmit = () => {
-        console.log("submit code");
+        // console.log("submit code");
         
         // const sub = () => {
         //     const s = submit();
@@ -12,12 +12,12 @@ function RouterlessSubmitButton({history, submit}) {
         //     return s;
         // }
         submit().then(res => {
-            console.log("res " + res);
+            // console.log("res " + res);
             if (res) {
-                console.log("success submit");
+                // console.log("success submit");
                 history.push('/');
                 // Redirect({to: "/"});
-                console.log("redir");
+                // console.log("redir");
             }
         });
     }
