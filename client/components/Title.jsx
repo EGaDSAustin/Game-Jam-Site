@@ -1,14 +1,13 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core'
-import { createMuiTheme } from '@material-ui/core/styles';
-import fallingPeople from '../assets/fallingPeople.png';
+import fallingPeople from '../assets/fallingPeople2.png';
 import InfoCard from './InfoCard.jsx';
 import Grid from '@material-ui/core/Grid';
-import whoImage from '../assets/circleMusic.png';
-import whatImage from '../assets/circleMusic.png';
-import whereImage from '../assets/circleMusic.png';
-import whyImage from '../assets/circleMusic.png';
-import RegisterImage from '../assets/temp_elf_handstand.JPG';
+import whoImage from '../assets/infoGrid/can.png';
+import whatImage from '../assets/infoGrid/phone.png';
+import whereImage from '../assets/infoGrid/pen.png';
+import whyImage from '../assets/infoGrid/keyboard.png';
+import RegisterImage from '../assets/temp_elf_handstand.png';
 
 export class Title extends React.Component {
     render() {
@@ -37,7 +36,7 @@ export class Title extends React.Component {
                             photo={whoImage} alt_text='who_image'
                             description= {
                                 <div>
-                                    <Typography variant="subtitle1">This event is hosted by <a href="https://test-egads-website.herokuapp.com/">EGaDS!</a></Typography>
+                                    <Typography variant="subtitle1">This event is hosted by <a href="https://www.facebook.com/groups/egadsaustin/">EGaDS!</a></Typography>
                                     <Typography variant="subtitle1">The Electronic Game Developers Society</Typography>
                                     <Typography variant="subtitle1">is a student organization at UT Austin.</Typography>
                                 </div>

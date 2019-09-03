@@ -2,10 +2,10 @@ import React from 'react';
 import { Typography, Container, Grid } from '@material-ui/core';
 
 // determine the opacity based on how many objects have the className "hidden", used for the bug where schedules were opacity 0 when changing the view (like going to the register page)
-var opacityy = document.getElementsByClassName("hidden").length > 0 ? '0' : '1';
+// var opacityy = document.getElementsByClassName("hidden").length > 0 ? '0' : '1';
 
-// document.documentElement.style
-//     .setProperty('--schedule-opacity', document.getElementsByClassName("hidden").length > 0 ? '0' : '1');
+document.documentElement.style
+    .setProperty('--schedule-opacity', document.getElementsByClassName("hidden").length > 0 ? '0' : '1');
 
 
 
@@ -43,13 +43,19 @@ const styles = {
         marginLeft: '0px',
         maxWidth: '369px'
     },
-    mainGrid: {
-        whiteSpace: 'nowrap', 
-        // marginLeft: '20px',
-        align: 'center',
-        // width:'80%',
-        opacity: opacityy
-    }
+    // mainGrid: {
+    //     whiteSpace: 'nowrap', 
+    //     // marginLeft: '20px',
+    //     align: 'center',
+    //     // width:'80%',
+    //     opacity: opacityy
+    // },
+    // singleDayGrid: {
+    //     padding: '0px 20px',
+    //     display: 'inline-block',
+    //     verticalAlign: 'top',
+    //     whiteSpace: 'normal'
+    // }
   };
 
 
@@ -136,11 +142,11 @@ const schedule_info = [
 function createSchedule() {
     return (
         // MAIN GRID that holds all the days
-        <div style={styles.mainGrid} className="hidden" id="very-specific-design">
+        <div  className="hidden" id="very-specific-design">
             {schedule_info.map(date_item => {
                 return (
                     // SINGLE DAY GRID
-                    <div style={{padding: '0px 20px', display: 'inline-block', verticalAlign: 'top', whiteSpace: 'normal'}} >
+                    <div  className="schedulesSingleGrid">
                         <Typography variant="h3" gutterBottom style={styles.date}>// {date_item.date}</Typography>
                         {date_item.events.map(event => {
                             return (
@@ -166,7 +172,7 @@ function createSchedule() {
 export class Schedule extends React.Component {
     render(){
         return(
-            <div align="center">
+            <div align="center" className="schedulesMainGrid">
                 <Typography variant="h2" color='secondary' id="schedule" style={styles.header}>Schedule</Typography>
                     {createSchedule()}
             </div>

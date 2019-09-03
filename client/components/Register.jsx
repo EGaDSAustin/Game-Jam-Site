@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom'
 import Fab from '@material-ui/core/Fab';
-import sparkle1 from '../assets/sparkle1.PNG';
-import sparkle2 from '../assets/sparkle2.JPG';
+import sparkle1 from '../assets/sparkle1.png';
+import sparkle2 from '../assets/sparkle2.png';
 
 const styles = {
   image: {

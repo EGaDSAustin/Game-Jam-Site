@@ -4,7 +4,7 @@ import { NavHashLink } from 'react-router-hash-link'
 
 import { Tabs, Tab } from '@material-ui/core';
 import styled from 'styled-components'
-import icon from '../assets/mistletoe.PNG'
+import icon from '../assets/utgjlogorecolored4.png'
 
 
 const StyledTabs = styled(Tabs)`
@@ -26,7 +26,7 @@ export class Navbar extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <img src={icon} alt='navbar icon' style={{marginTop: '20px'}}/>
+                <img src={icon} alt='navbar icon' style={{marginTop: '20px', width:'70px', height: 'auto'}}/>
                     <StyledTabs centered style={{marginTop: '0'}} className="navbar">
                         <Tab value={0} label="Home" to="/" onClick={ScrollToTop} component={Link} />
                         <Tab value={1} label="About" to="/#about" smooth component={NavHashLink}/>

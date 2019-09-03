@@ -36,8 +36,10 @@ $(document).ready(function() {
             RSh / elHeight
         );
         
-        $el && $el.css({
-            transform: "scale(" + scale + ")"
-        });
+        // $el && $el.css({
+        //     transform: "scale(" + scale + ")"
+        // });
+
+        document.documentElement.style.setProperty('--schedule-scale', scale);
    })
 });
