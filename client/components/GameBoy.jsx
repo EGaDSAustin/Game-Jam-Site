@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from 'react'
-import { IconButton, Slider, Typography, CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
+import { FormGroup, IconButton, Slider, Typography, CardMedia, FormControl, Input, InputLabel, MenuItem, Select, Button, Container } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import { positions } from '@material-ui/system';
@@ -292,7 +292,6 @@ export function GameBoy() {
             //     }
             // }
         }
-        console.log("submission " + JSON.stringify(sub));
 
         return axios.post(`/routes/form/`, sub).
             then(result => {
@@ -364,6 +363,7 @@ export function GameBoy() {
                     state={submission}
                     value={submission[questions[questionNumber].key]}
                     setValue={value => updateSubmission(questions[questionNumber].key, value)}
+                    next={nextScreen} 
                 />
                 <SnackBar
                     open={snackbarOpen}
@@ -478,21 +478,24 @@ function MultiQuestion({ question, idx, setValue, value }) {
     );
 }
 
-function StringScreen({ question, setValue, value }) {
+function StringScreen({ question, setValue, value, next }) {
     return (
-        <div id={`${question.name}-screen`} className="screen">
+        <form id={`${question.name}-screen`} className="screen" onSubmit={(e) => {
+            e.preventDefault();
+            next();
+        }}>
             <InputLabel>{`${question.name}: `}</InputLabel>
             <Input type={question.type} value={value}
                 onChange={e => {
                     setValue(e.target.value)
                 }}
             />
-        </div>
+        </form>
     );
 }
 
 
-function Screen({ question, value, setValue }) {
+function Screen({ question, value, setValue, next }) {
     if (question.choices != null) {
         return (SelectQuestion({ question: question, setValue: setValue, value: value }));
         // } else if (question.multi != null) {
@@ -514,7 +517,7 @@ function Screen({ question, value, setValue }) {
     } else if (isArray(value)) {
         return (MultiString({ question: question, setValue: setValue, value: value }));
     } else {
-        return (StringScreen({ question: question, value: value, setValue: setValue }));
+        return (StringScreen({ question: question, value: value, setValue: setValue, next: next }));
     }
 }
 
