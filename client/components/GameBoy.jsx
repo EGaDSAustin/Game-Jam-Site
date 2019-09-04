@@ -8,8 +8,8 @@ import GameBoyImage from '../assets/gb_screen.png';
 import SnackBar from "./SnackBar";
 import { Link as RouterLink } from 'react-router-dom'
 import DeleteIcon from '@material-ui/icons/Delete';
-
-import SubmitButton from "./SubmitButton"
+import {withRouter} from 'react-router-dom';
+import SubmitButton from "./SubmitButton";
 
 
 const minSize = Math.min(window.innerWidth, window.innerHeight);
@@ -231,7 +231,7 @@ const questions = [
 
 
 
-export function GameBoy() {
+function RouterlessGameBoy({history}) {
 
     const defaultSnackbarMessage = "This is a required Field";
     const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -292,20 +292,18 @@ export function GameBoy() {
             //     }
             // }
         }
-        console.log("sending sub");
         axios.post(`/routes/form/`, sub).
             then(result => {
-                console.log(`response: ${result}`)
+                // console.log(`response: ${JSON.stringify(result)}`);
                 history.push('/');
             }).
             catch((err) => {
                 try {
                     setSnackbarMessage(err.response.data.error.message);
-                    
                 } catch {
                     setSnackbarMessage("Woopsies, an error");
                 }   
-                console.log("response error");
+                // console.log("response error: " + JSON.stringify(err));
                 setSnackbarOpen(true);
             });
     }
@@ -521,5 +519,6 @@ function Screen({ question, value, setValue, next }) {
         return (StringScreen({ question: question, value: value, setValue: setValue, next: next }));
     }
 }
+const GameBoy = withRouter(RouterlessGameBoy);
 
 export default GameBoy;

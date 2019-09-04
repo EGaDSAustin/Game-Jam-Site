@@ -1,8 +1,7 @@
 import React from "react";
 import {Button} from "@material-ui/core";
-import {withRouter, Redirect} from "react-router-dom";
 
-function RouterlessSubmitButton({history, submit}) {
+function SubmitButton({submit}) {
     const onSubmit = submit
     return(
         <Button
@@ -13,6 +12,5 @@ function RouterlessSubmitButton({history, submit}) {
     );
 }
 
-const SubmitButton = withRouter(RouterlessSubmitButton);
 
 export default SubmitButton;
