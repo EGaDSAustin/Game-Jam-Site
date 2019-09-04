@@ -1,5 +1,7 @@
 import React from 'react';
-import { Typography } from '@material-ui/core'
+import {
+    Typography
+} from '@material-ui/core'
 import Masonry from 'masonry-layout'
 
 // sponsor logos
@@ -41,9 +43,9 @@ const styles = {
             width: '30px'
         }
     }
-  };
+};
 
-export function Sponsors () {
+export function Sponsors() {
     // const sponsors = [
     //     {
     //         name: "Niantic",
@@ -83,17 +85,46 @@ export function Sponsors () {
     //     },        
     // ];
 
-    return(
-        <div style={styles.container}>
-            <Typography variant="h2" style={styles.header}>Sponsors</Typography>
-            <Typography variant="subtitle1" color="textSecondary" style={styles.description}>Interested in becoming a sponsor?</Typography>
-            <Typography variant="subtitle1" color="textSecondary" style={styles.description}><a href="texasegads@gmail.com" style={styles.link}>Contact us</a> for more information!</Typography>
-            {/* {sponsors.map(sponsor => {
-                return(
-                    <a href={sponsor.link}><img src={sponsor.logo} alt={sponsor.name} height = 'auto' width = {sponsor.size} style={{padding: '10px'}}/></a>
-            )})} */}
-            <img src={collage} alt="sponsors collage" height = 'auto' width ="55%" style={{padding: '10px'}}/>
-        </div>
+    return ( <
+        div style = {
+            styles.container
+        } >
+        <
+        Typography variant = "h2"
+        style = {
+            styles.header
+        } > Sponsors < /Typography> <
+        Typography variant = "subtitle1"
+        color = "textSecondary"
+        style = {
+            styles.description
+        } > Interested in becoming a sponsor ? < /Typography> <
+        Typography variant = "subtitle1"
+        color = "textSecondary"
+        style = {
+            styles.description
+        } > < a href = "mailto:texasegads@gmail.com"
+        style = {
+            styles.link
+        } > Contact us < /a> for more information!</Typography > {
+            /* {sponsors.map(sponsor => {
+                            return(
+                                <a href={sponsor.link}><img src={sponsor.logo} alt={sponsor.name} height = 'auto' width = {sponsor.size} style={{padding: '10px'}}/></a>
+                        )})} */
+        } <
+        img src = {
+            collage
+        }
+        alt = "sponsors collage"
+        height = 'auto'
+        width = "55%"
+        style = {
+            {
+                padding: '10px'
+            }
+        }
+        /> <
+        /div>
     );
 }
 

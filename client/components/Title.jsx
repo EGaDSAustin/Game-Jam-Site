@@ -21,7 +21,7 @@ export class Title extends React.Component {
 
                 {/* zIndex shows stack position, must have position set to work */}
                 <div className="title_description" style={{zIndex: '6', position: 'relative'}}>
-                    <Typography variant="subtitle1">September 20th</Typography>
+                    <Typography variant="subtitle1">September 20th - 22nd</Typography>
                     <Typography variant="subtitle1">36 hours</Typography>
                 </div>
                 
@@ -36,9 +36,9 @@ export class Title extends React.Component {
                             photo={whoImage} alt_text='who_image'
                             description= {
                                 <div>
-                                    <Typography variant="subtitle1">This event is hosted by <a href="https://www.facebook.com/groups/egadsaustin/">EGaDS!</a></Typography>
-                                    <Typography variant="subtitle1">The Electronic Game Developers Society</Typography>
-                                    <Typography variant="subtitle1">is a student organization at UT Austin.</Typography>
+                                    <Typography variant="subtitle1">This event is hosted by <a href="https://www.facebook.com/groups/egadsaustin/">EGaDS!,</a> a student</Typography>
+                                    <Typography variant="subtitle1">organization dedicated to fostering</Typography>
+                                    <Typography variant="subtitle1">game development on UT campus.</Typography>
                                 </div>
                             }/></Grid>
                         <Grid item xs={6}>
@@ -53,7 +53,7 @@ export class Title extends React.Component {
                     <InfoCard
                         category='Where?'
                         photo={whereImage} alt_text='where_image'
-                        description= "Multiple locations around\nThe University of Texas at\nAustin. See schedule for\nmore details!"/></Grid>
+                        description= "Legislative Assembly Room\n in the SAC on days 1 & 2, and\n the auditorium in the Gates-Dell\nComplex on day 3."/></Grid>
                     <Grid item xs={5}>
                     <InfoCard
                         category='Why?'

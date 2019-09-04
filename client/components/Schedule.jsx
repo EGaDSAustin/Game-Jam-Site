@@ -1,5 +1,9 @@
 import React from 'react';
-import { Typography, Container, Grid } from '@material-ui/core';
+import {
+    Typography,
+    Container,
+    Grid
+} from '@material-ui/core';
 
 // determine the opacity based on how many objects have the className "hidden", used for the bug where schedules were opacity 0 when changing the view (like going to the register page)
 // var opacityy = document.getElementsByClassName("hidden").length > 0 ? '0' : '1';
@@ -14,10 +18,10 @@ const styles = {
         padding: '30px'
     },
     date: {
-      marginLeft: '5px',
-      marginBottom: '20px',
-      textAlign: 'left',
-      color: 'white'
+        marginLeft: '5px',
+        marginBottom: '20px',
+        textAlign: 'left',
+        color: 'white'
     },
     time: {
         marginLeft: '25px',
@@ -36,10 +40,10 @@ const styles = {
     container: {
         backgroundColor: 'white',
         paddingTop: '0px',
-        paddingLeft: '0px', 
-        paddingRight: '0px', 
+        paddingLeft: '0px',
+        paddingRight: '0px',
         paddingBottom: '20px',
-        width: '369px', 
+        width: '369px',
         marginLeft: '0px',
         maxWidth: '369px'
     },
@@ -56,16 +60,14 @@ const styles = {
     //     verticalAlign: 'top',
     //     whiteSpace: 'normal'
     // }
-  };
+};
 
 
-const schedule_info = [
-    {
-        date: "Friday, Sept 20",
-        events: [
-            {
+const schedule_info = [{
+        date: "Friday, Sept 20 @ SAC",
+        events: [{
                 time: "4:00 - 8:00 pm",
-                description: "Sponsor and Student Mixer: Past games showcase, tabling, refreshments, jackbox/other icebreakers"
+                description: "Sponsor and Student Mixer" //: Past games showcase, tabling, refreshments, jackbox/other icebreakers"
             },
             {
                 time: "5:00 pm",
@@ -85,14 +87,15 @@ const schedule_info = [
             // },
             {
                 time: "1:00 am",
-                description: "SAC closes"
-    },],},
+                description: "Building closes"
+            },
+        ],
+    },
     {
-        date: "Saturday, Sept 21",
-        events: [
-            {
+        date: "Saturday, Sept 21 @ SAC",
+        events: [{
                 time: "10:00 am",
-                description: "SAC reopens and breakfast is served"
+                description: "Building reopens and breakfast is served"
             },
             // {
             //     time: "11:00am",
@@ -116,14 +119,15 @@ const schedule_info = [
             },
             {
                 time: "1:00 am",
-                description: "SAC closes (Go sleep and shower)"
-    },],},
+                description: "Building closes (go sleep and shower)"
+            },
+        ],
+    },
     {
-        date: "Sunday, Sept 22",
-        events: [
-            {
-                time: "12:00 pm",
-                description: "SAC reopens"
+        date: "Sunday, Sept 22 @ GDC",
+        events: [{
+                time: "9:00 am",
+                description: "Building opens"
             },
             {
                 time: "1:00 pm",
@@ -136,46 +140,93 @@ const schedule_info = [
             {
                 time: "2:30 pm",
                 description: "Awards and final remarks"
-},],},]
+            },
+        ],
+    },
+]
 
 
 function createSchedule() {
     return (
         // MAIN GRID that holds all the days
-        <div  className="hidden" id="very-specific-design">
-            {schedule_info.map(date_item => {
-                return (
-                    // SINGLE DAY GRID
-                    <div  className="schedulesSingleGrid">
-                        <Typography variant="h3" gutterBottom style={styles.date}>// {date_item.date}</Typography>
-                        {date_item.events.map(event => {
-                            return (
-                                // INDIVIDUAL EVENTS
-                                <Container style={styles.container}>
-                                    <Grid container spacing = {3} alignItems = "left" alignContent="center">
-                                        <Grid item xs = {3}>
-                                            <Typography variant="h4" style={styles.time}>{event.time}</Typography>
-                                        </Grid>
-                                        <Grid item xs = {9}>
-                                            <Typography variant = "body1" style={styles.description}>{event.description}</Typography>
-                                        </Grid>
-                                    </Grid>
-                                </Container>
-                    )})}</div>);
-            })}
-        </div>
-    );
-}
+        <
+        div className = "hidden"
+        id = "very-specific-design" > {
+            schedule_info.map(date_item => {
+                    return (
+                        // SINGLE DAY GRID
+                        <
+                        div className = "schedulesSingleGrid" >
+                        <
+                        Typography variant = "h3"
+                        gutterBottom style = {
+                            styles.date
+                        } > // {date_item.date}</Typography>
+                        {
+                            date_item.events.map(event => {
+                                return (
+                                    // INDIVIDUAL EVENTS
+                                    <
+                                    Container style = {
+                                        styles.container
+                                    } >
+                                    <
+                                    Grid container spacing = {
+                                        3
+                                    }
+                                    alignItems = "left"
+                                    alignContent = "center" >
+                                    <
+                                    Grid item xs = {
+                                        3
+                                    } >
+                                    <
+                                    Typography variant = "h4"
+                                    style = {
+                                        styles.time
+                                    } > {
+                                        event.time
+                                    } < /Typography> < /
+                                    Grid > <
+                                    Grid item xs = {
+                                        9
+                                    } >
+                                    <
+                                    Typography variant = "body1"
+                                    style = {
+                                        styles.description
+                                    } > {
+                                        event.description
+                                    } < /Typography> < /
+                                    Grid > <
+                                    /Grid> < /
+                                    Container >
+                                )
+                            })
+                        } < /div>);
+                    })
+            } <
+            /div>
+        );
+    }
 
 
 
-export class Schedule extends React.Component {
-    render(){
-        return(
-            <div align="center" className="schedulesMainGrid">
-                <Typography variant="h2" color='secondary' id="schedule" style={styles.header}>Schedule</Typography>
-                    {createSchedule()}
-            </div>
+    export class Schedule extends React.Component {
+        render() {
+            return ( <
+                    div align = "center"
+                    className = "schedulesMainGrid" >
+                    <
+                    Typography variant = "h2"
+                    color = 'secondary'
+                    id = "schedule"
+                    style = {
+                        styles.header
+                    } > Schedule < /Typography> {
+                    createSchedule()
+                } <
+                /div>
         )
     }
 }
