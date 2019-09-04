@@ -22,11 +22,11 @@ function Field({ type, index, field, updateField }) {
 
 class ScrollToTopOnMount extends React.Component {
     componentDidMount() {
-      window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     }
   
     render() {
-      return null;
+        return null;
     }
 }
 

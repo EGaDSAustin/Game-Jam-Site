@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core'
-import fallingPeople from '../assets/fallingPeople2.png';
+import fallingPeople from '../assets/fallingPeople.png';
 import InfoCard from './InfoCard.jsx';
 import Grid from '@material-ui/core/Grid';
 import whoImage from '../assets/infoGrid/can.png';
 import whatImage from '../assets/infoGrid/phone.png';
 import whereImage from '../assets/infoGrid/pen.png';
 import whyImage from '../assets/infoGrid/keyboard.png';
-import RegisterImage from '../assets/temp_elf_handstand.png';
+import RegisterImage from '../assets/raccoon.png';
 
 export class Title extends React.Component {
     render() {
