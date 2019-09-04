@@ -91,57 +91,6 @@ const buttonStyles = makeStyles(theme => ({
 const questions = [
     // Required
     {
-        name: 'Experience Level',
-        type: "subQuestion",
-        required: true,
-        subQuestions: [
-            {
-                name: "Programming",
-                key: "programming"
-
-            },
-            {
-                name: "2D Art",
-                key: "two_d_art"
-            },
-            {
-                name: "3D modeling",
-                key: "three_d_art"
-            },
-            {
-                name: "Music",
-                key: "music"
-            },
-            {
-                name: "Writing",
-                key: "narrative"
-            },
-            {
-                name: "Game Audio",
-                key: "sound"
-            },
-            {
-                name: "Design",
-                key: "design"
-            },
-        ],
-        key: "experience_level"
-    },
-    {
-        name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
-        type: "text", // could also be text or number depending on ^
-        required: true,
-        key: "year",
-        choices: [
-            "Freshman",
-            "Sophomore",
-            "Junior",
-            "Senior",
-            "Super Senior",
-            "Other"
-        ]
-    },
-    {
         name: 'Email',
         type: "email",
         required: true,
@@ -181,21 +130,71 @@ const questions = [
         key: "school"
     },
     {
+        name: 'Year', //Fresh/Soph/Jun/Sen/Grad?
+        type: "text", // could also be text or number depending on ^
+        required: true,
+        key: "year",
+        choices: [
+            "Freshman",
+            "Sophomore",
+            "Junior",
+            "Senior",
+            "Super Senior",
+            "Other"
+        ]
+    },
+    {
         name: 'Major',
         type: "text",
         required: true,
         key: "major"
     },
-
     {
-        name: 'Preferred Disciplines',
+        name: 'Experience Level',
+        type: "subQuestion",
+        required: true,
+        subQuestions: [
+            {
+                name: "Programming",
+                key: "programming"
+
+            },
+            {
+                name: "2D Art",
+                key: "two_d_art"
+            },
+            {
+                name: "3D Art",
+                key: "three_d_art"
+            },
+            {
+                name: "Music",
+                key: "music"
+            },
+            {
+                name: "Writing",
+                key: "narrative"
+            },
+            {
+                name: "Game Audio",
+                key: "sound"
+            },
+            {
+                name: "Design",
+                key: "design"
+            },
+        ],
+        key: "experience_level"
+    },
+    {
+        name: 'Preferred Role(s)\n(Programmer, 2D Artist, Designer, etc.)',
         type: "text",
         required: true,
         key: "preferred_disciplines",
         multi: true
     },
     {
-        name: 'Resume',
+        name: 'Link to Resume\n(on Google Drive, Dropbox, etc.)',
         type: "url",
         required: true,
         key: "resume_link"
@@ -209,7 +208,7 @@ const questions = [
         multi: true
     },
     {
-        name: 'Portfolio Link',
+        name: 'Link to Portfolio\n(Google Drive, ArtStation, etc.)',
         type: "url",
         required: false,
         key: "portfolio"
