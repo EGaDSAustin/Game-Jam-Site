@@ -163,7 +163,7 @@ export class Games extends React.Component {
         // console.log(maxWidth)
         return(
             <div style={styles.container}>
-                <Typography variant="h2" color='secondary' style={styles.header}>Previous game jam games</Typography>
+                <Typography variant="h2" color='secondary' style={styles.header}>Previous Game Jam Games</Typography>
                 <br/>
                 <div className="gamesGallery" align="center">
                     <Grid container spacing={3} align="center" style={{width: '70%'}}>

@@ -11,7 +11,7 @@ ReactDOM.render(
 );
 
 // when things with class hidden are in view, fade them in (used for Schedules)
-animateHTML().init();
+//animateHTML().init();
 
 // proportionally scale the element with the id very-specific-design on window size change
 var $el = $("#very-specific-design");
