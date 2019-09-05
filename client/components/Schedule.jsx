@@ -4,14 +4,13 @@ import {
     Container,
     Grid
 } from '@material-ui/core';
+import { animateHTML } from './FadeInOnView.jsx'
 
 // determine the opacity based on how many objects have the className "hidden", used for the bug where schedules were opacity 0 when changing the view (like going to the register page)
 // var opacityy = document.getElementsByClassName("hidden").length > 0 ? '0' : '1';
 
 document.documentElement.style
     .setProperty('--schedule-opacity', document.getElementsByClassName("hidden").length > 0 ? '0' : '1');
-
-
 
 const styles = {
     header: {
@@ -145,11 +144,10 @@ const schedule_info = [{
     },
 ]
 
-
 function createSchedule() {
     return (
         // MAIN GRID that holds all the days
-        <div  className="hidden" >
+        <div className="hidden" >
             {schedule_info.map(date_item => {
                 return (
                     // SINGLE DAY GRID
@@ -176,21 +174,20 @@ function createSchedule() {
 
 
 
-    export class Schedule extends React.Component {
-        render() {
-            return ( <
-                    div align = "center"
-                    className = "schedulesMainGrid" >
-                    <
-                    Typography variant = "h2"
-                    color = 'secondary'
-                    id = "schedule"
-                    style = {
-                        styles.header
-                    } > Schedule < /Typography> {
-                    createSchedule()
-                } <
-                /div>
+export class Schedule extends React.Component {
+
+    componentDidMount(){
+        animateHTML().init()
+    }
+
+    render() {
+        return ( 
+            <div align = "center" className = "schedulesMainGrid">
+                <Typography variant = "h2" color = 'secondary' id = "schedule" style = {styles.header}> 
+                    Schedule 
+                </Typography> 
+                {createSchedule()} 
+            </div>
         )
     }
 }
