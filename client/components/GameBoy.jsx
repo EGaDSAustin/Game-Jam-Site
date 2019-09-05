@@ -201,26 +201,26 @@ const questions = [
     },
     // Optional
     {
-        name: 'Preferred Teammates',
+        name: 'Preferred Teammates\n(Optional)',
         type: "text",
         required: false,
         key: "desired_teammates",
         multi: true
     },
     {
-        name: 'Link to Portfolio\n(Google Drive, ArtStation, etc.)',
+        name: 'Link to Portfolio\n(Optional)',
         type: "url",
         required: false,
         key: "portfolio"
     },
     {
-        name: 'Github Link',
+        name: 'Github Link\n(Optional)',
         type: "url",
         required: false,
         key: "github"
     },
     {
-        name: 'LinkedIn Link',
+        name: 'LinkedIn Link\n(Optional)',
         type: "url",
         required: false,
         key: "linkedIn"
