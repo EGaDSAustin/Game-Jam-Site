@@ -63,21 +63,21 @@ const styles = {
 
 
 const schedule_info = [{
-        date: "Friday, Sept 20 @ SAC",
+        date: "Friday, Sept 20 @ GDC",
         events: [{
-                time: "4:00 - 8:00 pm",
-                description: "Sponsor and Student Mixer" //: Past games showcase, tabling, refreshments, jackbox/other icebreakers"
+                time: "4:00 - 5:00 pm",
+                description: "Sponsor and Student Mixer, 3rd Floor Atrium" //: Past games showcase, tabling, refreshments, jackbox/other icebreakers"
             },
             {
                 time: "5:00 pm",
-                description: "Opening remarks"
+                description: "Opening remarks, Auditorium"
             },
             {
                 time: "5:15 pm",
                 description: "Theme reveal and official start of the game jam!"
             },
             {
-                time: "5:20 pm",
+                time: "5:20 - 6:00 pm",
                 description: '“How to Have a Successful Game Jam” Panel'
             },
             // {
@@ -91,7 +91,7 @@ const schedule_info = [{
         ],
     },
     {
-        date: "Saturday, Sept 21 @ SAC",
+        date: "Saturday, Sept 21 @ GDC",
         events: [{
                 time: "10:00 am",
                 description: "Building reopens and breakfast is served"
@@ -126,18 +126,18 @@ const schedule_info = [{
         date: "Sunday, Sept 22 @ GDC",
         events: [{
                 time: "9:00 am",
-                description: "Building opens"
+                description: "Building opens, breakfast is served"
             },
             {
-                time: "1:00 pm",
-                description: "Submissions are due on itch.io, Lunch is served"
+                time: "12:00 pm",
+                description: "Submissions are due on itch.io"
             },
             {
-                time: "1:15 pm",
+                time: "12:15 pm",
                 description: "Judging"
             },
             {
-                time: "2:30 pm",
+                time: "1:30 pm",
                 description: "Awards and final remarks"
             },
         ],
