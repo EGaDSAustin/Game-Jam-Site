@@ -95,6 +95,7 @@ const questions = [
         type: "email",
         required: true,
         key: "email",
+        info: "What is your Email address?",
         validate: (v) => {
             return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v.toLowerCase())
         }
@@ -113,6 +114,7 @@ const questions = [
     },
     {
         name: 'Preferred Pronouns',
+        info: "ex: they/them, she/her, he/him",
         type: "text",
         required: true,
         key: "pronouns"
@@ -125,6 +127,7 @@ const questions = [
     // },
     {
         name: 'School',
+        info: "What University do you attend?",
         type: "text",
         required: true,
         key: "school"
@@ -139,8 +142,7 @@ const questions = [
             "Sophomore",
             "Junior",
             "Senior",
-            "Super Senior",
-            "Other"
+            "Super Senior"
         ]
     },
     {
@@ -150,7 +152,7 @@ const questions = [
         key: "major"
     },
     {
-        name: 'Experience Level',
+        name: 'Experience Levels',
         type: "subQuestion",
         required: true,
         subQuestions: [
@@ -187,14 +189,15 @@ const questions = [
         key: "experience_level"
     },
     {
-        name: 'Preferred Role(s)\n(Programmer, 2D Artist, Designer, etc.)',
+        name: 'Preferred Role(s)\n (Programmer, 2D Artist, Designer, etc.)',
         type: "text",
         required: true,
         key: "preferred_disciplines",
         multi: true
     },
     {
-        name: 'Link to Resume\n(on Google Drive, Dropbox, etc.)',
+        name: 'Resume',
+        info: "please Link your resume\n(on Google Drive, Dropbox, etc.)",
         type: "url",
         required: true,
         key: "resume_link"
@@ -208,19 +211,22 @@ const questions = [
         multi: true
     },
     {
-        name: 'Link to Portfolio\n(Optional)',
+        name: 'Portfolio\n(Optional)',
+        info: 'Link your Portfolio site: ',
         type: "url",
         required: false,
         key: "portfolio"
     },
     {
-        name: 'Github Link\n(Optional)',
+        name: 'Github\n(Optional)',
+        info: 'Link your github profile: ',
         type: "url",
         required: false,
         key: "github"
     },
     {
-        name: 'LinkedIn Link\n(Optional)',
+        name: 'LinkedIn \n(Optional)',
+        info: 'Link your LinkedIn profile: ',
         type: "url",
         required: false,
         key: "linkedIn"
@@ -483,6 +489,7 @@ function StringScreen({ question, setValue, value, next }) {
             next();
         }}>
             <InputLabel>{`${question.name}: `}</InputLabel>
+            <h3>{question.info}</h3>
             <Input type={question.type} value={value}
                 onChange={e => {
                     setValue(e.target.value)
