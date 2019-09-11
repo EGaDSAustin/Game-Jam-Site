@@ -196,10 +196,10 @@ const questions = [
         multi: true
     },
     {
-        name: 'Resume',
-        info: "please Link your resume\n(on Google Drive, Dropbox, etc.)",
+        name: 'Resume (Optional, but helpful!)',
+        info: "Please link your resume\n(on Google Drive, Dropbox, etc.)",
         type: "url",
-        required: true,
+        required: false,
         key: "resume_link"
     },
     // Optional
