@@ -78,10 +78,7 @@ var formSchema = mongoose.Schema({
         default: undefined,
         required: [true, 'Disciplines is required']
     },
-    resume_link: {
-        type: String,
-        required: [true, 'Resume is required']
-    },
+    resume_link: String,
     desired_teammates: {
         type: [String],
         default: undefined
