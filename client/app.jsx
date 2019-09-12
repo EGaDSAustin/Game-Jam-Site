@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 import "./app.css";
 import GlobalStyle from './components/styles.js';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import imageMapResize from 'image-map-resizer'
 import { TestForm } from "/forms"
 
 import { Navbar } from './components/Navbar';
@@ -21,6 +22,7 @@ const formUrl = "https://forms.gle/gDWmRyD17iM6np3f9"
 class ScrollToTopOnMount extends React.Component {
     componentDidMount() {
       window.scrollTo(0, 0);
+      imageMapResize();
     }
   
     render() {     
