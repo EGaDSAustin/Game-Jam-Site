@@ -65,7 +65,7 @@ const styles = {
 const schedule_info = [{
         date: "Friday, Sept 20 @ GDC",
         events: [{
-                time: "4:00 - 5:00 pm",
+                time: "4:00 pm",
                 description: "Sponsor and Student Mixer, 3rd Floor Atrium" //: Past games showcase, tabling, refreshments, jackbox/other icebreakers"
             },
             {
@@ -73,17 +73,17 @@ const schedule_info = [{
                 description: "Opening remarks, Auditorium"
             },
             {
-                time: "5:15 pm",
+                time: "5:20 pm",
                 description: "Theme reveal and official start of the game jam!"
             },
             {
-                time: "5:20 - 6:00 pm",
-                description: '“How to Have a Successful Game Jam” Panel'
+                time: "6:00 pm",
+                description: "Version Control Workshop by Ava Pek"
             },
-            // {
-            //     time: "6:00 - 7:00 pm",
-            //     description: "Sponsor/EGaDS workshop slot"
-            // },
+            {
+                time: "7:00 pm",
+                description: "Workshop by Magic Leap"
+            },
             {
                 time: "1:00 am",
                 description: "Building closes"
@@ -93,25 +93,25 @@ const schedule_info = [{
     {
         date: "Saturday, Sept 21 @ GDC",
         events: [{
-                time: "10:00 am",
+                time: "9:00 am",
                 description: "Building reopens and breakfast is served"
             },
-            // {
-            //     time: "11:00am",
-            //     description: "Sponsor/EGaDS workshop slot"
-            // },
-            // {
-            //     time: "12:00pm",
-            //     description: "Sponsor/EGaDS workshop slot"
-            // },
+            {
+                time: "11:00am",
+                description: "Unity Scripting Workshop"
+            },
+            {
+                time: "12:00pm",
+                description: "Building to Target Platforms by MJ Johns"
+            },
             {
                 time: "1:00 pm",
                 description: "Lunch is served"
             },
-            // {
-            //     time: "2:00 - 3:00 pm",
-            //     description: "Sponsor/EGaDS workshop slot"
-            // },
+            {
+                time: "5:00 pm",
+                description: "Game Polishing by MJ Johns"
+            },
             {
                 time: "7:00 pm",
                 description: "Dinner is served"

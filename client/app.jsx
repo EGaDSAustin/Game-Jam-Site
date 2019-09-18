@@ -46,7 +46,8 @@ class App extends React.Component {
                     <ScrollToTopOnMount/>
                     <br/>
                       <div id='title'><Title/></div>
-                      <div id='register'><Register/></div>
+                      {/* <div id='register'><Register/></div> */}
+                      <div><span>Registration is now closed.</span></div>
                       <div id='schedule'><Schedule/></div>
                       <div id='games'><Games/></div>
                       <div id='sponsors'><Sponsors/></div>
