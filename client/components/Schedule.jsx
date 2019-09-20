@@ -81,12 +81,12 @@ const schedule_info = [{
                 description: "Version Control Workshop by Ava Pek"
             },
             {
-                time: "7:00 pm",
-                description: "Workshop by Magic Leap"
+                time: "6:45 pm",
+                description: "Dinner is served"
             },
             {
                 time: "7:00 pm",
-                description: "Dinner is served"
+                description: "Workshop by Magic Leap"
             },
             {
                 time: "1:00 am",
