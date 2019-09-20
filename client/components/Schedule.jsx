@@ -85,6 +85,10 @@ const schedule_info = [{
                 description: "Workshop by Magic Leap"
             },
             {
+                time: "7:00 pm",
+                description: "Dinner is served"
+            },
+            {
                 time: "1:00 am",
                 description: "Building closes"
             },
@@ -98,7 +102,7 @@ const schedule_info = [{
             },
             {
                 time: "11:00am",
-                description: "Unity Scripting Workshop"
+                description: "Unity Scripting Workshop by EGaDS!"
             },
             {
                 time: "12:00pm",
