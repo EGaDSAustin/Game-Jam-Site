@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { browserHistory } from 'react-router';
 import "./app.css";
 import GlobalStyle from './components/styles.js';
@@ -14,6 +14,11 @@ import { Schedule } from './components/Schedule';
 import { Games } from './components/Games';
 import { Sponsors } from './components/Sponsors';
 import { Footer } from './components/Footer';
+import { Theme } from './components/Theme';
+
+import { Link as RouterLink } from 'react-router-dom'
+import Fab from '@material-ui/core/Fab';
+import { Typography } from '@material-ui/core';
 // import MobileNavbar from './components/mobile/MobileNavbar.jsx';
 
 
@@ -28,6 +33,10 @@ class ScrollToTopOnMount extends React.Component {
     render() {     
       return null;
     }
+}
+
+function ScrollToTop() {
+  window.scrollTo({top: 0, behavior:'smooth'});
 }
 
 class App extends React.Component {
@@ -47,14 +56,20 @@ class App extends React.Component {
                     <br/>
                       <div id='title'><Title/></div>
                       {/* <div id='register'><Register/></div> */}
-                      <div><span>Registration is now closed.</span></div>
+                      <Fab variant="extended" aria-label="add" color="primary" to="/theme" onClick={ScrollToTop} component={RouterLink}>
+                        Theme!
+                      </Fab>
                       <div id='schedule'><Schedule/></div>
                       <div id='games'><Games/></div>
                       <div id='sponsors'><Sponsors/></div>
                     <Footer/>
                   </div>
               )}/>
-              <Route path="/register" component={TestForm}/>
+              <Route path="/theme" component={Theme}/>
+              <Route path='/submit' component={() => { 
+                window.location.href = "https://itch.io/jam/ut-game-jam-2019"; 
+                return null;
+                }}/>
             </Switch>
             </Router>
             </MuiThemeProvider>
