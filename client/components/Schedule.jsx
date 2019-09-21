@@ -98,7 +98,11 @@ const schedule_info = [{
         date: "Saturday, Sept 21 @ GDC",
         events: [{
                 time: "9:00 am",
-                description: "Building reopens and breakfast is served"
+                description: "Building reopens"
+            },
+            {
+                time: "9:30 am",
+                description: "Breakfast is served"
             },
             {
                 time: "11:00am",
@@ -130,7 +134,11 @@ const schedule_info = [{
         date: "Sunday, Sept 22 @ GDC",
         events: [{
                 time: "9:00 am",
-                description: "Building opens, breakfast is served"
+                description: "Building opens"
+            },
+            {
+                time: "11:00am",
+                description: "Brunch is served"
             },
             {
                 time: "12:00 pm",
