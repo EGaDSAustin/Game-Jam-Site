@@ -26,7 +26,7 @@
     "express": "^4.17.1",
     "image-map-resizer": "^1.0.10",
     "mongodb": "^3.2.7",
-    "mongoose": "^5.6.0",
+    "mongoose": "^5.7.5",
     "parcel-bundler": "^1.12.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
